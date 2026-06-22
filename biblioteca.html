@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biblioteca de Recursos · Arquitecta Emocional</title>
+<meta name="description" content="Una biblioteca privada y curada de recursos gratuitos y premium para comprenderte con más profundidad y comenzar tu reconstrucción emocional a tu propio ritmo.">
+<link rel="canonical" href="https://www.arquitecta-emocional.com/biblioteca.html">
+<meta property="og:title" content="Biblioteca de Recursos · Arquitecta Emocional">
+<meta property="og:description" content="Una biblioteca privada y curada de recursos gratuitos y premium para comprenderte con más profundidad y comenzar tu reconstrucción emocional a tu propio ritmo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arquitecta-emocional.com/biblioteca.html">
+<meta property="og:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Biblioteca de Recursos · Arquitecta Emocional">
+<meta name="twitter:description" content="Una biblioteca privada y curada de recursos gratuitos y premium para comprenderte con más profundidad y comenzar tu reconstrucción emocional a tu propio ritmo.">
+<meta name="twitter:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ===== HERO ===== */
+  .lib-hero{ padding-top:clamp(150px,18vh,230px); padding-bottom:clamp(20px,4vw,40px); position:relative; overflow:hidden; }
+  .lib-hero .hero-mark{ position:absolute; right:-7vw; top:8%; width:min(42vw,520px); opacity:.05; z-index:0; pointer-events:none; }
+  .lib-hero h1{ font-size:clamp(2.6rem,6vw,5rem); line-height:1.04; max-width:11em; position:relative; }
+  .lib-hero .lead{ margin-top:1.6em; max-width:36em; }
+  .lib-intro{ max-width:40em; margin-top:clamp(40px,5vw,64px); }
+  .lib-intro p{ font-family:var(--serif); font-style:italic; font-size:clamp(1.3rem,2.2vw,1.7rem); line-height:1.5; color:var(--carbon); }
+  .lib-intro p .gold{ font-style:normal; color:var(--dorado-deep); }
+
+  /* ===== Section intro block ===== */
+  .sec-head{ max-width:34em; }
+  .sec-head .lead{ margin-top:1em; max-width:34em; }
+
+  /* ===== FREE resource cards ===== */
+  .res-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.4vw,34px); }
+  @media(max-width:1040px){ .res-grid{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:600px){ .res-grid{ grid-template-columns:1fr; } }
+  .res-card{ display:flex; flex-direction:column; background:var(--marfil-soft); border:1px solid var(--line); transition:transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease); }
+  .res-card:hover{ transform:translateY(-6px); box-shadow:0 34px 56px -42px rgba(61,56,48,.5); border-color:var(--taupe); }
+  .res-card .cover{ position:relative; aspect-ratio:4/3; overflow:hidden; }
+  .res-card .cover.cover-square{ aspect-ratio:1/1; }
+  .res-card .cover .ph{ position:absolute; inset:0; }
+  .res-card .cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .res-card .rc-body{ padding:clamp(22px,2.2vw,30px); display:flex; flex-direction:column; flex:1; }
+  .res-card .kind{ font-family:var(--sans); font-weight:500; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dorado-deep); }
+  .res-card h3{ font-size:1.5rem; margin:.5em 0 .45em; line-height:1.12; min-height:calc(1.5rem * 1.12 * 2); }
+  .res-card p{ font-size:.93rem; color:var(--ink-soft); margin:0; }
+  .res-card .rc-body > p:first-of-type{ min-height:calc(.93rem * 1.55 * 3); }
+  .res-card .benefit{ margin-top:1.1em; padding-top:1.1em; border-top:1px solid var(--line); font-family:var(--serif); font-style:italic; font-size:1.02rem; color:var(--carbon); min-height:calc(1.02rem * 1.4 * 2 + 2.2em); }
+  .res-card .rc-foot{ padding-top:1.6em; }
+  .res-card .rc-foot .txtlink{ font-size:.72rem; }
+  .res-card .next-free{ margin-top:auto; padding-top:1.3em; font-family:var(--serif); font-style:italic; font-size:.98rem; color:var(--ink-soft); }
+  .res-card .step-row{ display:flex; align-items:baseline; gap:11px; margin-bottom:.9em; }
+  .res-card .step-num{ font-family:var(--serif); font-style:italic; font-size:1.7rem; line-height:1; color:var(--dorado-deep); }
+  .res-card .step-verb{ font-family:var(--sans); font-weight:500; font-size:.68rem; letter-spacing:.17em; text-transform:uppercase; color:var(--carbon); }
+
+  /* ===== Newsletter band ===== */
+  .news{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(34px,5vw,72px); align-items:center; }
+  @media(max-width:760px){ .news{ grid-template-columns:1fr; gap:28px; } }
+  .news h2{ font-size:clamp(1.9rem,3.6vw,2.8rem); line-height:1.08; color:var(--marfil); }
+  .news .lead{ margin-top:1em; max-width:30em; }
+  .news-form{ display:flex; gap:12px; flex-wrap:wrap; }
+  .news-form input{ flex:1; min-width:220px; background:transparent; border:0; border-bottom:1px solid rgba(245,240,232,.4); color:var(--marfil); font-family:var(--sans); font-size:1.02rem; padding:.7em 0; }
+  .news-form input::placeholder{ color:var(--on-dark-soft); }
+  .news-form input:focus{ outline:none; border-color:var(--dorado); }
+  .news-msg{ font-size:.82rem; color:var(--dorado); margin-top:14px; min-height:1em; letter-spacing:.04em; }
+
+  /* ===== PREMIUM editorial rows ===== */
+  .prem{ display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(30px,4.5vw,72px); align-items:center; }
+  .prem.flip{ grid-template-columns:1.1fr .9fr; }
+  .prem + .prem{ margin-top:clamp(48px,6vw,90px); }
+  .prem .media{ position:relative; aspect-ratio:5/4; overflow:hidden; }
+  .prem .media.media-wide{ aspect-ratio:3/2; }
+  .prem .media.media-tall{ aspect-ratio:4/5; }
+  .prem .media.media-square{ aspect-ratio:1/1; }
+  .prem .media .ph{ position:absolute; inset:0; }
+  .prem .media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .prem.flip .media{ order:1; }
+  .prem .kind{ font-family:var(--sans); font-weight:500; font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dorado-deep); }
+  .prem h3{ font-size:clamp(1.7rem,2.8vw,2.4rem); margin:.4em 0 .55em; line-height:1.08; }
+  .prem p{ color:var(--ink-soft); max-width:34em; }
+  .prem .ben{ list-style:none; padding:0; margin:1.4em 0 0; }
+  .prem .ben li{ padding:11px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:baseline; font-size:.95rem; color:var(--ink-soft); }
+  .prem .ben li:last-child{ border-bottom:1px solid var(--line); }
+  .prem .ben .m{ font-family:var(--serif); font-style:italic; color:var(--dorado-deep); }
+  .prem .buy{ margin-top:1.8em; display:flex; align-items:center; gap:clamp(18px,2.4vw,32px); flex-wrap:wrap; }
+  .prem .price{ font-family:var(--serif); font-size:1.9rem; color:var(--carbon); line-height:1; }
+  .prem .price small{ font-family:var(--sans); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:.5em; }
+  @media(max-width:760px){ .prem, .prem.flip{ grid-template-columns:1fr; gap:24px; } .prem .media, .prem.flip .media{ order:-1; aspect-ratio:16/10; } .prem .media.media-tall{ aspect-ratio:4/5; max-width:340px; } }
+
+  .prem-note{ font-size:.8rem; color:var(--ink-soft); font-style:italic; max-width:42em; margin-top:clamp(40px,5vw,60px); }
+
+  /* catalog categories */
+  .cat-head{ display:grid; grid-template-columns:auto 1fr; gap:clamp(18px,2.4vw,32px); align-items:baseline; margin:clamp(60px,7vw,100px) 0 clamp(36px,4.5vw,56px); padding-top:clamp(26px,3vw,38px); border-top:1px solid var(--line); }
+  .sec-head + .cat-head{ margin-top:clamp(44px,5vw,72px); }
+  .cat-head .cn{ font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--dorado-deep); }
+  .cat-head h3{ font-size:clamp(1.6rem,2.6vw,2.2rem); }
+  .cat-head p{ margin:.4em 0 0; color:var(--ink-soft); font-size:1rem; }
+  .soon{ display:inline-block; font-family:var(--sans); font-weight:500; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); border:1px solid var(--taupe); padding:.35em .85em; margin-left:.95em; vertical-align:middle; }
+  .next-line{ font-family:var(--serif); font-style:italic; font-size:1.08rem; color:var(--dorado-deep); margin-top:1.6em; }
+
+  /* packs */
+  .packs-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.4vw,34px); align-items:stretch; }
+  .pack{ display:flex; flex-direction:column; background:var(--marfil-soft); border:1px solid var(--line); padding:clamp(28px,3vw,44px); transition:transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease); }
+  .pack:hover{ transform:translateY(-6px); box-shadow:0 36px 60px -42px rgba(61,56,48,.5); border-color:var(--taupe); }
+  .pack .kind{ font-family:var(--sans); font-weight:500; font-size:.64rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dorado-deep); }
+  .pack h3{ font-size:clamp(1.5rem,2.2vw,1.95rem); line-height:1.12; margin:.5em 0 .25em; }
+  .pack .sub{ font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--ink-soft); margin:0 0 1.2em; }
+  .pack .price{ font-family:var(--serif); font-size:1.9rem; color:var(--carbon); line-height:1; margin-bottom:1em; }
+  .pack .price small{ font-family:var(--sans); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:.5em; }
+  .pack p.desc{ font-size:.96rem; color:var(--ink-soft); margin:0; }
+  .pack .btn{ margin-top:auto; justify-content:center; }
+  .pack .desc + .btn{ margin-top:1.8em; }
+  .pack .foot{ margin-top:auto; padding-top:1.8em; }
+  .pack .foot .btn{ width:100%; margin-top:0; }
+  @media(max-width:900px){ .packs-grid{ grid-template-columns:1fr; } }
+
+  /* ===== Next step ===== */
+  .nextstep{ text-align:center; }
+  .nextstep h2{ font-size:clamp(2.1rem,4.6vw,3.6rem); max-width:15em; margin-inline:auto; line-height:1.08; }
+  .nextstep .lead{ margin:1.4em auto 2.4em; max-width:32em; }
+
+  /* ===== Modal (email gate / checkout) ===== */
+  .modal{ position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:24px; opacity:0; pointer-events:none; transition:opacity .45s var(--ease); }
+  .modal.open{ opacity:1; pointer-events:auto; }
+  .modal-veil{ position:absolute; inset:0; background:rgba(45,42,36,.55); backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); }
+  .modal-card{ position:relative; width:min(480px,100%); background:var(--marfil); border:1px solid var(--line); padding:clamp(30px,4vw,52px); transform:translateY(16px) scale(.985); transition:transform .5s var(--ease); }
+  .modal.open .modal-card{ transform:none; }
+  .modal-close{ position:absolute; top:16px; right:18px; background:none; border:0; cursor:pointer; font-size:1.4rem; line-height:1; color:var(--ink-soft); padding:6px; transition:color .3s; }
+  .modal-close:hover{ color:var(--carbon); }
+  .modal-card .kind{ font-family:var(--sans); font-weight:500; font-size:.64rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dorado-deep); }
+  .modal-card h3{ font-size:1.7rem; margin:.45em 0 .5em; line-height:1.12; }
+  .modal-card p{ font-size:.96rem; color:var(--ink-soft); margin:0 0 1.5em; }
+  .modal-field label{ display:block; font-family:var(--sans); font-weight:500; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.6em; }
+  .modal-field input{ width:100%; background:transparent; border:0; border-bottom:1px solid var(--taupe); font-family:var(--sans); font-size:1.05rem; color:var(--carbon); padding:.6em 0; }
+  .modal-field input:focus{ outline:none; border-color:var(--dorado-deep); }
+  .modal-field input.invalid{ border-color:#b4564b; }
+  .modal-card .btn{ width:100%; justify-content:center; margin-top:24px; }
+  .modal-card .fineprint{ font-size:.76rem; color:var(--ink-soft); text-align:center; margin:16px 0 0; }
+  .modal-done{ text-align:center; }
+  .modal-done img{ width:56px; margin:0 auto 18px; opacity:.9; }
+  .modal-done h3{ margin-bottom:.3em; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Arquitecta Emocional — inicio"><img src="assets/logo-nav.webp" width="517" height="192" alt="Arquitecta Emocional"></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="servicios.html">El camino</a>
+    <a href="biblioteca.html" class="active">Biblioteca</a>
+    <a href="clientes.html">Para quién</a>
+    <a href="biblioteca.html" class="nav-cta">Empezar aquí</a>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="servicios.html">El camino</a>
+  <a href="biblioteca.html" class="active">Biblioteca</a>
+  <a href="clientes.html">Para quién</a>
+  <a href="biblioteca.html">Empezar aquí</a>
+</div>
+
+<!-- HERO -->
+<header class="lib-hero wrap" data-screen-label="Biblioteca / hero">
+  <img class="hero-mark" src="assets/mark.webp" width="423" height="493" loading="lazy" alt="" data-parallax="0.04">
+  <span class="eyebrow" data-reveal>Biblioteca de Recursos</span>
+  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">Una biblioteca para volver a ti.</h1>
+  <p class="lead" data-reveal data-reveal-delay="2">Un espacio creado para ayudarte a comprenderte con mayor profundidad, desarrollar claridad emocional y comenzar tu proceso de reconstrucción interna a tu propio ritmo.</p>
+  <div class="lib-intro" data-reveal data-reveal-delay="3">
+    <p>No todo proceso comienza con un programa. A veces comienza con una pregunta. Con una reflexión. Con una nueva forma de comprender lo que sientes.<br><br><span class="gold">Esta biblioteca reúne herramientas creadas para ayudarte a volver a ti</span> con más claridad, conciencia y estructura emocional.</p>
+  </div>
+</header>
+
+<!-- FREE RESOURCES -->
+<section class="section bg-marfil" style="padding-top:clamp(56px,6vw,96px);" data-screen-label="Recursos gratuitos">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Recursos gratuitos</span>
+      <h2 class="h-xl" style="margin-top:.4em;">Un camino de cuatro pasos, antes de cualquier compra.</h2>
+      <p class="lead">No es una lista — es una secuencia. Diagnostica, entiende, practica y mide: cuatro pasos gratuitos, en este orden, para empezar a observar tu mundo interno con estructura.</p>
+    </div>
+
+    <div class="res-grid" style="margin-top:clamp(40px,5vw,60px);">
+      <article class="res-card" data-reveal>
+        <div class="cover cover-square"><img src="assets/test-fragmentacion.webp" width="512" height="512" loading="lazy" alt="Test de Fragmentación Emocional — descubre qué partes de ti siguen esperando ser escuchadas"></div>
+        <div class="rc-body">
+          <div class="step-row"><span class="step-num">01</span><span class="step-verb">Diagnostica</span></div>
+          <span class="kind">Test · Autoevaluación</span>
+          <h3>Test de Fragmentación Emocional</h3>
+          <p>Un cuestionario breve para identificar qué partes de ti se desconectaron en el camino.</p>
+          <p class="benefit">Reconoce dónde dejaste de escucharte.</p>
+          <div class="rc-foot"><a href="#" class="txtlink" data-gate data-res="Test de Fragmentación Emocional">Acceder al test →</a></div>
+          <p class="next-free">→ Sigue con el paso 02: Las 3 heridas que te alejan de ti misma.</p>
+        </div>
+      </article>
+
+      <article class="res-card" data-reveal data-reveal-delay="1">
+        <div class="cover cover-square"><img src="assets/recurso-3-heridas.webp" width="512" height="512" loading="lazy" alt="Las 3 heridas que te alejan de ti misma — reconócelas, compréndelas, libérate"></div>
+        <div class="rc-body">
+          <div class="step-row"><span class="step-num">02</span><span class="step-verb">Entiende</span></div>
+          <span class="kind">Guía · PDF</span>
+          <h3>Las 3 heridas que te alejan de ti misma</h3>
+          <p>Una guía para comprender el origen emocional de la desconexión y cómo empieza a sanarse.</p>
+          <p class="benefit">Comprende la raíz, no solo el síntoma.</p>
+          <div class="rc-foot"><a href="#" class="txtlink" data-gate data-res="Guía: Las 3 heridas que te alejan de ti misma">Descargar la guía →</a></div>
+          <p class="next-free">→ Sigue con el paso 03: Diario de Claridad Emocional.</p>
+        </div>
+      </article>
+
+      <article class="res-card" data-reveal data-reveal-delay="2">
+        <div class="cover cover-square"><img src="assets/recurso-diario.webp" width="512" height="512" loading="lazy" alt="Diario de Claridad Emocional — escribe para entenderte, escribe para volver a ti"></div>
+        <div class="rc-body">
+          <div class="step-row"><span class="step-num">03</span><span class="step-verb">Practica</span></div>
+          <span class="kind">Plantilla · PDF imprimible</span>
+          <h3>Diario de Claridad Emocional</h3>
+          <p>Una estructura suave para escribir y ordenar lo que sientes, día a día, sin perderte.</p>
+          <p class="benefit">Dar forma a lo que aún no tiene palabras.</p>
+          <div class="rc-foot"><a href="#" class="txtlink" data-gate data-res="Diario de Claridad Emocional">Descargar el diario →</a></div>
+          <p class="next-free">→ Sigue con el paso 04: Checklist de Reconexión Interna.</p>
+        </div>
+      </article>
+
+      <article class="res-card" data-reveal data-reveal-delay="3">
+        <div class="cover cover-square"><img src="assets/recurso-checklist.webp" width="512" height="512" loading="lazy" alt="Checklist de Reconexión Interna — pequeños pasos para volver a ti, cada día"></div>
+        <div class="rc-body">
+          <div class="step-row"><span class="step-num">04</span><span class="step-verb">Mide</span></div>
+          <span class="kind">Checklist · PDF</span>
+          <h3>Checklist de Reconexión Interna</h3>
+          <p>Las señales que indican que estás volviendo a escucharte — y las que piden atención.</p>
+          <p class="benefit">Una brújula para tu día a día.</p>
+          <div class="rc-foot"><a href="#" class="txtlink" data-gate data-res="Checklist de Reconexión Interna">Descargar la checklist →</a></div>
+          <p class="next-free">→ Cuando quieras ir más profundo: Escribir para encontrarte.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section bg-carbon" data-screen-label="Newsletter">
+  <div class="wrap news">
+    <div data-reveal>
+      <span class="eyebrow plain" style="color:var(--dorado);">Newsletter Arquitecta Emocional</span>
+      <h2 class="serif" style="margin-top:.5em;">Reflexiones que acompañan el regreso a ti.</h2>
+      <p class="lead">Cartas ocasionales con claridad psicológica y profundidad emocional. Sin ruido, sin urgencia: solo lo que de verdad ayuda a comprenderte.</p>
+    </div>
+    <div data-reveal data-reveal-delay="1">
+      <form class="news-form" data-newsletter novalidate>
+        <input type="email" name="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico" required>
+        <button type="submit" class="btn btn-light">Suscribirme <span class="arr">→</span></button>
+      </form>
+      <p class="news-msg" data-news-msg></p>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section bg-beige" data-screen-label="Catálogo de materiales">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">La biblioteca</span>
+      <h2 class="h-xl" style="margin-top:.4em;">Catálogo de materiales.</h2>
+      <p class="lead">Herramientas de mayor profundidad para avanzar con estructura. Tres territorios de trabajo — y dentro de cada uno, un orden.</p>
+    </div>
+
+    <!-- CAT 1 -->
+    <div class="cat-head" data-reveal>
+      <span class="cn">I</span>
+      <div>
+        <h3>Escritura y autoconocimiento</h3>
+        <p>Nombrar lo que sientes — el punto de partida de todo el trabajo.</p>
+      </div>
+    </div>
+
+    <article class="prem" data-reveal>
+      <div class="media media-square"><img src="assets/premium-escribir.webp" width="512" height="512" loading="lazy" alt="Portada · Escribir para encontrarte — ebook de journaling emocional"></div>
+      <div class="body">
+        <span class="kind">Ebook · Journaling emocional · 90 páginas</span>
+        <h3>Escribir para encontrarte</h3>
+        <p>Deja de tener emociones sin nombre. Al completarlo, puedes describir con precisión lo que sientes, identificar tus patrones y escribir desde la honestidad sin bloquearte. Sales con una práctica hecha — no con teoría leída.</p>
+        <div class="buy">
+          <div class="price">USD 47</div>
+          <button class="btn btn-solid" data-buy data-res="Escribir para encontrarte" data-price="USD 47">Adquirir <span class="arr">→</span></button>
+        </div>
+        <p class="next-line">→ Después de este material: Las 5 puertas.</p>
+      </div>
+    </article>
+
+    <article class="prem flip" data-reveal>
+      <div class="media media-square"><img src="assets/premium-vocabulario.webp" width="512" height="512" loading="lazy" alt="Portada · Vocabulario emocional — rueda de las emociones"></div>
+      <div class="body">
+        <span class="kind">Mini guía · Rueda + ejercicios de precisión<span class="soon">Próximamente</span></span>
+        <h3>Vocabulario emocional</h3>
+        <p>Pasa de «estoy mal» a un lenguaje emocional preciso: localizar la emoción en el cuerpo, identificar su variante exacta y usarla como punto de partida para trabajar.</p>
+        <div class="buy">
+          <div class="price">USD 19</div>
+          <button class="btn" data-notify data-res="Vocabulario emocional">Avisarme cuando esté disponible</button>
+        </div>
+        <p class="next-line">→ Después de este material: Escribir para encontrarte.</p>
+      </div>
+    </article>
+
+    <article class="prem" data-reveal>
+      <div class="media media-square"><img src="assets/premium-5puertas.webp" width="512" height="512" loading="lazy" alt="Portada · Las 5 puertas — 75 prompts de profundidad"></div>
+      <div class="body">
+        <span class="kind">Pack de profundidad · 75 prompts<span class="soon">Próximamente</span></span>
+        <h3>Las 5 puertas — 75 prompts</h3>
+        <p>Nunca más en blanco frente al diario. 75 puntos de entrada en 3 niveles: lo que hay, lo que evitas, lo que construyes.</p>
+        <div class="buy">
+          <div class="price">USD 27</div>
+          <button class="btn" data-notify data-res="Las 5 puertas — 75 prompts">Avisarme cuando esté disponible</button>
+        </div>
+        <p class="next-line">→ Después de este material: Mapa de claridad emocional.</p>
+      </div>
+    </article>
+
+    <!-- CAT 2 -->
+    <div class="cat-head" data-reveal>
+      <span class="cn">II</span>
+      <div>
+        <h3>Reestructuración identitaria</h3>
+        <p>Distinguir quién eres de quién aprendiste a ser.</p>
+      </div>
+    </div>
+
+    <article class="prem flip" data-reveal>
+      <div class="media media-wide"><img src="assets/premium-mapa.webp" width="768" height="512" loading="lazy" alt="Workbook Mapa de Claridad Emocional — un viaje guiado para entenderte, ordenarte y volver a ti"></div>
+      <div class="body">
+        <span class="kind">Workbook<span class="soon">Próximamente</span></span>
+        <h3>Mapa de claridad emocional</h3>
+        <p>Un mapa real de tu arquitectura interna: heridas de fondo, patrones automáticos, la narrativa que te cuentas — y el inicio de una nueva.</p>
+        <div class="buy">
+          <div class="price">USD 39</div>
+          <button class="btn" data-notify data-res="Mapa de claridad emocional">Avisarme cuando esté disponible</button>
+        </div>
+        <p class="next-line">→ Después de este material: Programa Volver a Ti.</p>
+      </div>
+    </article>
+
+    <article class="prem" data-reveal>
+      <div class="media media-wide"><img src="assets/premium-carta.webp" width="768" height="512" loading="lazy" alt="Portada · Carta a la mujer que sobrevivía — escritura terapéutica"></div>
+      <div class="body">
+        <span class="kind">Proceso de escritura terapéutica<span class="soon">Próximamente</span></span>
+        <h3>Carta a la mujer que sobrevivía</h3>
+        <p>Hacer las paces con quien fuiste sin borrarte. En 3 momentos: reconocer, separar y honrar la identidad que construiste para sobrevivir.</p>
+        <div class="buy">
+          <div class="price">USD 29</div>
+          <button class="btn" data-notify data-res="Carta a la mujer que sobrevivía">Avisarme cuando esté disponible</button>
+        </div>
+        <p class="next-line">→ Después de este material: Mapa de claridad emocional.</p>
+      </div>
+    </article>
+
+    <!-- CAT 3 -->
+    <div class="cat-head" data-reveal>
+      <span class="cn">III</span>
+      <div>
+        <h3>Regulación emocional</h3>
+        <p>Responder en lugar de reaccionar.</p>
+      </div>
+    </div>
+
+    <article class="prem flip" data-reveal>
+      <div class="media media-wide"><img src="assets/premium-regulacion.webp" width="768" height="512" loading="lazy" alt="Portada · Regulación emocional — herramientas de anclaje y pausa"></div>
+      <div class="body">
+        <span class="kind">Anclaje · Testigo interno · Pausa consciente<span class="soon">Próximamente</span></span>
+        <h3>Regulación emocional — herramientas</h3>
+        <p>Deja de reaccionar desde la activación. Tres herramientas para pausar, observar y elegir cómo responder — en situaciones cotidianas, no solo en calma.</p>
+        <div class="buy">
+          <div class="price">USD 37</div>
+          <button class="btn" data-notify data-res="Regulación emocional — herramientas">Avisarme cuando esté disponible</button>
+        </div>
+        <p class="next-line">→ Después de este material: Mapa de claridad emocional.</p>
+      </div>
+    </article>
+
+    <p class="prem-note" data-reveal>Cada material se entrega en formato digital, para acompañarte a tu propio ritmo. El catálogo crece con el tiempo: nuevos materiales se incorporan con la misma intención y cuidado.</p>
+  </div>
+</section>
+
+<!-- PACKS -->
+<section class="section bg-beige" style="padding-top:0;" data-screen-label="Paquetes">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Paquetes</span>
+      <h2 class="h-xl" style="margin-top:.4em;">Tramos completos del camino.</h2>
+      <p class="lead">Cada paquete reúne un tramo completo del camino — y cuesta menos que sus materiales por separado.</p>
+    </div>
+    <div class="packs-grid" style="margin-top:clamp(40px,5vw,60px);">
+
+      <article class="pack" data-reveal>
+        <span class="kind">Pack Fundación<span class="soon">Próximamente</span></span>
+        <h3>Por dónde empezar</h3>
+        <p class="sub">El kit de entrada completo.</p>
+        <div class="price">USD 67</div>
+        <p class="desc">Vocabulario emocional + Escribir para encontrarte + Carta a la mujer que sobrevivía. Ahorras USD 20.</p>
+        <div class="foot"><button class="btn" data-wait data-res="Pack Fundación — Por dónde empezar">Unirme a la lista de espera</button></div>
+      </article>
+
+      <article class="pack" data-reveal data-reveal-delay="1">
+        <span class="kind">Pack Reestructuración<span class="soon">Próximamente</span></span>
+        <h3>Para ir profundo</h3>
+        <p class="sub">Para trabajar en serio.</p>
+        <div class="price">USD 107</div>
+        <p class="desc">Journaling + Mapa de claridad + Biblioteca de Ejercicios. Ahorras USD 36.</p>
+        <div class="foot"><button class="btn" data-wait data-res="Pack Reestructuración — Para ir profundo">Unirme a la lista de espera</button></div>
+      </article>
+
+      <article class="pack" data-reveal data-reveal-delay="2">
+        <span class="kind">Pack Volver a Ti Completo<span class="soon">Próximamente</span></span>
+        <h3>Antes del programa</h3>
+        <p class="sub">El camino entero, en tus manos.</p>
+        <div class="price">USD 127</div>
+        <p class="desc">Escribir para encontrarte + Mapa de claridad emocional + Biblioteca de Ejercicios completa — el mismo contenido del Pack Reestructuración — más reserva de cupo en la próxima cohorte disponible y USD 20 de descuento sobre el precio vigente al inscribirte. Válido por 6 meses desde la compra.</p>
+        <div class="foot"><button class="btn" data-wait data-res="Pack Volver a Ti Completo — Antes del programa">Unirme a la lista de espera</button></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEP -->
+<section class="section bg-carbon nextstep" data-screen-label="El siguiente paso">
+  <div class="wrap" data-reveal>
+    <span class="eyebrow center plain" style="color:var(--dorado);">El siguiente paso</span>
+    <h2 style="margin-top:.5em;">Cuando el trabajo a solas pide compañía.</h2>
+    <p class="lead">Si completaste alguno de estos materiales con honestidad, ya hiciste un proceso real. Si quieres hacer el siguiente tramo acompañada, existe <span class="serif-it gold">Volver a Ti</span> — un programa de 4 semanas, en grupos de máximo 8 mujeres.</p>
+    <a href="servicios.html#volver-a-ti" class="btn btn-gold">Conocer Volver a Ti <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/logo-footer-light-72.webp" width="582" height="216" loading="lazy" alt="Arquitecta Emocional">
+      <p class="footer-quote">Volver a ti no es empezar de cero. Es regresar a lo que siempre fuiste, ahora con claridad.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">El camino</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="clientes.html">Para quién</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Conecta</h4>
+      <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">Instagram · @arquitectaemocional.cl</a>
+      <a href="https://www.arquitecta-emocional.com" target="_blank" rel="noopener">www.arquitecta-emocional.com</a>
+      <a href="contacto.html">Escríbeme</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Arquitecta Emocional · Belén Escribano</span>
+    <span>Reconstrucción emocional e identitaria</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" data-modal aria-hidden="true">
+  <div class="modal-veil" data-modal-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" data-modal-close aria-label="Cerrar">×</button>
+
+    <div data-modal-form>
+      <span class="kind" data-modal-kind>Recurso gratuito</span>
+      <h3 id="modalTitle" data-modal-title>Recurso</h3>
+      <p data-modal-desc>Déjame tu correo y te envío el recurso para que comiences cuando quieras.</p>
+      <form data-modal-submit novalidate>
+        <div class="modal-field">
+          <label for="modalEmail">Tu correo electrónico</label>
+          <input type="email" id="modalEmail" name="email" placeholder="tu@correo.com" required>
+        </div>
+        <button type="submit" class="btn btn-solid" data-modal-cta>Enviármelo <span class="arr">→</span></button>
+        <p class="fineprint">Tu correo es privado. Sin spam — solo lo que de verdad ayuda.</p>
+      </form>
+    </div>
+
+    <div class="modal-done" data-modal-done hidden>
+      <img src="assets/mark.webp" width="423" height="493" loading="lazy" alt="">
+      <h3 class="serif">Listo.</h3>
+      <p data-modal-done-text>Te he enviado el recurso a tu correo. Revisa tu bandeja en los próximos minutos — y date el permiso de empezar con calma.</p>
+    </div>
+  </div>
+</div>
+
+<script src="site.js"></script>
+<script>
+(function(){
+  var modal = document.querySelector('[data-modal]');
+  if(!modal) return;
+  var formWrap = modal.querySelector('[data-modal-form]');
+  var doneWrap = modal.querySelector('[data-modal-done]');
+  var titleEl = modal.querySelector('[data-modal-title]');
+  var kindEl  = modal.querySelector('[data-modal-kind]');
+  var descEl  = modal.querySelector('[data-modal-desc]');
+  var ctaEl   = modal.querySelector('[data-modal-cta]');
+  var doneText= modal.querySelector('[data-modal-done-text]');
+  var emailEl = modal.querySelector('#modalEmail');
+  var form    = modal.querySelector('[data-modal-submit]');
+  var lastFocus = null;
+
+  function openModal(cfg){
+    lastFocus = document.activeElement;
+    kindEl.textContent = cfg.kind;
+    titleEl.textContent = cfg.title;
+    descEl.textContent = cfg.desc;
+    ctaEl.querySelector('span') ; ctaEl.childNodes[0].nodeValue = cfg.cta + ' ';
+    doneText.textContent = cfg.doneText;
+    formWrap.hidden = false;
+    doneWrap.hidden = true;
+    emailEl.value = ''; emailEl.classList.remove('invalid');
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ emailEl.focus(); }, 360);
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  // Free resource gates
+  document.querySelectorAll('[data-gate]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var name = el.getAttribute('data-res');
+      openModal({
+        kind: 'Recurso gratuito',
+        title: name,
+        desc: 'Déjame tu correo y te envío «' + name + '» para que comiences cuando quieras, a tu propio ritmo.',
+        cta: 'Enviármelo',
+        doneText: 'Te he enviado «' + name + '» a tu correo. Revisa tu bandeja en los próximos minutos — y date el permiso de empezar con calma.'
+      });
+    });
+  });
+
+  // Notify me (próximamente)
+  document.querySelectorAll('[data-notify]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var name = el.getAttribute('data-res');
+      openModal({
+        kind: 'Próximamente',
+        title: name,
+        desc: 'Déjame tu correo y te aviso, personalmente, en cuanto «' + name + '» esté disponible.',
+        cta: 'Avisarme',
+        doneText: 'Gracias. Te avisaré en cuanto «' + name + '» esté disponible — sin spam, solo ese aviso.'
+      });
+    });
+  });
+
+  // Waitlist (paquetes)
+  document.querySelectorAll('[data-wait]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var name = el.getAttribute('data-res');
+      openModal({
+        kind: 'Lista de espera',
+        title: name,
+        desc: 'Déjame tu correo y te reservo un lugar en la lista de espera de «' + name + '». Serás de las primeras en saberlo.',
+        cta: 'Unirme',
+        doneText: 'Listo. Estás en la lista de espera de «' + name + '» — te escribiré personalmente en cuanto se abra.'
+      });
+    });
+  });
+
+  // Premium buy
+  document.querySelectorAll('[data-buy]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var name = el.getAttribute('data-res');
+      var price = el.getAttribute('data-price') || '';
+      openModal({
+        kind: 'Recurso premium · ' + price,
+        title: name,
+        desc: 'Déjame tu correo y te enviaré el acceso seguro para completar tu compra de «' + name + '».',
+        cta: 'Continuar',
+        doneText: 'Gracias. Te he enviado a tu correo el enlace seguro para completar la adquisición de «' + name + '». Nos vemos dentro.'
+      });
+    });
+  });
+
+  modal.querySelectorAll('[data-modal-close]').forEach(function(b){ b.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var valid = /.+@.+\..+/.test(emailEl.value.trim());
+    emailEl.classList.toggle('invalid', !valid);
+    if(!valid){ emailEl.focus(); return; }
+    formWrap.style.transition = 'opacity .4s'; formWrap.style.opacity = '0';
+    setTimeout(function(){
+      formWrap.hidden = true; formWrap.style.opacity='';
+      doneWrap.hidden = false;
+    }, 400);
+  });
+
+  // Newsletter inline
+  var nf = document.querySelector('[data-newsletter]');
+  if(nf){
+    var msg = document.querySelector('[data-news-msg]');
+    nf.addEventListener('submit', function(e){
+      e.preventDefault();
+      var inp = nf.querySelector('input[type=email]');
+      var ok = /.+@.+\..+/.test(inp.value.trim());
+      if(!ok){ inp.style.borderColor = '#d98b80'; inp.focus(); return; }
+      nf.style.transition='opacity .4s'; nf.style.opacity='0';
+      setTimeout(function(){ nf.style.display='none'; msg.textContent='Gracias. Te has suscrito — te escribiré pronto.'; }, 400);
+    });
+  }
+})();
+</script>
+</body>
+</html>

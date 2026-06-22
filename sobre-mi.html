@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sobre mí · Arquitecta Emocional</title>
+<meta name="description" content="Quién soy y qué significa Arquitecta Emocional. Belén Escribano acompaña la reconstrucción emocional e identitaria desde la claridad, la estructura y la profundidad.">
+<link rel="canonical" href="https://www.arquitecta-emocional.com/sobre-mi.html">
+<meta property="og:title" content="Sobre mí · Arquitecta Emocional">
+<meta property="og:description" content="Quién soy y qué significa Arquitecta Emocional. Belén Escribano acompaña la reconstrucción emocional e identitaria desde la claridad, la estructura y la profundidad.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arquitecta-emocional.com/sobre-mi.html">
+<meta property="og:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sobre mí · Arquitecta Emocional">
+<meta name="twitter:description" content="Quién soy y qué significa Arquitecta Emocional. Belén Escribano acompaña la reconstrucción emocional e identitaria desde la claridad, la estructura y la profundidad.">
+<meta name="twitter:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{ padding-top:clamp(150px,18vh,230px); padding-bottom:clamp(20px,4vw,40px); }
+  .page-hero h1{ font-size:clamp(2.6rem,6vw,5rem); line-height:1.04; max-width:14em; }
+  .page-hero .lead{ margin-top:1.6em; max-width:38em; }
+
+  .intro-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(34px,5vw,84px); align-items:center; }
+  .portrait{ position:relative; aspect-ratio:4/5; }
+  .portrait .ph{ position:absolute; inset:0; }
+  .portrait img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .portrait::after{ content:""; position:absolute; inset:0; border:1px solid var(--dorado); opacity:.5; transform:translate(-20px,20px); z-index:-1; }
+  @media(max-width:860px){ .intro-grid{ grid-template-columns:1fr; } }
+
+  .concept{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,80px); align-items:center; }
+  .concept .label{ font-family:var(--serif); font-style:italic; font-size:clamp(2rem,4.4vw,3.4rem); color:var(--marfil); line-height:1.1; }
+  .concept .label .gold{ color:var(--dorado); }
+  @media(max-width:860px){ .concept{ grid-template-columns:1fr; gap:24px; } }
+
+  .arche{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.4vw,40px); }
+  .arche .word{ font-family:var(--serif); font-size:clamp(1.5rem,2.6vw,2.2rem); padding-bottom:.4em; border-bottom:1px solid var(--line); }
+  .arche p{ font-size:.92rem; color:var(--ink-soft); margin-top:1em; }
+  @media(max-width:860px){ .arche{ grid-template-columns:1fr 1fr; gap:28px; } }
+  @media(max-width:520px){ .arche{ grid-template-columns:1fr; } }
+
+  .values{ counter-reset:v; }
+  .value-row{ display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,3vw,52px); padding:clamp(26px,3vw,42px) 0; border-top:1px solid var(--line); align-items:baseline; }
+  .value-row:last-child{ border-bottom:1px solid var(--line); }
+  .value-row .vn{ font-family:var(--serif); font-style:italic; font-size:1.4rem; color:var(--dorado-deep); }
+  .value-row h3{ font-size:clamp(1.5rem,2.6vw,2.1rem); }
+  .value-row p{ color:var(--ink-soft); max-width:34em; margin-top:.6em; }
+  .value-row .grp{ display:grid; grid-template-columns:1fr 1.3fr; gap:clamp(16px,2.4vw,40px); }
+  @media(max-width:760px){ .value-row .grp{ grid-template-columns:1fr; gap:10px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Arquitecta Emocional — inicio"><img src="assets/logo-nav.webp" width="517" height="192" alt="Arquitecta Emocional"></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html" class="active">Sobre mí</a>
+    <a href="servicios.html">El camino</a>
+    <a href="biblioteca.html">Biblioteca</a>
+    <a href="clientes.html">Para quién</a>
+    <a href="biblioteca.html" class="nav-cta">Empezar aquí</a>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="sobre-mi.html" class="active">Sobre mí</a>
+  <a href="servicios.html">El camino</a>
+  <a href="biblioteca.html">Biblioteca</a>
+  <a href="clientes.html">Para quién</a>
+  <a href="biblioteca.html">Empezar aquí</a>
+</div>
+
+<!-- HERO -->
+<header class="page-hero wrap" data-screen-label="Sobre mí / hero">
+  <span class="eyebrow" data-reveal>Sobre mí</span>
+  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">Acompaño el regreso<br>a una misma.</h1>
+  <p class="lead" data-reveal data-reveal-delay="2">Soy Belén Escribano. Trabajo con mujeres que lo sostienen todo y, en algún punto del camino, dejaron de reconocerse. No vengo a motivarte ni a darte fórmulas: vengo a ayudarte a comprenderte con honestidad y a volver, con método, a la identidad que es tuya.</p>
+</header>
+
+<!-- INTRO with portrait -->
+<section class="section bg-marfil" style="padding-top:clamp(40px,5vw,72px);" data-screen-label="Quién soy">
+  <div class="wrap intro-grid">
+    <div class="portrait" data-reveal>
+      <img src="assets/retrato-sobre-mi.webp" width="769" height="1023" loading="lazy" alt="Belén Escribano — retrato apoyada en una columna con luz natural lateral">
+    </div>
+    <div class="body" data-reveal data-reveal-delay="1">
+      <span class="eyebrow">Quién soy</span>
+      <h2 class="h-lg" style="margin:.5em 0 .8em;">No creo en reinventarse. Creo en volver a una misma.</h2>
+      <p>Durante años observé el mismo patrón: mujeres que parecían tener todo en orden por fuera, mientras por dentro sentían que se habían alejado de sí mismas.</p>
+      <p>No necesitaban convertirse en alguien nuevo. Necesitaban comprender qué partes de su historia seguían siendo verdaderamente suyas y cuáles habían sido construidas desde la adaptación, la exigencia o la necesidad de sobrevivir.</p>
+      <p>Por eso nació <em>Arquitecta Emocional</em>: un espacio para transformar confusión en claridad, patrones en conciencia y desconexión en una relación más auténtica con una misma.</p>
+      <p>Porque cuando una mujer recupera claridad sobre quién es, deja de construir su vida desde lo que espera el mundo y comienza a habitarla desde su propia verdad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT: qué es Arquitecta Emocional -->
+<section class="section bg-carbon" data-screen-label="Qué es Arquitecta Emocional">
+  <div class="wrap concept">
+    <div data-reveal>
+      <span class="eyebrow plain" style="color:var(--dorado);">Quién es Arquitecta Emocional</span>
+      <p class="label" style="margin-top:.6em;">No reformas la fachada.<br><span class="gold">Excavas hasta los cimientos.</span></p>
+    </div>
+    <div class="body" data-reveal data-reveal-delay="1" style="padding-top:.5em;">
+      <p class="lead" style="color:var(--on-dark-soft);">«Arquitecta Emocional» es una forma de entender el cambio. Una arquitecta no decora: estudia el terreno, comprende las cargas, diseña una estructura que sostenga la vida que va a habitarla.</p>
+      <p class="lead" style="color:var(--on-dark-soft);">Eso hacemos con tu mundo interno. Primero comprendemos qué te sostiene y qué te pesa. Luego retiramos, pieza por pieza, lo que fue construido para sobrevivir — hasta que la identidad que siempre estuvo ahí vuelve a quedar a la vista, firme, coherente y tuya.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHETYPE words (La Sabia) -->
+<section class="section bg-beige" data-screen-label="Arquetipo / La Sabia">
+  <div class="wrap">
+    <div style="max-width:32em;" data-reveal>
+      <span class="eyebrow">El espíritu del trabajo</span>
+      <h2 class="h-lg" style="margin-top:.45em;">La Sabia: comprender antes que prometer.</h2>
+      <p class="lead" style="margin-top:1em; max-width:34em;">Mi acompañamiento se inspira en el arquetipo de La Sabia. No busco impresionarte ni convencerte: busco que comprendas. La verdad serena pesa más que cualquier promesa fácil.</p>
+    </div>
+    <div class="arche" style="margin-top:clamp(40px,5vw,64px);">
+      <div data-reveal><div class="word">Claridad</div><p>Ver con nitidez lo que estaba difuso. Nombrar para poder elegir.</p></div>
+      <div data-reveal data-reveal-delay="1"><div class="word">Comprensión</div><p>Mirar sin juicio, entender el origen. Nada de tu historia sobra.</p></div>
+      <div data-reveal data-reveal-delay="2"><div class="word">Profundidad</div><p>Ir a la raíz, no al síntoma. El cambio que permanece nace abajo.</p></div>
+      <div data-reveal data-reveal-delay="3"><div class="word">Serenidad</div><p>Un proceso con ritmo lento, sin urgencias. El sostén también cura.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I WORK / values -->
+<section class="section bg-marfil" data-screen-label="Cómo acompaño">
+  <div class="wrap">
+    <div style="max-width:30em;" data-reveal>
+      <span class="eyebrow">Mi forma de acompañar</span>
+      <h2 class="h-xl" style="margin-top:.4em;">Tres principios que sostienen cada proceso.</h2>
+    </div>
+    <div class="values" style="margin-top:clamp(40px,5vw,56px);">
+      <div class="value-row" data-reveal>
+        <span class="vn">01</span>
+        <div class="grp">
+          <h3>Verdad antes que consuelo</h3>
+          <p>No estoy aquí para decirte lo que quieres oír, sino para acompañarte a ver lo que es. La claridad, aunque incomode, es el terreno donde algo nuevo puede construirse.</p>
+        </div>
+      </div>
+      <div class="value-row" data-reveal data-reveal-delay="1">
+        <span class="vn">02</span>
+        <div class="grp">
+          <h3>Estructura antes que improvisación</h3>
+          <p>Cada proceso tiene un método y una dirección. No vamos a la deriva: sabes dónde estás, hacia dónde vamos y por qué cada paso importa.</p>
+        </div>
+      </div>
+      <div class="value-row" data-reveal data-reveal-delay="2">
+        <span class="vn">03</span>
+        <div class="grp">
+          <h3>Profundidad antes que rapidez</h3>
+          <p>Trabajamos a la velocidad de lo verdadero. Prefiero un cambio real y sostenido a un alivio pasajero que se desvanece en semanas.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:clamp(44px,5vw,64px);" data-reveal>
+      <a href="servicios.html" class="btn btn-solid">Ver cómo trabajamos juntas <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/logo-footer-light-72.webp" width="582" height="216" loading="lazy" alt="Arquitecta Emocional">
+      <p class="footer-quote">Volver a ti no es empezar de cero. Es regresar a lo que siempre fuiste, ahora con claridad.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">El camino</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="clientes.html">Para quién</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Conecta</h4>
+      <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">Instagram · @arquitectaemocional.cl</a>
+      <a href="https://www.arquitecta-emocional.com" target="_blank" rel="noopener">www.arquitecta-emocional.com</a>
+      <a href="contacto.html">Escríbeme</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Arquitecta Emocional · Belén Escribano</span>
+    <span>Reconstrucción emocional e identitaria</span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

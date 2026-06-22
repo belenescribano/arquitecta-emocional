@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arquitecta Emocional · Belén Escribano</title>
+<meta name="description" content="Reconstrucción emocional e identitaria para mujeres que funcionan por fuera pero ya no se reconocen por dentro. Claridad, estructura y profundidad para volver a ti.">
+<link rel="canonical" href="https://www.arquitecta-emocional.com/">
+<meta property="og:title" content="Arquitecta Emocional · Belén Escribano">
+<meta property="og:description" content="Reconstrucción emocional e identitaria para mujeres que funcionan por fuera pero ya no se reconocen por dentro. Claridad, estructura y profundidad para volver a ti.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arquitecta-emocional.com/">
+<meta property="og:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arquitecta Emocional · Belén Escribano">
+<meta name="twitter:description" content="Reconstrucción emocional e identitaria para mujeres que funcionan por fuera pero ya no se reconocen por dentro. Claridad, estructura y profundidad para volver a ti.">
+<meta name="twitter:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Belén Escribano",
+  "jobTitle": "Especialista en reestructuración emocional e identitaria",
+  "url": "https://www.arquitecta-emocional.com",
+  "sameAs": ["https://instagram.com/arquitectaemocional.cl"]
+}
+</script>
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ===== HERO ===== */
+  .hero{
+    position:relative; min-height:100svh; display:flex; align-items:center;
+    padding-top:clamp(120px,16vh,200px); padding-bottom:clamp(60px,9vh,120px);
+    overflow:hidden;
+  }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(34px,5vw,80px); align-items:center; width:100%; }
+  .hero-mark{ position:absolute; right:-9vw; top:46%; width:min(56vw,720px); transform:translateY(-50%); opacity:.06; z-index:0; pointer-events:none; }
+  .hero h1{ font-size:clamp(2.7rem,6.7vw,5.6rem); line-height:1.0; letter-spacing:.004em; }
+  .hero h1 em{ font-style:italic; color:var(--dorado-deep); }
+  .hero .lead{ margin-top:1.5em; max-width:30em; }
+  .hero-cta{ margin-top:2.6em; display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
+  .hero-portrait{ position:relative; aspect-ratio:4/5; }
+  .hero-portrait .ph{ position:absolute; inset:0; }
+  .hero-portrait img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .hero-portrait::after{
+    content:""; position:absolute; inset:0; border:1px solid var(--line);
+    transform:translate(18px,18px); z-index:-1; pointer-events:none;
+  }
+  @media(max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-portrait{ display:none; }
+    .hero-mark{ right:-30vw; width:90vw; opacity:.05; }
+  }
+
+  /* ===== PROBLEM strip ===== */
+  .feel{ text-align:center; }
+  .feel .quote{ font-family:var(--serif); font-style:italic; font-size:clamp(1.9rem,4.2vw,3.4rem); line-height:1.18; max-width:16em; margin:0 auto; color:var(--marfil); }
+  .feel .quote .o{ color:var(--dorado); font-style:normal; }
+  .feel .resp{ margin-top:1.6em; font-size:clamp(1.05rem,1.6vw,1.3rem); color:var(--on-dark-soft); font-weight:300; max-width:34em; margin-inline:auto; }
+
+  /* ===== Three pillars ===== */
+  .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); }
+  .pillar{ padding:clamp(34px,3.4vw,52px) clamp(20px,2.4vw,40px) 8px; border-right:1px solid var(--line); }
+  .pillar:last-child{ border-right:0; }
+  .pillar .n{ font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--dorado-deep); }
+  .pillar h3{ margin:.5em 0 .4em; font-size:1.55rem; }
+  .pillar p{ font-size:.96rem; color:var(--ink-soft); }
+  @media(max-width:860px){ .pillars{ grid-template-columns:1fr; } .pillar{ border-right:0; border-bottom:1px solid var(--line); padding-bottom:34px; } .pillar:last-child{ border-bottom:0; } }
+
+  /* ===== Library feature ===== */
+  .lib-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.4vw,34px); }
+  .lib-card{ display:flex; flex-direction:column; border:1px solid var(--line); background:var(--marfil-soft); color:inherit; transition:transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease); }
+  .lib-card:hover{ transform:translateY(-6px); box-shadow:0 36px 60px -42px rgba(61,56,48,.5); border-color:var(--taupe); }
+  .lib-card .cover{ position:relative; aspect-ratio:1/1; overflow:hidden; }
+  .lib-card .cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .lib-card .lb-body{ padding:clamp(22px,2.4vw,32px); display:flex; flex-direction:column; gap:.5em; flex:1; }
+  .lib-card .kind{ font-family:var(--sans); font-weight:500; font-size:.64rem; letter-spacing:.2em; text-transform:uppercase; color:var(--dorado-deep); }
+  .lib-card h3{ font-size:clamp(1.35rem,1.9vw,1.7rem); line-height:1.12; }
+  .lib-card p{ font-size:.94rem; color:var(--ink-soft); margin:0; }
+  .lib-card .go{ margin-top:auto; padding-top:1.2em; font-family:var(--sans); font-weight:500; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--dorado-deep); }
+  @media(max-width:860px){ .lib-grid{ grid-template-columns:1fr; } }
+
+  /* ===== Services preview ===== */
+  .svc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(22px,2.4vw,34px); }
+  .svc-card{ position:relative; padding:clamp(34px,3.6vw,58px); border:1px solid var(--line); background:var(--marfil-soft); display:flex; flex-direction:column; transition:transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease); min-height:340px; }
+  .svc-card:hover{ transform:translateY(-6px); box-shadow:0 36px 60px -42px rgba(61,56,48,.5); border-color:var(--taupe); }
+  .svc-card.dark{ background:var(--carbon); color:var(--on-dark); border-color:var(--carbon); }
+  .svc-card.dark h3{ color:var(--marfil); }
+  .svc-card .tag{ font-family:var(--sans); font-weight:500; font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--dorado-deep); }
+  .svc-card.dark .tag{ color:var(--dorado); }
+  .svc-card h3{ font-size:clamp(1.8rem,2.8vw,2.5rem); margin:.45em 0 .5em; }
+  .svc-card p{ font-size:1rem; color:var(--ink-soft); max-width:30em; }
+  .svc-card.dark p{ color:var(--on-dark-soft); }
+  .svc-card .foot{ margin-top:auto; padding-top:2em; }
+  @media(max-width:860px){ .svc-grid{ grid-template-columns:1fr; } }
+
+  /* ===== Brand quote ===== */
+  .quote-band{ text-align:center; }
+  .quote-band blockquote{ margin:0; font-family:var(--serif); font-size:clamp(1.5rem,3vw,2.4rem); font-style:italic; line-height:1.32; max-width:18em; margin-inline:auto; color:var(--carbon); }
+  .quote-band .who{ margin-top:1.8em; font-family:var(--sans); font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); }
+
+  /* ===== Closing CTA ===== */
+  .closing{ text-align:center; }
+  .closing h2{ font-size:clamp(2.2rem,5vw,4rem); line-height:1.08; max-width:14em; margin-inline:auto; }
+  .closing .lead{ margin:1.4em auto 2.4em; max-width:34em; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Arquitecta Emocional — inicio">
+    <img src="assets/logo-nav.webp" width="517" height="192" alt="Arquitecta Emocional">
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="servicios.html">El camino</a>
+    <a href="biblioteca.html">Biblioteca</a>
+    <a href="clientes.html">Para quién</a>
+    <a href="biblioteca.html" class="nav-cta">Empezar aquí</a>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="active">Inicio</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="servicios.html">El camino</a>
+  <a href="biblioteca.html">Biblioteca</a>
+  <a href="clientes.html">Para quién</a>
+  <a href="biblioteca.html">Empezar aquí</a>
+</div>
+
+<!-- HERO -->
+<header class="hero bg-marfil" data-screen-label="Hero / Inicio">
+  <img class="hero-mark" src="assets/mark.webp" width="423" height="493" loading="lazy" alt="" data-parallax="0.04">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-reveal>Reconstrucción emocional e identitaria</span>
+      <h1 data-reveal data-reveal-delay="1" style="margin-top:.55em;">Vuelve a ti<br>con claridad,<br><em>estructura</em> y profundidad.</h1>
+      <p class="lead" data-reveal data-reveal-delay="2">Acompaño a mujeres que funcionan por fuera, pero ya no se reconocen por dentro. Aquí el caos interno se traduce en comprensión y orden — no para convertirte en alguien nuevo, sino para retirar las capas que te cubren y volver a la identidad que sigue intacta debajo.</p>
+      <div class="hero-cta" data-reveal data-reveal-delay="3">
+        <a href="biblioteca.html" class="btn btn-solid">Explorar la biblioteca <span class="arr">→</span></a>
+        <a href="sobre-mi.html" class="txtlink">Quién soy</a>
+      </div>
+    </div>
+    <div class="hero-portrait" data-reveal data-reveal-delay="2">
+      <img src="assets/retrato-home.webp" width="768" height="1023" loading="lazy" alt="Belén Escribano, Arquitecta Emocional — retrato sentada con luz natural cálida, mirada serena">
+    </div>
+  </div>
+</header>
+
+<!-- FEEL / problem -->
+<section class="section bg-carbon feel" data-screen-label="El problema">
+  <div class="wrap narrow">
+    <p class="quote" data-reveal><span class="o">«</span>Lo tengo todo… pero no me siento yo.<span class="o">»</span></p>
+    <p class="resp" data-reveal data-reveal-delay="1">No estás rota. Estás enterrada — debajo de capas de adaptación que un día te protegieron. Y lo que está enterrado no se repara: se desentierra.</p>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section bg-marfil" data-screen-label="Cómo trabajo">
+  <div class="wrap">
+    <div style="max-width:30em;" data-reveal>
+      <span class="eyebrow">Cómo acompaño</span>
+      <h2 class="h-lg" style="margin-top:.5em;">No es motivación. Es comprensión profunda y un orden que sostiene.</h2>
+    </div>
+    <div class="pillars" style="margin-top:clamp(40px,5vw,64px);">
+      <div class="pillar" data-reveal>
+        <span class="n">01</span>
+        <h3>Claridad</h3>
+        <p>Nombrar lo que duele con precisión. Cuando el caos interno tiene palabras, deja de gobernarte.</p>
+      </div>
+      <div class="pillar" data-reveal data-reveal-delay="1">
+        <span class="n">02</span>
+        <h3>Estructura</h3>
+        <p>No improvisamos: levantamos el plano de la estructura que ya te sostiene — para distinguir qué es tuyo y qué es supervivencia.</p>
+      </div>
+      <div class="pillar" data-reveal data-reveal-delay="2">
+        <span class="n">03</span>
+        <h3>Profundidad</h3>
+        <p>Trabajamos la raíz, no el síntoma. El cambio que permanece nace de comprenderte, no de forzarte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIBRARY feature -->
+<section class="section bg-marfil" style="padding-top:0;" data-screen-label="La biblioteca (destacados)">
+  <div class="wrap">
+    <div style="max-width:34em;" data-reveal>
+      <span class="eyebrow">La biblioteca</span>
+      <h2 class="h-xl" style="margin-top:.4em;">El camino empieza con un material en tus manos.</h2>
+      <p class="lead" style="margin-top:1em;">Cada material de la biblioteca entrega un proceso real — no teoría para leer, sino trabajo para hacer. Y cada uno termina señalando el siguiente paso natural del camino.</p>
+    </div>
+    <div class="lib-grid" style="margin-top:clamp(36px,4.5vw,56px);">
+      <a class="lib-card" href="biblioteca.html" data-reveal>
+        <div class="cover"><img src="assets/test-fragmentacion.webp" width="512" height="512" loading="lazy" alt="Test de Fragmentación Emocional"></div>
+        <div class="lb-body">
+          <span class="kind">Test · Autoevaluación</span>
+          <h3>Test de Fragmentación Emocional</h3>
+          <p>Identifica qué partes de ti se desconectaron en el camino.</p>
+          <span class="go">Empezar aquí →</span>
+        </div>
+      </a>
+      <a class="lib-card" href="biblioteca.html" data-reveal data-reveal-delay="1">
+        <div class="cover"><img src="assets/recurso-3-heridas.webp" width="512" height="512" loading="lazy" alt="Las 3 heridas que te alejan de ti misma"></div>
+        <div class="lb-body">
+          <span class="kind">Guía · PDF</span>
+          <h3>Las 3 heridas que te alejan de ti misma</h3>
+          <p>Comprende el origen emocional de la desconexión — la raíz, no el síntoma.</p>
+          <span class="go">Descargar →</span>
+        </div>
+      </a>
+      <a class="lib-card" href="biblioteca.html" data-reveal data-reveal-delay="2">
+        <div class="cover"><img src="assets/recurso-diario.webp" width="512" height="512" loading="lazy" alt="Diario de Claridad Emocional"></div>
+        <div class="lb-body">
+          <span class="kind">Plantilla · PDF imprimible</span>
+          <h3>Diario de Claridad Emocional</h3>
+          <p>Una estructura suave para escribir y ordenar lo que sientes, día a día.</p>
+          <span class="go">Descargar →</span>
+        </div>
+      </a>
+    </div>
+    <div style="margin-top:clamp(32px,3.6vw,48px);" data-reveal>
+      <a href="biblioteca.html" class="txtlink">Ver toda la biblioteca →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES preview -->
+<section class="section bg-beige" data-screen-label="Servicios (resumen)">
+  <div class="wrap">
+    <div class="center" style="max-width:34em; margin-inline:auto;" data-reveal>
+      <span class="eyebrow center plain">Para profundizar</span>
+      <h2 class="h-xl" style="margin-top:.4em;">Cuando quieras hacer el camino acompañada.</h2>
+      <p class="lead" style="margin-top:1em;">Los materiales abren el camino; estos espacios lo profundizan.</p>
+    </div>
+    <div class="svc-grid" style="margin-top:clamp(40px,5vw,64px);">
+      <article class="svc-card" data-reveal>
+        <span class="tag">Acompañamiento 1:1</span>
+        <h3>Proceso individual</h3>
+        <p>Un espacio privado y profundo, diseñado a tu medida. Para quien necesita reconstruirse con total intimidad y a su propio ritmo.</p>
+        <div class="foot"><a href="servicios.html#individual" class="txtlink">Ver el proceso 1:1 →</a></div>
+      </article>
+      <article class="svc-card dark" data-reveal data-reveal-delay="1">
+        <span class="tag">Programa grupal · Exclusivo</span>
+        <h3>Volver a Ti</h3>
+        <p>Un programa cerrado, en cohortes reducidas, para volver a tu identidad acompañada por otras mujeres en el mismo camino.</p>
+        <div class="foot"><a href="servicios.html#volver-a-ti" class="txtlink" style="color:var(--dorado);">Conocer Volver a Ti →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- BRAND QUOTE -->
+<section class="section bg-marfil quote-band" data-screen-label="Cita de marca">
+  <div class="wrap narrow" data-reveal>
+    <blockquote>«Volver a ti no es convertirte en alguien nuevo. Es retirar lo que nunca fuiste.»</blockquote>
+    <p class="who">Arquitecta Emocional</p>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section bg-carbon closing" data-screen-label="Cierre / CTA">
+  <div class="wrap" data-reveal>
+    <span class="eyebrow center plain" style="color:var(--dorado);">El primer paso</span>
+    <h2 style="margin-top:.5em;">La claridad emocional cambia la identidad.<br><span class="serif-it gold">Y cuando la identidad cambia, cambia la vida.</span></h2>
+    <p class="lead">Si algo en estas palabras te reconoció, ese reconocimiento ya es el comienzo. El camino empieza con materiales que puedes hacer a tu ritmo — y crece contigo.</p>
+    <a href="biblioteca.html" class="btn btn-gold">Empezar por la biblioteca <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/logo-footer-light-72.webp" width="582" height="216" loading="lazy" alt="Arquitecta Emocional">
+      <p class="footer-quote">Volver a ti no es empezar de cero. Es regresar a lo que siempre fuiste, ahora con claridad.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">El camino</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="clientes.html">Para quién</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Conecta</h4>
+      <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">Instagram · @arquitectaemocional.cl</a>
+      <a href="https://www.arquitecta-emocional.com" target="_blank" rel="noopener">www.arquitecta-emocional.com</a>
+      <a href="contacto.html">Escríbeme</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Arquitecta Emocional · Belén Escribano</span>
+    <span>Reconstrucción emocional e identitaria</span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

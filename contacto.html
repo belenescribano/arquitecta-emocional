@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · Arquitecta Emocional</title>
+<meta name="description" content="Escríbeme para iniciar tu proceso de reconstrucción emocional. El primer paso es una conversación honesta.">
+<link rel="canonical" href="https://www.arquitecta-emocional.com/contacto.html">
+<meta property="og:title" content="Contacto · Arquitecta Emocional">
+<meta property="og:description" content="Escríbeme para iniciar tu proceso de reconstrucción emocional. El primer paso es una conversación honesta.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arquitecta-emocional.com/contacto.html">
+<meta property="og:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contacto · Arquitecta Emocional">
+<meta name="twitter:description" content="Escríbeme para iniciar tu proceso de reconstrucción emocional. El primer paso es una conversación honesta.">
+<meta name="twitter:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-hero{ padding-top:clamp(150px,18vh,220px); padding-bottom:0; }
+  .contact-hero h1{ font-size:clamp(2.6rem,6vw,5rem); line-height:1.04; max-width:12em; }
+  .contact-hero .lead{ margin-top:1.6em; max-width:36em; }
+
+  .contact-grid{ display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(40px,5vw,90px); align-items:start; }
+  @media(max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:48px; } }
+
+  /* aside info */
+  .cinfo h3{ font-family:var(--sans); font-weight:500; text-transform:uppercase; font-size:.7rem; letter-spacing:.2em; color:var(--dorado-deep); margin-bottom:.7em; }
+  .cinfo .item{ padding:20px 0; border-top:1px solid var(--line); }
+  .cinfo .item:first-of-type{ border-top:0; padding-top:0; }
+  .cinfo .item a, .cinfo .item span{ font-family:var(--serif); font-size:1.5rem; color:var(--carbon); display:inline-block; transition:color .35s; }
+  .cinfo .item a:hover{ color:var(--dorado-deep); }
+  .cinfo .item small{ display:block; font-family:var(--sans); font-size:.82rem; color:var(--ink-soft); margin-top:.2em; letter-spacing:0; text-transform:none; }
+  .cinfo .pill{ margin-top:6px; display:inline-flex; align-items:center; gap:.6em; font-family:var(--sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+  .cinfo .pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--dorado); display:inline-block; }
+
+  /* form */
+  .form-card{ background:var(--marfil-soft); border:1px solid var(--line); padding:clamp(30px,3.6vw,56px); position:relative; }
+  .field{ margin-bottom:24px; }
+  .field label{ display:block; font-family:var(--sans); font-weight:500; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.7em; }
+  .field input, .field textarea{
+    width:100%; background:transparent; border:0; border-bottom:1px solid var(--taupe);
+    font-family:var(--sans); font-size:1.05rem; color:var(--carbon); padding:.6em 0; resize:vertical;
+    transition:border-color .4s var(--ease);
+  }
+  .field input::placeholder, .field textarea::placeholder{ color:var(--taupe); }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--dorado-deep); }
+  .field input.invalid, .field textarea.invalid{ border-color:#b4564b; }
+  .form-card .btn{ width:100%; justify-content:center; margin-top:8px; }
+  .form-note{ font-size:.8rem; color:var(--ink-soft); margin-top:18px; text-align:center; }
+  .form-error{ font-size:.88rem; color:#9c4a40; margin-top:18px; text-align:center; line-height:1.6; }
+  .form-error a{ color:#9c4a40; border-bottom:1px solid currentColor; }
+  .btn.is-loading{ opacity:.6; pointer-events:none; }
+
+  .sent{ text-align:center; padding:clamp(20px,4vw,48px) 0; opacity:0; transform:translateY(14px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .sent.in{ opacity:1; transform:none; }
+  .sent .mark{ width:64px; margin:0 auto 24px; opacity:.9; }
+  .sent h3{ font-size:1.9rem; margin-bottom:.4em; }
+  .sent p{ color:var(--ink-soft); max-width:26em; margin-inline:auto; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Arquitecta Emocional — inicio"><img src="assets/logo-nav.webp" width="517" height="192" alt="Arquitecta Emocional"></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="servicios.html">El camino</a>
+    <a href="biblioteca.html">Biblioteca</a>
+    <a href="clientes.html">Para quién</a>
+    <a href="biblioteca.html" class="nav-cta">Empezar aquí</a>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="servicios.html">El camino</a>
+  <a href="biblioteca.html">Biblioteca</a>
+  <a href="clientes.html">Para quién</a>
+  <a href="biblioteca.html">Empezar aquí</a>
+</div>
+
+<!-- HERO -->
+<header class="contact-hero wrap" data-screen-label="Contacto / hero">
+  <span class="eyebrow" data-reveal>Contacto</span>
+  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">El primer paso es<br>escribirte a ti misma.</h1>
+  <p class="lead" data-reveal data-reveal-delay="2">Cuéntame cómo te sientes y qué te trae hasta aquí. Leo personalmente cada mensaje y te respondo para ver, juntas, si este es tu momento para empezar.</p>
+</header>
+
+<!-- CONTACT -->
+<section class="section bg-marfil" style="padding-top:clamp(40px,5vw,72px);" data-screen-label="Formulario de contacto">
+  <div class="wrap contact-grid">
+
+    <!-- aside -->
+    <aside class="cinfo" data-reveal>
+      <div class="item">
+        <h3>Escríbeme directo</h3>
+        <a href="mailto:hola@arquitecta-emocional.com">hola@arquitecta-emocional.com</a>
+        <small>Te respondo en un plazo de 2 a 3 días.</small>
+      </div>
+      <div class="item">
+        <h3>Instagram</h3>
+        <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">@arquitectaemocional.cl</a>
+        <small>Reflexiones y contenido sobre el camino de volver a ti.</small>
+      </div>
+      <div class="item">
+        <h3>Sitio</h3>
+        <a href="https://www.arquitecta-emocional.com" target="_blank" rel="noopener">www.arquitecta-emocional.com</a>
+      </div>
+      <div class="item">
+        <h3>Cohortes</h3>
+        <span class="pill"><span class="dot"></span>Volver a Ti · postulaciones abiertas</span>
+        <small>Los cupos son reducidos para cuidar la profundidad del proceso.</small>
+      </div>
+    </aside>
+
+    <!-- form -->
+    <div class="form-card" data-reveal data-reveal-delay="1">
+      <form data-contact action="https://formspree.io/f/xkoaqzgk" method="POST" novalidate>
+        <div class="field">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="¿Cómo te llamas?" required>
+        </div>
+        <div class="field">
+          <label for="email">Tu email</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+        </div>
+        <div class="field">
+          <label for="mensaje">Tu mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame cómo te sientes y qué te gustaría reconstruir…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Enviar mensaje <span class="arr">→</span></button>
+        <p class="form-error" data-error hidden>Algo no funcionó al enviar. ¿Puedes intentarlo de nuevo, o escribirme directamente a <a href="mailto:hola@arquitecta-emocional.com">hola@arquitecta-emocional.com</a>?</p>
+        <p class="form-note">Tu mensaje es privado y se trata con total confidencialidad.</p>
+        <p class="form-note" style="margin-top:8px; opacity:.85;">Este acompañamiento no es psicoterapia clínica ni la sustituye. Si atraviesas una crisis que requiere atención profesional, parte de mi trabajo es ayudarte a encontrarla.</p>
+      </form>
+
+      <div class="sent" data-sent hidden>
+        <img class="mark" src="assets/mark.webp" width="423" height="493" loading="lazy" alt="">
+        <h3 class="serif">Gracias por escribir.</h3>
+        <p>He recibido tu mensaje. Te leeré con calma y te responderé personalmente muy pronto. Este ya es el primer paso de vuelta a ti.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- closing line -->
+<section class="section bg-carbon" style="padding-block:clamp(64px,8vw,120px);" data-screen-label="Cierre">
+  <div class="wrap narrow center" data-reveal>
+    <p class="serif-it gold" style="font-size:clamp(1.6rem,3.4vw,2.6rem); line-height:1.3;">«La claridad emocional cambia la identidad. Y cuando la identidad cambia, cambia la vida.»</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/logo-footer-light-72.webp" width="582" height="216" loading="lazy" alt="Arquitecta Emocional">
+      <p class="footer-quote">Volver a ti no es empezar de cero. Es regresar a lo que siempre fuiste, ahora con claridad.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">El camino</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="clientes.html">Para quién</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Conecta</h4>
+      <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">Instagram · @arquitectaemocional.cl</a>
+      <a href="https://www.arquitecta-emocional.com" target="_blank" rel="noopener">www.arquitecta-emocional.com</a>
+      <a href="mailto:hola@arquitecta-emocional.com">hola@arquitecta-emocional.com</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Arquitecta Emocional · Belén Escribano</span>
+    <span>Reconstrucción emocional e identitaria</span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

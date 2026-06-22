@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El camino · Arquitecta Emocional</title>
+<meta name="description" content="La escalera de valor de Arquitecta Emocional: del descubrimiento a los materiales, el trabajo profundo, el programa Volver a Ti y las sesiones 1:1.">
+<link rel="canonical" href="https://www.arquitecta-emocional.com/servicios.html">
+<meta property="og:title" content="El camino · Arquitecta Emocional">
+<meta property="og:description" content="La escalera de valor de Arquitecta Emocional: del descubrimiento a los materiales, el trabajo profundo, el programa Volver a Ti y las sesiones 1:1.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arquitecta-emocional.com/servicios.html">
+<meta property="og:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El camino · Arquitecta Emocional">
+<meta name="twitter:description" content="La escalera de valor de Arquitecta Emocional: del descubrimiento a los materiales, el trabajo profundo, el programa Volver a Ti y las sesiones 1:1.">
+<meta name="twitter:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{ padding-top:clamp(150px,18vh,230px); padding-bottom:clamp(20px,4vw,40px); }
+  .page-hero h1{ font-size:clamp(2.6rem,6vw,5rem); line-height:1.04; max-width:13em; }
+  .page-hero .lead{ margin-top:1.6em; max-width:38em; }
+
+  .svc{ display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:0; align-items:stretch; }
+  .svc.flip{ grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); }
+  .svc .media{ position:relative; align-self:stretch; min-width:0; min-height:clamp(440px,52vw,660px); overflow:hidden; }
+  .svc .media .ph{ position:absolute; inset:0; }
+  .svc .media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .svc .body{ min-width:0; align-self:center; padding-left:clamp(40px,4.6vw,84px); border-left:1px solid var(--line); }
+  .svc.flip .body{ padding-left:0; padding-right:clamp(40px,4.6vw,84px); border-left:0; border-right:1px solid var(--line-light); }
+  .svc .tag{ font-family:var(--sans); font-weight:500; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--dorado-deep); }
+  .svc h2{ font-size:clamp(2rem,4vw,3.2rem); margin:.35em 0 .5em; line-height:1.04; }
+  .svc .lead{ max-width:32em; }
+  @media(max-width:860px){
+    .svc, .svc.flip{ grid-template-columns:1fr; gap:0; }
+    .svc .media{ aspect-ratio:16/10; min-height:0; order:-1; margin-bottom:clamp(28px,5vw,40px); }
+    .svc .body, .svc.flip .body{ padding-left:0; padding-right:0; border:0; align-self:start; }
+  }
+
+  /* feature list */
+  .flist{ margin-top:1.8em; }
+  .flist li{ list-style:none; padding:16px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:baseline; }
+  .flist li:last-child{ border-bottom:1px solid var(--line); }
+  .flist .ic{ color:var(--dorado-deep); font-family:var(--serif); font-style:italic; }
+  .flist strong{ font-weight:500; font-family:var(--sans); }
+  .flist span{ color:var(--ink-soft); font-size:.95rem; }
+  ul.flist{ padding:0; margin-left:0; }
+  .bg-carbon .flist li{ border-color:var(--line-light); }
+  .bg-carbon .flist span{ color:var(--on-dark-soft); }
+  .bg-carbon .flist .ic{ color:var(--dorado); }
+
+  /* process steps */
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line); }
+  .step{ padding:clamp(28px,3vw,44px) clamp(16px,2vw,32px) 8px; border-right:1px solid var(--line); }
+  .step:last-child{ border-right:0; }
+  .step .sn{ font-family:var(--serif); font-style:italic; font-size:1.4rem; color:var(--dorado-deep); }
+  .step h3{ font-size:1.35rem; margin:.5em 0 .35em; }
+  .step p{ font-size:.9rem; color:var(--ink-soft); }
+  @media(max-width:860px){ .steps{ grid-template-columns:1fr 1fr; } .step{ border-bottom:1px solid var(--line); } }
+  @media(max-width:520px){ .steps{ grid-template-columns:1fr; } .step{ border-right:0; } }
+
+  .selection{ text-align:center; }
+  .selection h2{ font-size:clamp(1.9rem,4vw,3rem); max-width:16em; margin-inline:auto; }
+
+  /* ladder */
+  .ladder{ border-top:1px solid var(--line); }
+  .rung{ display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,3vw,52px); padding:clamp(24px,2.8vw,40px) 0; border-bottom:1px solid var(--line); align-items:baseline; }
+  .rung .rn{ font-family:var(--serif); font-style:italic; font-size:1.4rem; color:var(--dorado-deep); min-width:1.6em; }
+  .rung .grp{ display:grid; grid-template-columns:1fr 1.3fr; gap:clamp(16px,2.4vw,40px); align-items:baseline; }
+  .rung h3{ font-size:clamp(1.5rem,2.6vw,2.1rem); }
+  .rung p{ color:var(--ink-soft); max-width:34em; margin:0; }
+  .rung .peak{ display:inline-block; margin-left:.8em; font-family:var(--sans); font-weight:500; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--dorado-deep); border:1px solid var(--dorado); padding:.35em .9em; vertical-align:middle; }
+  @media(min-width:861px){
+    .rung[data-l="2"]{ padding-left:clamp(16px,2vw,40px); }
+    .rung[data-l="3"]{ padding-left:clamp(32px,4vw,80px); }
+    .rung[data-l="4"]{ padding-left:clamp(48px,6vw,120px); }
+    .rung[data-l="5"]{ padding-left:clamp(64px,8vw,160px); }
+  }
+  @media(max-width:760px){ .rung .grp{ grid-template-columns:1fr; gap:8px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Arquitecta Emocional — inicio"><img src="assets/logo-nav.webp" width="517" height="192" alt="Arquitecta Emocional"></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="servicios.html" class="active">El camino</a>
+    <a href="biblioteca.html">Biblioteca</a>
+    <a href="clientes.html">Para quién</a>
+    <a href="biblioteca.html" class="nav-cta">Empezar aquí</a>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="servicios.html" class="active">El camino</a>
+  <a href="biblioteca.html">Biblioteca</a>
+  <a href="clientes.html">Para quién</a>
+  <a href="biblioteca.html">Empezar aquí</a>
+</div>
+
+<!-- HERO -->
+<header class="page-hero wrap" data-screen-label="El camino / hero">
+  <span class="eyebrow" data-reveal>El camino</span>
+  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">Un camino<br>con peldaños.</h1>
+  <p class="lead" data-reveal data-reveal-delay="2">Nadie llega al programa sin haber caminado antes. El proceso avanza por niveles: cada material prepara el siguiente, y la profundidad crece contigo. Así nadie necesita convencerse — cada paso se gana solo.</p>
+</header>
+
+<!-- LADDER -->
+<section class="section bg-marfil" style="padding-top:clamp(40px,5vw,72px);" data-screen-label="Los 5 peldaños">
+  <div class="wrap">
+    <div class="ladder">
+      <div class="rung" data-l="1" data-reveal>
+        <span class="rn">01</span>
+        <div class="grp">
+          <h3>Descubrimiento</h3>
+          <p>Recursos gratuitos para sentirte vista. El primer reconocimiento: ponerle nombre a lo que te pasa.</p>
+        </div>
+      </div>
+      <div class="rung" data-l="2" data-reveal data-reveal-delay="1">
+        <span class="rn">02</span>
+        <div class="grp">
+          <h3>Primeros materiales</h3>
+          <p>Vocabulario y escritura para nombrar lo que sientes. La claridad empieza por las palabras.</p>
+        </div>
+      </div>
+      <div class="rung" data-l="3" data-reveal data-reveal-delay="2">
+        <span class="rn">03</span>
+        <div class="grp">
+          <h3>Trabajo profundo</h3>
+          <p>Journaling, mapa de claridad y regulación emocional. El trabajo deja de ser lectura y se vuelve práctica.</p>
+        </div>
+      </div>
+      <div class="rung" data-l="4" data-reveal data-reveal-delay="3">
+        <span class="rn">04</span>
+        <div class="grp">
+          <h3>Programa Volver a Ti<span class="peak">La cima del camino</span></h3>
+          <p>4 semanas en grupo reducido. Todo lo anterior se integra, acompañada.</p>
+        </div>
+      </div>
+      <div class="rung" data-l="5" data-reveal data-reveal-delay="4">
+        <span class="rn">05</span>
+        <div class="grp">
+          <h3>Sesiones 1:1</h3>
+          <p>Acceso limitado, solo por solicitud. Para quien completó el camino y necesita ir más hondo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Volver a Ti -->
+<section id="volver-a-ti" class="section bg-carbon" data-screen-label="Programa Volver a Ti">
+  <div class="wrap svc flip">
+    <div class="body" data-reveal>
+      <span class="tag" style="color:var(--dorado);">Programa grupal · Exclusivo</span>
+      <h2 class="serif" style="color:var(--marfil);">Volver a Ti</h2>
+      <p class="lead" style="color:var(--on-dark-soft);">Un programa cerrado, en cohortes reducidas, para volver a tu identidad acompañada por otras mujeres que atraviesan lo mismo. La profundidad del trabajo individual, sostenida por la fuerza de un grupo íntimo y cuidado.</p>
+      <ul class="flist">
+        <li><span class="ic">—</span><div><strong>Cohortes reducidas</strong><br><span>Grupos pequeños y seleccionados, para cuidar la confianza y la profundidad.</span></div></li>
+        <li><span class="ic">—</span><div><strong>Camino estructurado</strong><br><span>Un recorrido por etapas: comprender, ordenar y reconstruir.</span></div></li>
+        <li><span class="ic">—</span><div><strong>Encuentros en vivo</strong><br><span>Espacios guiados donde el trabajo personal se vuelve compartido.</span></div></li>
+        <li><span class="ic">—</span><div><strong>Comunidad de acompañamiento</strong><br><span>Dejar de hacerlo sola. Sostenerte y ser sostenida.</span></div></li>
+      </ul>
+      <div style="margin-top:2em;"><a href="contacto.html" class="btn btn-gold">Postular a Volver a Ti <span class="arr">→</span></a></div>
+      <p style="margin-top:2em; font-size:.8rem; color:var(--on-dark-soft); max-width:34em;">Este acompañamiento no es psicoterapia clínica ni la sustituye. Si atraviesas una crisis que requiere atención profesional, parte de mi trabajo es ayudarte a encontrarla.</p>
+    </div>
+    <div class="media" data-reveal data-reveal-delay="1">
+      <img src="assets/servicio-volver-a-ti.webp" width="1024" height="1536" loading="lazy" alt="Espacio del programa Volver a Ti — círculo de cojines, velas y cuadernos en ambiente cálido e íntimo">
+    </div>
+  </div>
+</section>
+
+<!-- 1:1 -->
+<section id="individual" class="section bg-marfil" data-screen-label="Servicio 1:1">
+  <div class="wrap svc">
+    <div class="media" data-reveal>
+      <img src="assets/servicio-individual.webp" width="1024" height="1536" loading="lazy" alt="Espacio sereno de acompañamiento individual — dos sillones en tonos marfil con luz natural cálida">
+    </div>
+    <div class="body" data-reveal data-reveal-delay="1">
+      <span class="tag">Acompañamiento individual · 1:1</span>
+      <h2>Proceso individual</h2>
+      <p class="lead">Un espacio enteramente tuyo, privado y profundo. Diseñamos el proceso a la medida de tu historia y de tu momento, sin moldes. Para quien necesita reconstruirse con total intimidad y al ritmo que cada etapa requiere.</p>
+      <ul class="flist">
+        <li><span class="ic">—</span><div><strong>Sesiones individuales</strong><br><span>Encuentros uno a uno, con presencia plena y dirección clara.</span></div></li>
+        <li><span class="ic">—</span><div><strong>Proceso a tu medida</strong><br><span>Diseñado según tu historia, tu ritmo y aquello que necesitas comprender.</span></div></li>
+        <li><span class="ic">—</span><div><strong>Acompañamiento entre sesiones</strong><br><span>Sostén y seguimiento para que el proceso no se interrumpa.</span></div></li>
+        <li><span class="ic">—</span><div><strong>Total confidencialidad</strong><br><span>Un lugar seguro para mirar lo que aún no habías podido nombrar.</span></div></li>
+      </ul>
+      <p class="serif-it" style="margin-top:2em; font-size:1.15rem; color:var(--ink-soft); max-width:30em;">Las sesiones individuales no se ofrecen — se solicitan. Las plazas son limitadas y se abren después del programa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section bg-beige" data-screen-label="El proceso">
+  <div class="wrap">
+    <div style="max-width:32em;" data-reveal>
+      <span class="eyebrow">El proceso</span>
+      <h2 class="h-xl" style="margin-top:.4em;">Cómo reconstruimos, paso a paso.</h2>
+      <p class="lead" style="margin-top:1em; max-width:34em;">Tanto en el 1:1 como en Volver a Ti, el camino sigue la misma lógica de una arquitecta: primero entender el terreno, luego diseñar, después construir.</p>
+    </div>
+    <div class="steps" style="margin-top:clamp(40px,5vw,64px);">
+      <div class="step" data-reveal><span class="sn">01</span><h3>Comprender</h3><p>Mirar tu historia con verdad y nombrar lo que sientes. El diagnóstico emocional.</p></div>
+      <div class="step" data-reveal data-reveal-delay="1"><span class="sn">02</span><h3>Ordenar</h3><p>Distinguir lo que es tuyo de lo heredado. Poner claridad donde había ruido.</p></div>
+      <div class="step" data-reveal data-reveal-delay="2"><span class="sn">03</span><h3>Despejar</h3><p>Retirar lo que fue adaptación y nombrar lo que siempre fue tuyo. Los límites no se inventan: emergen de esa distinción.</p></div>
+      <div class="step" data-reveal data-reveal-delay="3"><span class="sn">04</span><h3>Habitar</h3><p>Integrar el cambio en lo cotidiano, hasta que la nueva estructura te sostenga sola.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTION / postular -->
+<section class="section bg-marfil selection" data-screen-label="Por qué se postula">
+  <div class="wrap narrow" data-reveal>
+    <span class="eyebrow center plain">Por qué se postula</span>
+    <h2 style="margin-top:.5em;">El acceso es por postulación, no por orden de llegada.</h2>
+    <p class="lead" style="margin:1.4em auto 2.4em; max-width:34em;">Este trabajo pide compromiso y un momento adecuado. La postulación me permite asegurarme de poder acompañarte de verdad — y a ti, de empezar con la certeza de estar en el lugar correcto.</p>
+    <a href="contacto.html" class="btn btn-gold">Iniciar mi postulación <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/logo-footer-light-72.webp" width="582" height="216" loading="lazy" alt="Arquitecta Emocional">
+      <p class="footer-quote">Volver a ti no es empezar de cero. Es regresar a lo que siempre fuiste, ahora con claridad.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">El camino</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="clientes.html">Para quién</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Conecta</h4>
+      <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">Instagram · @arquitectaemocional.cl</a>
+      <a href="https://www.arquitecta-emocional.com" target="_blank" rel="noopener">www.arquitecta-emocional.com</a>
+      <a href="contacto.html">Escríbeme</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Arquitecta Emocional · Belén Escribano</span>
+    <span>Reconstrucción emocional e identitaria</span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
