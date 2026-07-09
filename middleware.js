@@ -4,14 +4,21 @@ export default async function middleware(request) {
   const url = new URL(request.url);
   const secret = process.env.ACCESS_TOKEN_SECRET;
 
+  if (!secret) {
+    console.error('ACCESS_TOKEN_SECRET no está definida');
+    return Response.redirect(new URL('/acceso-no-valido.html', request.url), 302);
+  }
+
   const tokenFromQuery = url.searchParams.get('token');
-  const tokenFromCookie = request.headers.get('cookie')
-    ?.split('; ')
+  const cookieHeader = request.headers.get('cookie') || '';
+  const tokenFromCookie = cookieHeader
+    .split('; ')
     .find(c => c.startsWith('access_token='))
     ?.split('=')[1];
 
   const token = tokenFromQuery || tokenFromCookie;
-  const producto = url.pathname.split('/')[2];
+  const pathParts = url.pathname.split('/');
+  const producto = pathParts[2];
 
   if (!token) {
     return Response.redirect(new URL('/acceso-no-valido.html', request.url), 302);
@@ -32,27 +39,35 @@ export default async function middleware(request) {
     return res;
   }
 
-  return;
+  return new Response(null, { status: 200 });
 }
 
 async function verifyToken(token, secret) {
   try {
-    const [payload, sig] = token.split('.');
-    if (!payload || !sig) return null;
+    const parts = token.split('.');
+    if (parts.length !== 2) return null;
+    const [payload, sig] = parts;
 
     const enc = new TextEncoder();
     const key = await crypto.subtle.importKey(
-      'raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+      'raw',
+      enc.encode(secret),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['sign']
     );
     const expected = await crypto.subtle.sign('HMAC', key, enc.encode(payload));
-    const expectedHex = [...new Uint8Array(expected)]
-      .map(b => b.toString(16).padStart(2, '0')).join('');
+    const expectedHex = Array.from(new Uint8Array(expected))
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
 
     if (expectedHex !== sig) return null;
 
     const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
-    return JSON.parse(atob(base64));
-  } catch {
+    const decoded = atob(base64);
+    return JSON.parse(decoded);
+  } catch (err) {
+    console.error('Error verificando token:', err.message);
     return null;
   }
 }
