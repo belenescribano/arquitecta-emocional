@@ -1,45 +1,64 @@
 export const config = { matcher: ['/app/:path*'] };
 
 export default async function middleware(request) {
-  const url = new URL(request.url);
-  const secret = process.env.ACCESS_TOKEN_SECRET;
+  try {
+    const url = new URL(request.url);
+    const secret = process.env.ACCESS_TOKEN_SECRET;
 
-  if (!secret) {
-    console.error('ACCESS_TOKEN_SECRET no está definida');
-    return Response.redirect(new URL('/acceso-no-valido.html', request.url), 302);
+    if (!secret) {
+      console.error('ACCESS_TOKEN_SECRET no definida');
+      return redirectTo('/acceso-no-valido.html', request.url);
+    }
+
+    const tokenFromQuery = url.searchParams.get('token');
+    const cookieHeader = request.headers.get('cookie') || '';
+    const tokenFromCookie = cookieHeader
+      .split('; ')
+      .find(c => c.startsWith('access_token='))
+      ?.split('=')[1];
+
+    const token = tokenFromQuery || tokenFromCookie;
+    const producto = url.pathname.split('/')[2];
+
+    if (!token) {
+      return redirectTo('/acceso-no-valido.html', request.url);
+    }
+
+    const payload = await verifyToken(token, secret);
+    console.log('Payload decodificado:', JSON.stringify(payload), 'Producto ruta:', producto);
+
+    if (!payload) {
+      return redirectTo('/acceso-no-valido.html', request.url);
+    }
+
+    if (payload.producto !== producto) {
+      console.log('Producto no coincide. Token:', payload.producto, 'URL:', producto);
+      return redirectTo('/acceso-no-valido.html', request.url);
+    }
+
+    if (tokenFromQuery) {
+      const cleanUrl = new URL(url.pathname, request.url).toString();
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: cleanUrl,
+          'Set-Cookie': `access_token=${token}; Path=/app; HttpOnly; Secure; SameSite=Lax; Max-Age=94608000`,
+        },
+      });
+    }
+
+    return;
+  } catch (err) {
+    console.error('Error en middleware:', err.message, err.stack);
+    return redirectTo('/acceso-no-valido.html', request.url);
   }
+}
 
-  const tokenFromQuery = url.searchParams.get('token');
-  const cookieHeader = request.headers.get('cookie') || '';
-  const tokenFromCookie = cookieHeader
-    .split('; ')
-    .find(c => c.startsWith('access_token='))
-    ?.split('=')[1];
-
-  const token = tokenFromQuery || tokenFromCookie;
-  const pathParts = url.pathname.split('/');
-  const producto = pathParts[2];
-
-  if (!token) {
-    return Response.redirect(new URL('/acceso-no-valido.html', request.url), 302);
-  }
-
-  const payload = await verifyToken(token, secret);
-  if (!payload || payload.producto !== producto) {
-    return Response.redirect(new URL('/acceso-no-valido.html', request.url), 302);
-  }
-
-  if (tokenFromQuery) {
-    const cleanUrl = new URL(url.pathname, request.url);
-    const res = Response.redirect(cleanUrl, 302);
-    res.headers.append(
-      'Set-Cookie',
-      `access_token=${token}; Path=/app; HttpOnly; Secure; SameSite=Lax; Max-Age=94608000`
-    );
-    return res;
-  }
-
-  return new Response(null, { status: 200 });
+function redirectTo(path, base) {
+  return new Response(null, {
+    status: 302,
+    headers: { Location: new URL(path, base).toString() },
+  });
 }
 
 async function verifyToken(token, secret) {
@@ -61,11 +80,15 @@ async function verifyToken(token, secret) {
       .map(b => b.toString(16).padStart(2, '0'))
       .join('');
 
-    if (expectedHex !== sig) return null;
+    if (expectedHex !== sig) {
+      console.log('Firma no coincide');
+      return null;
+    }
 
     const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
-    const decoded = atob(base64);
-    return JSON.parse(decoded);
+    const padded = base64 + '=='.slice(0, (4 - base64.length % 4) % 4);
+    const binary = atob(padded);
+    return JSON.parse(binary);
   } catch (err) {
     console.error('Error verificando token:', err.message);
     return null;
