@@ -1,11 +1,13 @@
-const crypto = require('crypto');
+import crypto from 'node:crypto';
 
 const PRODUCTO_POR_VARIANT = {
   [process.env.VARIANT_ID_VOCABULARIO]: 'vocabulario-emocional',
 };
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') return res.status(405).send('Method not allowed');
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).send('Method not allowed');
+  }
 
   const chunks = [];
   for await (const chunk of req) chunks.push(chunk);
@@ -17,11 +19,15 @@ module.exports = async (req, res) => {
     .update(rawBody)
     .digest('hex');
 
+  console.log('Webhook recibido. Firma coincide:', signature === expected);
+
   if (signature !== expected) {
     return res.status(401).send('Firma inválida');
   }
 
   const event = JSON.parse(rawBody);
+  console.log('Evento:', event.meta.event_name);
+
   if (event.meta.event_name !== 'order_created') {
     return res.status(200).send('OK (evento ignorado)');
   }
@@ -30,17 +36,22 @@ module.exports = async (req, res) => {
   const email = event.data.attributes.user_email;
   const producto = PRODUCTO_POR_VARIANT[variantId];
 
+  console.log('Variant ID recibido:', variantId, '| Producto mapeado:', producto);
+
   if (!producto) {
     return res.status(200).send('OK (producto no gateado)');
   }
 
-  const token = signToken({ producto, email, iat: Date.now() }, process.env.ACCESS_TOKEN_SECRET);
+  const token = signToken(
+    { producto, email, iat: Date.now() },
+    process.env.ACCESS_TOKEN_SECRET
+  );
   const accessUrl = `https://www.arquitecta-emocional.com/app/${producto}?token=${token}`;
 
   console.log('Link de acceso generado:', accessUrl);
 
   return res.status(200).send('OK');
-};
+}
 
 function signToken(payloadObj, secret) {
   const payload = Buffer.from(JSON.stringify(payloadObj)).toString('base64url');
