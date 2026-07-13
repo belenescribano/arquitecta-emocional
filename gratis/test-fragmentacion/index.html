@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Test de Fragmentación Emocional · Arquitecta Emocional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --marfil:#F5F0E8;--beige:#E8DFD0;--taupe:#BFB5A8;
+  --dorado:#C9AA7C;--carbon:#3D3830;--carbon2:#4A443C;
+  --sage:#7A8A7E;--mauve:#8A7A8A;--warm:#8A7E6E;--olive:#8A8A7A;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;font-weight:300;
+  background:var(--marfil);color:var(--carbon);
+  min-height:100vh;overflow-x:hidden;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{
+  position:fixed;top:0;left:0;height:2px;
+  background:var(--dorado);z-index:100;
+  transition:width 0.4s ease;width:0%;
+}
+
+/* ── HEADER ── */
+.header{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);
+  padding:0 40px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:90;border-bottom:1px solid rgba(191,181,168,0.3);
+}
+.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;}
+
+/* ── SCREENS ── */
+.screen{display:none;min-height:100vh;padding-top:68px;}
+.screen.active{display:flex;flex-direction:column;}
+
+/* ── INTRO SCREEN ── */
+#screen-intro{
+  background:var(--carbon);
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+#screen-intro::before{
+  content:'';position:absolute;
+  top:-120px;right:-120px;width:600px;height:600px;border-radius:50%;
+  border:1px solid rgba(201,170,124,0.12);pointer-events:none;
+}
+#screen-intro::after{
+  content:'';position:absolute;
+  bottom:-200px;left:-80px;width:500px;height:500px;border-radius:50%;
+  border:1px solid rgba(201,170,124,0.07);pointer-events:none;
+}
+.intro-inner{
+  max-width:620px;width:90%;padding:60px 0;
+  display:flex;flex-direction:column;gap:0;position:relative;z-index:1;
+}
+.intro-tag{
+  font-size:10px;letter-spacing:0.2em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.intro-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,6vw,64px);font-weight:400;
+  line-height:1.05;color:var(--marfil);
+  margin-bottom:6px;
+}
+.intro-title em{color:var(--dorado);font-style:italic;}
+.intro-rule{
+  width:48px;height:1px;background:var(--dorado);
+  margin:24px 0;
+}
+.intro-sub{
+  font-size:15px;color:var(--taupe);line-height:1.85;
+  margin-bottom:32px;max-width:480px;
+}
+.intro-meta{
+  display:flex;gap:24px;margin-bottom:44px;
+  font-size:11px;color:var(--taupe);letter-spacing:0.06em;
+}
+.intro-meta span{display:flex;align-items:center;gap:6px;}
+.intro-meta svg{width:13px;height:13px;opacity:0.6;}
+.btn-start{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--dorado);color:var(--carbon);
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 28px;border:none;cursor:pointer;
+  transition:all 0.2s;align-self:flex-start;
+}
+.btn-start:hover{background:#d4b88a;transform:translateY(-1px);}
+.intro-note{
+  margin-top:32px;font-size:12px;color:rgba(191,181,168,0.6);
+  font-style:italic;font-family:'Cormorant Garamond',serif;
+}
+
+/* ── QUESTION SCREEN ── */
+#screen-test{
+  background:var(--marfil);
+  align-items:center;
+  padding-top:56px;
+}
+.test-wrap{
+  max-width:680px;width:90%;padding:60px 0 80px;
+  flex:1;display:flex;flex-direction:column;
+}
+.q-counter{
+  font-size:10px;letter-spacing:0.16em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:28px;
+}
+.q-dimension{
+  font-size:11px;letter-spacing:0.12em;color:var(--taupe);
+  text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.dim-dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+.q-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3.5vw,28px);font-weight:400;
+  line-height:1.35;color:var(--carbon);
+  margin-bottom:10px;
+}
+.q-hint{
+  font-size:15px;color:var(--warm);margin-bottom:40px;
+  font-style:italic;font-family:'Cormorant Garamond',serif;
+}
+.scale-wrap{display:flex;flex-direction:column;gap:0;margin-bottom:48px;}
+.scale-labels{
+  display:flex;justify-content:space-between;
+  font-size:10px;color:var(--taupe);letter-spacing:0.06em;
+  margin-bottom:12px;text-transform:uppercase;
+}
+.scale-btns{display:flex;gap:8px;}
+.scale-btn{
+  flex:1;aspect-ratio:1;
+  border:1px solid rgba(191,181,168,0.5);background:transparent;
+  cursor:pointer;transition:all 0.18s;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--carbon2);
+  position:relative;
+}
+.scale-btn:hover{border-color:var(--dorado);color:var(--carbon);}
+.scale-btn.selected{
+  background:var(--carbon);border-color:var(--carbon);
+  color:var(--dorado);
+}
+.scale-btn .val{font-size:17px;}
+
+.nav-btns{display:flex;justify-content:space-between;align-items:center;}
+.btn-back{
+  background:none;border:1px solid rgba(191,181,168,0.4);
+  color:var(--taupe);font-size:11px;font-family:'Inter',sans-serif;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:11px 22px;cursor:pointer;transition:all 0.15s;
+}
+.btn-back:hover{border-color:var(--taupe);color:var(--carbon);}
+.btn-next{
+  background:var(--carbon);border:none;
+  color:var(--marfil);font-size:11px;font-family:'Inter',sans-serif;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:12px 28px;cursor:pointer;transition:all 0.15s;
+  display:flex;align-items:center;gap:8px;
+}
+.btn-next:hover{background:var(--carbon2);}
+.btn-next:disabled{opacity:0.35;cursor:not-allowed;}
+
+/* Q transition */
+.q-block{transition:opacity 0.25s, transform 0.25s;}
+.q-block.fade-out{opacity:0;transform:translateY(8px);}
+
+/* ── EMAIL SCREEN ── */
+#screen-email{
+  background:var(--beige);
+  align-items:center;justify-content:center;
+}
+.email-inner{max-width:520px;width:90%;padding:60px 0;text-align:center;}
+.email-inner .intro-tag{text-align:center;}
+.email-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);
+  font-weight:400;line-height:1.2;color:var(--carbon);margin-bottom:12px;
+}
+.email-sub{font-size:13.5px;color:var(--carbon2);line-height:1.8;margin-bottom:36px;}
+.email-form{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
+.email-form input{
+  background:var(--marfil);border:1px solid rgba(191,181,168,0.6);
+  font-family:'Inter',sans-serif;font-size:13px;color:var(--carbon);
+  padding:14px 18px;outline:none;width:100%;
+  transition:border-color 0.15s;
+}
+.email-form input:focus{border-color:var(--dorado);}
+.email-form input::placeholder{color:var(--taupe);}
+.btn-result{
+  width:100%;background:var(--dorado);border:none;
+  color:var(--carbon);font-family:'Inter',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  padding:15px;cursor:pointer;transition:all 0.2s;
+}
+.btn-result:hover{background:#d4b88a;}
+.email-skip{
+  font-size:11px;color:var(--taupe);cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;
+}
+.email-skip:hover{color:var(--carbon);}
+
+/* ── RESULT SCREEN ── */
+#screen-result{background:var(--carbon);}
+.result-hero{
+  padding:80px 0 60px;
+  display:flex;flex-direction:column;align-items:center;
+  border-bottom:1px solid rgba(201,170,124,0.2);
+}
+.result-inner{max-width:700px;width:90%;}
+.result-tag{
+  font-size:10px;letter-spacing:0.2em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.result-score-row{
+  display:flex;align-items:flex-end;gap:20px;margin-bottom:6px;
+}
+.result-score{
+  font-family:'Cormorant Garamond',serif;font-size:80px;
+  font-weight:300;line-height:1;color:var(--dorado);
+}
+.result-score-label{
+  font-size:12px;color:var(--taupe);margin-bottom:18px;
+  letter-spacing:0.06em;
+}
+.result-profile-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,4.5vw,44px);font-weight:400;
+  color:var(--marfil);line-height:1.15;margin-bottom:8px;
+}
+.result-profile-name em{color:var(--dorado);font-style:italic;}
+.result-profile-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16px;color:var(--taupe);margin-bottom:28px;
+}
+.result-desc{
+  font-size:14px;color:rgba(232,223,208,0.85);
+  line-height:1.9;max-width:600px;margin-bottom:40px;
+}
+
+/* Dimension bars */
+.dim-bars{display:flex;flex-direction:column;gap:12px;margin-bottom:48px;}
+.dim-bar-item{}
+.dim-bar-header{
+  display:flex;justify-content:space-between;
+  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--taupe);margin-bottom:6px;
+}
+.dim-bar-header span:last-child{color:var(--dorado);}
+.dim-bar-track{
+  height:4px;background:rgba(255,255,255,0.08);
+  border-radius:2px;overflow:hidden;
+}
+.dim-bar-fill{
+  height:100%;border-radius:2px;
+  background:var(--dorado);
+  width:0%;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Dimension detail (lectura expandida) */
+.dim-bar-item{margin-bottom:8px;}
+.dim-detail{
+  margin-top:14px;padding:18px 20px;
+  background:rgba(255,255,255,0.03);
+  border-left:2px solid var(--dorado);
+}
+.dim-detail-block{margin-bottom:14px;}
+.dim-detail-block:last-child{margin-bottom:0;}
+.dim-detail-label{
+  font-size:9px;letter-spacing:0.14em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:6px;display:block;
+}
+.dim-detail-text{
+  font-size:13px;color:rgba(232,223,208,0.85);line-height:1.75;
+}
+
+/* Insights */
+.result-insights{
+  max-width:700px;width:90%;
+  padding:48px 0;
+  border-bottom:1px solid rgba(201,170,124,0.15);
+  margin:0 auto;
+}
+.insights-title{
+  font-family:'Cormorant Garamond',serif;font-size:22px;
+  color:var(--dorado);margin-bottom:24px;font-weight:400;
+}
+.insight-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.insight-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(201,170,124,0.12);
+  padding:22px;
+}
+.insight-card-label{
+  font-size:9px;letter-spacing:0.16em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:8px;display:block;
+}
+.insight-card-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:14.5px;color:var(--marfil);line-height:1.6;
+}
+
+/* Primer paso */
+.result-firststep{
+  max-width:700px;width:90%;margin:0 auto;
+  padding:44px 0;
+  border-bottom:1px solid rgba(201,170,124,0.15);
+}
+.firststep-box{
+  background:rgba(201,170,124,0.06);
+  border:1px solid rgba(201,170,124,0.2);
+  padding:30px 34px;
+}
+.firststep-label{
+  font-size:9px;letter-spacing:0.18em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:12px;display:block;
+}
+.firststep-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16.5px;color:var(--marfil);line-height:1.75;
+}
+
+/* CTA */
+.result-cta{
+  max-width:700px;width:90%;
+  padding:48px 0 72px;margin:0 auto;
+}
+.cta-box{
+  background:rgba(201,170,124,0.08);
+  border:1px solid rgba(201,170,124,0.25);
+  padding:36px 40px;
+}
+.cta-label{
+  font-size:9px;letter-spacing:0.18em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:12px;display:block;
+}
+.cta-title{
+  font-family:'Cormorant Garamond',serif;font-size:24px;
+  color:var(--marfil);font-weight:400;margin-bottom:10px;line-height:1.3;
+}
+.cta-desc{
+  font-size:13px;color:var(--taupe);line-height:1.8;margin-bottom:28px;
+}
+.btn-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--dorado);color:var(--carbon);
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 26px;border:none;cursor:pointer;
+  text-decoration:none;transition:all 0.2s;
+}
+.btn-cta:hover{background:#d4b88a;}
+.cta-note{
+  margin-top:16px;font-size:11px;color:rgba(191,181,168,0.5);
+  font-style:italic;font-family:'Cormorant Garamond',serif;
+}
+
+/* Share row */
+.share-row{
+  display:flex;gap:10px;margin-top:32px;align-items:center;
+}
+.share-label{font-size:10px;color:var(--taupe);letter-spacing:0.08em;text-transform:uppercase;}
+.share-btn{
+  background:none;border:1px solid rgba(191,181,168,0.25);
+  color:var(--taupe);font-size:10px;font-family:'Inter',sans-serif;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:8px 16px;cursor:pointer;transition:all 0.15s;
+}
+.share-btn:hover{border-color:var(--dorado);color:var(--dorado);}
+
+/* Footer */
+.site-footer{
+  background:var(--carbon);border-top:1px solid rgba(201,170,124,0.15);
+  padding:24px 40px;display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:var(--taupe);
+}
+.site-footer a{color:var(--dorado);text-decoration:none;}
+
+/* Mobile */
+@media(max-width:600px){
+  .header{padding:0 20px;}
+  .intro-inner,.test-wrap,.result-inner,.result-insights,.result-cta,.result-firststep{width:92%;}
+  .insight-cards{grid-template-columns:1fr;}
+  .cta-box{padding:28px 24px;}
+  .dim-detail{padding:16px;}
+  .firststep-box{padding:24px 22px;}
+  .scale-btns{gap:5px;}
+  .site-footer{flex-direction:column;gap:8px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<header class="header">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" width="210" height="36" aria-label="Arquitecta Emocional – Belén Escribano" style="display:block;flex-shrink:0">
+  <g fill="none" stroke="#C9AA7C" stroke-width="0.6" opacity="0.5" stroke-linecap="round">
+    <path d="M18 22 Q22 27 26 31"/><path d="M18 22 Q14 27 10 31"/>
+    <path d="M18 50 Q22 45 26 41"/><path d="M18 50 Q14 45 10 41"/>
+    <path d="M18 36 L26 31"/><path d="M18 36 L10 31"/>
+    <path d="M18 36 L26 41"/><path d="M18 36 L10 41"/>
+  </g>
+  <text x="40" y="30" font-family="'Cormorant Garamond',serif" font-size="26" font-weight="400" fill="#3D3830" letter-spacing="0.5">Arquitecta</text>
+  <text x="40" y="57" font-family="'Cormorant Garamond',serif" font-size="26" font-weight="300" font-style="italic" fill="#C9AA7C" letter-spacing="0.5">Emocional</text>
+  <line x1="40" y1="63" x2="420" y2="63" stroke="#BFB5A8" stroke-width="0.6"/>
+  <text x="41" y="72" font-family="'Inter',sans-serif" font-size="7.5" font-weight="400" fill="#BFB5A8" letter-spacing="2.8">BELÉN ESCRIBANO</text>
+</svg>
+  <span class="header-tag">Test Gratuito · Belén Escribano</span>
+</header>
+
+<!-- ══ INTRO ══════════════════════════════════════════════════════════ -->
+<div class="screen active" id="screen-intro">
+  <div class="intro-inner">
+    <span class="intro-tag">Recurso gratuito · Arquitecta Emocional</span>
+    <h1 class="intro-title">Test de<br><em>Fragmentación</em><br>Emocional</h1>
+    <div class="intro-rule"></div>
+    <p class="intro-sub">Un cuestionario breve para identificar qué partes de ti se desconectaron en el camino — y dónde vive con más fuerza esa desconexión.</p>
+    <div class="intro-meta">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        4 a 5 minutos
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        16 afirmaciones
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Resultado personalizado
+      </span>
+    </div>
+    <button class="btn-start" onclick="startTest()">
+      Comenzar el test
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <p class="intro-note">"No hay respuestas correctas. Solo las tuyas."</p>
+  </div>
+</div>
+
+<!-- ══ TEST ════════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-test">
+  <div class="test-wrap">
+    <div class="q-block" id="q-block">
+      <div class="q-counter" id="q-counter">Pregunta 1 de 16</div>
+      <div class="q-dimension" id="q-dim">
+        <span class="dim-dot" id="dim-dot"></span>
+        <span id="dim-name"></span>
+      </div>
+      <p class="q-text" id="q-text"></p>
+      <p class="q-hint" id="q-hint"></p>
+      <div class="scale-wrap">
+        <div class="scale-labels">
+          <span>Casi nunca</span>
+          <span>A veces</span>
+          <span>Casi siempre</span>
+        </div>
+        <div class="scale-btns" id="scale-btns">
+          <button class="scale-btn" onclick="selectVal(1)"><span class="val">1</span></button>
+          <button class="scale-btn" onclick="selectVal(2)"><span class="val">2</span></button>
+          <button class="scale-btn" onclick="selectVal(3)"><span class="val">3</span></button>
+          <button class="scale-btn" onclick="selectVal(4)"><span class="val">4</span></button>
+          <button class="scale-btn" onclick="selectVal(5)"><span class="val">5</span></button>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" id="btn-back" onclick="prevQ()" style="visibility:hidden">Anterior</button>
+        <button class="btn-next" id="btn-next" onclick="nextQ()" disabled>
+          Siguiente
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EMAIL ═══════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-email">
+  <div class="email-inner">
+    <span class="intro-tag" style="text-align:center;display:block;">Casi listo</span>
+    <h2 class="email-title">Antes de ver tu<br>resultado, respira.</h2>
+    <p class="email-sub">Lo que verás a continuación es un mapa, no un diagnóstico. Léelo con calma, sin apuro por resolver — a veces lo más valioso es simplemente reconocer lo que ya estaba ahí.</p>
+    <button class="btn-result" onclick="showResult()">Ver mi resultado</button>
+  </div>
+</div>
+
+<!-- ══ RESULT ══════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-result">
+  <div class="result-hero">
+    <div class="result-inner">
+      <div class="result-tag" id="res-tag">Tu resultado · Arquitecta Emocional</div>
+      <div class="result-score-row">
+        <div class="result-score" id="res-score"></div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--taupe);margin-bottom:4px;">puntos de 80</div>
+          <div style="font-size:10px;letter-spacing:0.12em;color:var(--dorado);text-transform:uppercase;" id="res-level-badge"></div>
+        </div>
+      </div>
+      <h2 class="result-profile-name" id="res-name"></h2>
+      <p class="result-profile-sub" id="res-sub"></p>
+      <p class="result-desc" id="res-desc"></p>
+      <div class="dim-bars" id="dim-bars"></div>
+    </div>
+  </div>
+
+  <div class="result-insights" id="result-insights-wrap">
+    <div class="insights-title">Lo que esto significa para ti</div>
+    <div class="insight-cards" id="insight-cards"></div>
+  </div>
+
+  <div class="result-firststep" id="result-firststep-wrap">
+    <div class="firststep-box">
+      <span class="firststep-label">Un primer paso</span>
+      <p class="firststep-text" id="firststep-text"></p>
+    </div>
+  </div>
+
+  <div class="result-cta">
+    <div class="cta-box" id="cta-box">
+      <span class="cta-label">Siguiente paso</span>
+      <h3 class="cta-title" id="cta-title"></h3>
+      <p class="cta-desc" id="cta-desc"></p>
+      <a class="btn-cta" href="https://www.instagram.com/arquitecta.emocional" target="_blank">
+        Conocer el programa Volver a Ti
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="cta-note" id="cta-note"></p>
+    </div>
+    <div class="share-row">
+      <span class="share-label">Compartir:</span>
+      <button class="share-btn" onclick="shareWA()">WhatsApp</button>
+      <button class="share-btn" onclick="copyLink()">Copiar link</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>Arquitecta Emocional · <a href="https://www.instagram.com/arquitecta.emocional" target="_blank">@arquitecta.emocional</a></span>
+    <span>Belén Escribano · Santiago, Chile</span>
+  </footer>
+</div>
+
+<script>
+// ══ DATA ══════════════════════════════════════════════════════════════════
+
+const DIMS = {
+  emocional: { label: 'Fragmentación Emocional', color: '#C9AA7C' },
+  corporal:  { label: 'Desconexión Corporal',    color: '#8A7E6E' },
+  identidad: { label: 'Identidad Fragmentada',   color: '#7A8A7E' },
+  relacional:{ label: 'Vínculos y Límites',      color: '#8A7A8A' },
+};
+
+// Lectura expandida por dimensión, según banda de puntaje (bajo 1-7 / medio 8-14 / alto 15-20)
+const DIM_TEXTS = {
+  emocional: {
+    bajo: {
+      significa: 'Tienes un acceso relativamente fluido a tus emociones. Puedes nombrarlas con cierta facilidad y no necesitas mucho esfuerzo para reconocer lo que sientes.',
+      diaadia: 'Cuando algo te molesta, sueles saberlo. Puedes identificar si estás triste, ansiosa o frustrada sin que tarde mucho en aparecer la palabra. Las conversaciones sobre emociones no te resultan ajenas.',
+      dondeempezar: 'Aquí el trabajo es de profundidad, no de acceso. Practica ir un nivel más abajo de la emoción que identificas: si sientes "tristeza", pregúntate qué tipo exacto. ¿Es melancolía, dolor, vacío, pena?',
+    },
+    medio: {
+      significa: 'Tienes acceso parcial a tus emociones — puedes nombrar las más evidentes, pero hay una capa más fina que se te escapa. A veces sabes que "algo no está bien" sin poder precisar qué es.',
+      diaadia: 'Te das cuenta de que estás mal cuando el cuerpo ya lo lleva días diciendo. A veces racionalizas antes de sentir — te preguntas si "tiene sentido" lo que sientes antes de permitirte sentirlo. Puedes describir eventos pero te cuesta más describir lo que esos eventos movieron en ti.',
+      dondeempezar: 'Practica nombrarte a ti misma en el momento — no después. Cuando algo ocurra durante el día, para 30 segundos y di (aunque sea internamente): "ahora mismo estoy sintiendo...". No tiene que ser exacto. Solo tiene que ser honesto.',
+    },
+    alto: {
+      significa: 'Hay una distancia importante entre tú y tus emociones. No es que no las tengas — es que aprendiste a funcionar sin consultarlas. El resultado puede ser que te sorprenda tu propia reacción ante ciertas cosas.',
+      diaadia: 'Puedes pasar semanas "bien" y de repente desmoronarte sin saber exactamente por qué. Cuando alguien te pregunta cómo estás, respondes con hechos ("tuve una semana muy ocupada") en lugar de emociones. El cansancio crónico suele ser la primera señal — no de que trabajas mucho, sino de que cargas lo que no has procesado.',
+      dondeempezar: 'Empieza por el cuerpo, no por la mente. Antes de intentar nombrar lo que sientes, identifica dónde lo sientes físicamente. ¿Hay tensión en el pecho? ¿Peso en los hombros? ¿Nudo en el estómago? El cuerpo lleva el registro que la mente prefiere ignorar.',
+    },
+  },
+  corporal: {
+    bajo: {
+      significa: 'Tienes una relación relativamente presente con tu cuerpo. Lo escuchas con cierta regularidad y reconoces sus señales antes de que se conviertan en alarmas.',
+      diaadia: 'Cuando tu cuerpo necesita descanso, sueles notarlo. El hambre, el cansancio, la tensión física — son señales que registras. No siempre actúas en consecuencia, pero al menos las escuchas.',
+      dondeempezar: 'Profundiza la conversación con tu cuerpo. Aprende a distinguir entre cansancio físico y cansancio emocional — se sienten diferente si te detienes a observar. Cuando aparezca una tensión, pregúntate qué emoción podría estar sosteniendo esa zona.',
+    },
+    medio: {
+      significa: 'Tu cuerpo habla pero tú no siempre estás escuchando. Hay una desconexión parcial — puedes registrar señales físicas intensas, pero las sutiles suelen pasar desapercibidas hasta que se acumulan.',
+      diaadia: 'Te das cuenta de que tienes los hombros tensos cuando alguien te lo señala, no por tu propia observación. El descanso no siempre te recupera porque estás cargando algo que no es físico. Puedes ir días enteros sin notar cómo está tu cuerpo hasta que algo duela de verdad.',
+      dondeempezar: 'Incluye un escaneo corporal de 2 minutos en tu rutina — al despertar o antes de dormir. Sin intentar cambiar nada. Solo recorrer el cuerpo mentalmente de la cabeza a los pies y notar qué hay. Esa práctica sola, sostenida en el tiempo, cambia la relación.',
+    },
+    alto: {
+      significa: 'La desconexión con tu cuerpo es significativa. Probablemente aprendiste muy pronto que lo que sentías físicamente (incomodidad, miedo, dolor) era mejor ignorarlo o suprimirlo. El cuerpo se convirtió en algo que administrar, no en algo con quien relacionarte.',
+      diaadia: 'Puedes funcionar a un nivel de estrés muy alto sin percibirlo como tal — hasta que el cuerpo "explota" en forma de enfermedad, agotamiento extremo o crisis. El descanso se siente como pérdida de tiempo. Tienes dificultad para identificar si lo que sientes es hambre, ansiedad, tristeza o cansancio — todo se vuelve una sensación difusa de "algo no está bien".',
+      dondeempezar: 'Antes de cualquier otra práctica, aprende a pausar. Tres veces al día, pon una alarma y durante 60 segundos solo observa: ¿cómo está el cuerpo ahora mismo? No para cambiarlo — para conocerlo. La reconexión no ocurre con técnicas avanzadas; ocurre con presencia repetida y sin juicio.',
+    },
+  },
+  identidad: {
+    bajo: {
+      significa: 'Tienes un sentido relativamente estable de quién eres. Puedes responder "¿qué quieres?" o "¿qué necesitas?" sin que la pregunta te paralice completamente.',
+      diaadia: 'Tus decisiones tienen una dirección reconocible para ti. No siempre estás segura, pero hay un hilo de lo que valoras que aparece con cierta consistencia. Puedes distinguir entre lo que quieres tú y lo que se espera de ti, aunque no siempre elijas lo primero.',
+      dondeempezar: 'El trabajo aquí es de coherencia — asegurarte de que lo que dices ser se alinea con lo que realmente haces. Observa en qué momentos actúas desde lo que crees ser y en cuáles actúas desde lo que crees que esperan de ti.',
+    },
+    medio: {
+      significa: 'Tu sentido de identidad existe pero es variable — cambia según el contexto, las personas, el momento. No es que seas "falsa" en ninguno de esos contextos, sino que aprendiste a adaptarte tanto que ya no sabes exactamente cuál versión eres "tú de verdad".',
+      diaadia: 'Eres una persona diferente en el trabajo, con tu familia y con tu pareja — y ninguna de esas versiones se siente del todo completa. Cuando alguien te pregunta qué quieres hacer, a veces genuinamente no lo sabes. Tomar decisiones sobre tu vida (trabajo, relaciones, tiempo libre) puede sentirse más difícil de lo que "debería".',
+      dondeempezar: 'Empieza a notar, sin juzgar, cuándo cambias de versión. ¿Con quién te adaptas más? ¿En qué situaciones sientes que "representas" algo que no es completamente tuyo? Esa observación, sin la presión de cambiarlo todavía, ya es el inicio del trabajo.',
+    },
+    alto: {
+      significa: 'La fragmentación de identidad es profunda. Has pasado tanto tiempo siendo lo que los diferentes contextos de tu vida necesitaban que la pregunta "¿quién soy yo?" puede sentirse aterradora o simplemente sin respuesta.',
+      diaadia: 'Puedes tener una vida que desde afuera "funciona bien" — trabajo, relaciones, rutinas — y sentir al mismo tiempo que hay una distancia entre esa vida y tú. Como si la observaras desde fuera. Cambias de opinión frecuentemente no porque estés explorando, sino porque no tienes un centro de referencia claro. El agotamiento de "performar" distintas versiones de ti misma puede ser una de las fuentes de cansancio más difíciles de identificar.',
+      dondeempezar: 'La pregunta no es "¿quién soy?" — esa es demasiado grande para empezar. La pregunta más útil es: "¿qué me gusta, aunque nadie lo vea?" Empieza por lo pequeño. Lo que eliges cuando nadie tiene opinión sobre lo que eliges.',
+    },
+  },
+  relacional: {
+    bajo: {
+      significa: 'Tienes una relación relativamente saludable con tus vínculos. Puedes establecer límites con cierta facilidad y no te disuelves en las necesidades de los demás de forma automática.',
+      diaadia: 'Puedes decir que no sin que eso te genere días de angustia. Reconoces cuándo una relación te nutre y cuándo te agota. No siempre es cómodo marcar un límite, pero puedes hacerlo.',
+      dondeempezar: 'El trabajo aquí es de profundidad relacional — aprender a pedir (no solo a dar) y a recibir sin sentirte en deuda. ¿Con quién te cuesta pedir ayuda? ¿Qué dice eso de lo que crees que mereces en esas relaciones?',
+    },
+    medio: {
+      significa: 'Los vínculos son un área de tensión frecuente. Probablemente tienes relaciones importantes en tu vida, pero en muchas de ellas hay una dinámica de dar más de lo que recibes, de anticipar las necesidades del otro antes que las propias, o de no saber cómo decir que no sin que duela mucho.',
+      diaadia: 'Puedes sentirte responsable del bienestar emocional de personas cercanas. Cuando hay conflicto, sueles ser quien cede — no siempre porque quieras, sino porque la incomodidad del conflicto se siente peor que la incomodidad de ceder. Dices que sí cuando quieres decir que no con más frecuencia de la que reconocerías en voz alta.',
+      dondeempezar: 'Practica el "no" en espacios de bajo riesgo primero. No empieces con la relación más difícil — empieza donde el coste emocional sea manejable. Un límite pequeño cumplido te enseña más que una decisión enorme postergada.',
+    },
+    alto: {
+      significa: 'Los vínculos y los límites son el área de mayor tensión en tu vida emocional ahora mismo. Hay una tendencia importante a priorizar las necesidades de los demás sobre las propias — no por elección consciente, sino porque aprendiste que ese es el camino más seguro para mantener el afecto y la aprobación.',
+      diaadia: 'Puedes terminar el día habiendo atendido todo lo de los demás y nada de lo tuyo, y no saber bien cómo ocurrió. Decir que no se siente como rechazar a la persona completa, no solo a la petición. Cuando alguien está mal, sientes que tienes que arreglarlo. El silencio o la distancia de alguien importante puede desencadenar una angustia desproporcionada porque lo interpretas como señal de que hiciste algo mal.',
+      dondeempezar: 'Antes de poder dar desde un lugar sano, necesitas aprender que tus necesidades también cuentan. Un ejercicio simple: una vez al día, pregúntate qué necesitas tú — no qué necesitan los demás, no qué tendrías que hacer. Solo: ¿qué necesito yo ahora mismo? No tienes que actuar en consecuencia todavía. Solo escuchar la respuesta.',
+    },
+  },
+};
+
+function getDimBand(raw) {
+  if (raw <= 7) return 'bajo';
+  if (raw <= 14) return 'medio';
+  return 'alto';
+}
+
+const QUESTIONS = [
+  // EMOCIONAL (4)
+  { dim:'emocional', text:'Siento emociones con intensidad pero me cuesta nombrarlas con precisión.', hint:'No lo que crees que sientes — lo que realmente ocurre.' },
+  { dim:'emocional', text:'Cuando algo me afecta, suelo racionalizarlo en lugar de permitirme sentirlo.', hint:'Piensa en situaciones recientes donde algo dolió pero lo analizaste antes de vivirlo.' },
+  { dim:'emocional', text:'Hay emociones que prefiero no sentir y hago cosas para no tener que hacerlo.', hint:'Ocuparte de más, distraerte, estar siempre en modo resolver...' },
+  { dim:'emocional', text:'Me cuesta confiar en lo que siento como guía para tomar decisiones.', hint:'¿Sueles esperar "tener más claridad" antes de actuar?' },
+  // CORPORAL (4)
+  { dim:'corporal', text:'Paso el día sin prestarle atención a lo que mi cuerpo siente.', hint:'Tensión, cansancio, nudos — señales que aparecen pero que no lees hasta que escalan.' },
+  { dim:'corporal', text:'Cuando estoy bajo presión, la primera señal está en el cuerpo, pero la ignoro y sigo.', hint:'El cuerpo ya sabe antes que la mente. ¿Lo escuchas?' },
+  { dim:'corporal', text:'Me es difícil distinguir si lo que siento es intuición o miedo.', hint:'Ambas viven en el cuerpo. El problema es no poder leer la diferencia.' },
+  { dim:'corporal', text:'El agotamiento que siento no siempre es físico — a veces es de alma.', hint:'Ese cansancio que el descanso no resuelve del todo.' },
+  // IDENTIDAD (4)
+  { dim:'identidad', text:'Tengo versiones distintas de mí misma según el contexto, y no sé cuál es la real.', hint:'No adaptación normal — esa sensación de que hay múltiples "yo" y ninguna es del todo tuya.' },
+  { dim:'identidad', text:'Me cuesta saber qué quiero yo realmente — separado de lo que se espera de mí.', hint:'¿Cuándo fue la última vez que elegiste algo solo porque tú querías, sin justificación?' },
+  { dim:'identidad', text:'La historia que me cuento de mí misma está más construida por lo que me pasó que por lo que elegí.', hint:'La narrativa interna que gobierna tus decisiones — ¿es tuya o es supervivencia?' },
+  { dim:'identidad', text:'Hay momentos en que no me reconozco en mis propias reacciones o decisiones.', hint:'Como si otra persona hubiera actuado por ti.' },
+  // RELACIONAL (4)
+  { dim:'relacional', text:'Tiendo a absorber el estado emocional de las personas que me rodean.', hint:'Si alguien está mal, tú también. Si el ambiente está tenso, tú lo cargas.' },
+  { dim:'relacional', text:'Me cuesta decir que no o poner límites sin sentir culpa después.', hint:'No el límite en sí — la culpa que viene después de haberlo puesto.' },
+  { dim:'relacional', text:'Hay expectativas de otras personas que cargo como si fueran mías.', hint:'Exigencias, responsabilidades, roles que no elegiste pero sientes que te pertenecen.' },
+  { dim:'relacional', text:'Me resulta más fácil ver con claridad lo que otros necesitan que lo que necesito yo.', hint:'La capacidad de cuidar a otros no siempre viene acompañada de la de cuidarte a ti.' },
+];
+
+const PROFILES = [
+  {
+    min:0, max:32,
+    level:'Bajo',
+    name:'Presencia <em>con fisuras</em>',
+    sub:'Estás más conectada de lo que crees — con áreas puntuales de atención.',
+    desc:'Llegas a este resultado con una base relativamente estable. Hay áreas donde la conexión contigo misma es real y presente. Lo que este resultado te invita a explorar no es una crisis — es una profundización. Hay capas más finas de ti misma que todavía no has tenido el espacio o las herramientas para conocer. La pregunta no es qué está roto, sino qué podría estar más vivo.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'Momentos donde te sientes presente y conectada contigo misma. Capacidad de identificar lo que sientes con cierta facilidad. Relaciones donde puedes ser relativamente auténtica sin demasiado coste.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'Esa capa más fina que queda debajo de la emoción que sí puedes nombrar. Las decisiones que tomas "en automático" sin consultarte a ti misma. Los contextos donde aparece una versión de ti que no te termina de reconocer.',
+    primerPaso:'Esta semana, elige un momento del día para hacerte una sola pregunta: "¿Desde dónde estoy actuando ahora mismo — desde lo que quiero o desde lo que creo que se espera de mí?" No tienes que cambiar nada todavía. Solo observar.',
+    cta_title:'El trabajo preventivo es el más poderoso.',
+    cta_desc:'Volver a Ti está diseñado para mujeres que quieren construir desde la claridad — no solo desde la crisis.',
+    cta_note:'"No tienes que estar quebrada para querer estar más entera."',
+  },
+  {
+    min:33, max:52,
+    level:'Moderado',
+    name:'Fragmentación <em>silenciosa</em>',
+    sub:'Funcional por fuera. Algo desconectada por dentro.',
+    desc:'Es el tipo de fragmentación más común — y el más invisible. Funcionas. Cumples. A veces incluso con brillantez. Pero hay una distancia entre la mujer que el mundo ve y la que eres cuando nadie mira. Esa distancia tiene un coste energético que se acumula. No se trata de que algo esté "mal" en ti — se trata de que llevas tiempo sosteniendo demasiado, adaptándote demasiado, y siendo demasiadas versiones distintas de ti misma al mismo tiempo.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'El agotamiento que no se resuelve con descanso. La sensación de que algo falta sin poder nombrarlo. El piloto automático que toma el control antes de que puedas consultarte a ti misma. La pregunta "¿qué quiero yo?" que a veces no tiene respuesta inmediata.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'La narrativa interna que construiste para sobrevivir — y que hoy gobierna decisiones que ya no necesitas tomar desde ese lugar. Los vínculos donde te pierdes de ti misma. El cuerpo que lleva el registro de lo que la mente prefiere no ver.',
+    primerPaso:'Elige una sola área de las cuatro dimensiones — la que más resonó — y dedícale 10 minutos de escritura esta semana. No para resolver nada. Para empezar a conocerla. El journaling no es terapia, pero sí es el primer espacio donde muchas mujeres empiezan a escucharse a sí mismas por primera vez en mucho tiempo.',
+    cta_title:'La fragmentación silenciosa es la que más se tarda en ver — y la que más cambia cuando se trabaja.',
+    cta_desc:'Volver a Ti está diseñado exactamente para este momento: cuando sabes que algo no encaja pero no tienes lenguaje para nombrarlo todavía.',
+    cta_note:'"Cuatro semanas de proceso real pueden dar más claridad que años de gestión solitaria."',
+  },
+  {
+    min:53, max:68,
+    level:'Alto',
+    name:'Fragmentación <em>activa</em>',
+    sub:'El sistema interno está bajo presión sostenida.',
+    desc:'Este resultado habla de una desconexión que lleva tiempo instalada — probablemente desde mucho antes de que pudieras ponerle nombre. No es debilidad. Es el resultado de haber aprendido muy pronto que ciertas partes de ti eran demasiado, incorrectas, o peligrosas de mostrar. Así que las guardaste. Y esa guarda, que fue inteligente y necesaria en su momento, hoy pesa. Lo que este resultado te está diciendo es que ya es tiempo de volver a buscarte.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'Días enteros donde funciones en piloto automático sin saber bien quién toma las decisiones. Una relación complicada con tus propias necesidades — a veces ni siquiera sabes cuáles son. El cuerpo que habla pero que has aprendido a ignorar hasta que grita. La sensación de estar presente en todos lados y en ninguno al mismo tiempo.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'El patrón de adaptación que se activó para protegerte y que hoy opera sin tu permiso. La distancia entre lo que sientes y lo que expresas. Los vínculos donde tu bienestar depende demasiado de la aprobación del otro. La pregunta "¿quién soy cuando no estoy siendo lo que alguien necesita?"',
+    primerPaso:'Antes de cualquier práctica de autoconocimiento, necesitas un espacio que sea completamente tuyo. Ni para compartir, ni para mejorar, ni para reportar a nadie. Un cuaderno donde escribas lo que realmente ocurre, sin editar. Eso es el principio. No de la solución — del reencuentro.',
+    cta_title:'Este nivel de fragmentación responde muy bien al trabajo estructurado y acompañado.',
+    cta_desc:'Volver a Ti fue diseñado para mujeres en este punto exacto: con la conciencia de que algo tiene que cambiar, y con la disposición de hacerlo de verdad.',
+    cta_note:'"No necesitas estar en crisis para merecer acompañamiento. Ya es suficiente con saber que algo no encaja."',
+  },
+  {
+    min:69, max:80,
+    level:'Intenso',
+    name:'Fragmentación <em>profunda</em>',
+    sub:'Llevas tiempo sin saber dónde terminan los demás y dónde empiezas tú.',
+    desc:'Este resultado no te define — te describe un momento. Un momento en que la distancia contigo misma es real y merece atención genuina, no estrategias rápidas. Lo que este puntaje refleja es que llevas mucho tiempo funcionando desde un lugar de supervivencia emocional: adaptándote, anticipando, sosteniendo, cumpliendo. Y eso tiene un coste que ya no puede seguir siendo ignorado. No estás rota. Estás agotada de ser tantas cosas para tantas personas sin haber tenido el espacio de ser tú misma primero.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'Un agotamiento que va más allá de lo físico y que no tiene causa visible clara. La dificultad para saber lo que quieres — no por falta de opinión, sino porque llevas tanto tiempo priorizando lo de los demás que tu propia voz se ha vuelto más silenciosa. Relaciones donde das mucho más de lo que recibes. Un cuerpo que carga lo que no se ha podido decir.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'Este resultado merece más que una práctica de journaling — merece un acompañamiento real. No porque algo esté clínicamente mal, sino porque el trabajo de reconectarte con quien eres necesita estructura, espacio y presencia. Una terapeuta, un proceso de acompañamiento emocional estructurado, o ambos.',
+    primerPaso:'Hoy, solo una cosa: permítete no estar bien sin tener que resolverlo inmediatamente. Si puedes, escribe una sola línea: "¿Qué es lo que más me pesa ahora mismo?" No para buscarle solución — solo para nombrarlo. Nombrar es el principio de todo lo que viene después.',
+    cta_title:'En este punto, trabajar sola suele ser más difícil. No porque no puedas — sino porque el sistema necesita apoyo externo para reorganizarse.',
+    cta_desc:'Volver a Ti fue diseñado para acompañar este proceso de forma segura, con estructura y profundidad real.',
+    cta_note:'"El primer acto de reconstrucción es reconocer que ya es suficiente con lo que has cargado sola."',
+  },
+];
+
+// ══ STATE ════════════════════════════════════════════════════════════════
+
+let answers = new Array(QUESTIONS.length).fill(null);
+let current = 0;
+
+// ══ SCREEN NAV ═══════════════════════════════════════════════════════════
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function startTest() {
+  showScreen('screen-test');
+  renderQ(0);
+  updateProgress();
+}
+
+// ══ QUESTIONS ════════════════════════════════════════════════════════════
+
+function renderQ(idx) {
+  const q = QUESTIONS[idx];
+  const dim = DIMS[q.dim];
+  document.getElementById('q-counter').textContent = `Pregunta ${idx+1} de ${QUESTIONS.length}`;
+  document.getElementById('dim-name').textContent = dim.label;
+  document.getElementById('dim-dot').style.background = dim.color;
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('q-hint').textContent = q.hint;
+  // render buttons
+  const btns = document.querySelectorAll('.scale-btn');
+  btns.forEach((btn, i) => {
+    btn.classList.toggle('selected', answers[idx] === i+1);
+  });
+  document.getElementById('btn-next').disabled = answers[idx] === null;
+  document.getElementById('btn-back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+  // last q label
+  const nextBtn = document.getElementById('btn-next');
+  if (idx === QUESTIONS.length - 1) {
+    nextBtn.innerHTML = 'Ver mi resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  } else {
+    nextBtn.innerHTML = 'Siguiente <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  }
+}
+
+function selectVal(v) {
+  answers[current] = v;
+  document.querySelectorAll('.scale-btn').forEach((btn, i) => {
+    btn.classList.toggle('selected', i+1 === v);
+  });
+  document.getElementById('btn-next').disabled = false;
+}
+
+function transition(fn) {
+  const block = document.getElementById('q-block');
+  block.classList.add('fade-out');
+  setTimeout(() => { fn(); block.classList.remove('fade-out'); }, 220);
+}
+
+function nextQ() {
+  if (answers[current] === null) return;
+  if (current === QUESTIONS.length - 1) {
+    showScreen('screen-email');
+    updateProgress(100);
+    return;
+  }
+  transition(() => { current++; renderQ(current); updateProgress(); });
+}
+
+function prevQ() {
+  if (current === 0) return;
+  transition(() => { current--; renderQ(current); updateProgress(); });
+}
+
+function updateProgress(pct) {
+  const p = pct !== undefined ? pct : Math.round((current / QUESTIONS.length) * 100);
+  document.getElementById('progress').style.width = p + '%';
+}
+
+// ══ RESULT ═══════════════════════════════════════════════════════════════
+
+function computeScores() {
+  const scores = { emocional:0, corporal:0, identidad:0, relacional:0 };
+  QUESTIONS.forEach((q,i) => { if (answers[i]) scores[q.dim] += answers[i]; });
+  const total = Object.values(scores).reduce((a,b)=>a+b,0);
+  return { scores, total };
+}
+
+function getProfile(total) {
+  return PROFILES.find(p => total >= p.min && total <= p.max) || PROFILES[PROFILES.length-1];
+}
+
+function showResult() {
+  const { scores, total } = computeScores();
+  const profile = getProfile(total);
+
+  document.getElementById('res-score').textContent = total;
+  document.getElementById('res-level-badge').textContent = `Nivel ${profile.level}`;
+  document.getElementById('res-name').innerHTML = profile.name;
+  document.getElementById('res-sub').textContent = profile.sub;
+  document.getElementById('res-desc').textContent = profile.desc;
+
+  // Dimension bars + lectura expandida por dimensión
+  const barsEl = document.getElementById('dim-bars');
+  barsEl.innerHTML = '';
+  const dimOrder = ['emocional','corporal','identidad','relacional'];
+  dimOrder.forEach(dk => {
+    const dim = DIMS[dk];
+    const raw = scores[dk];
+    const max = 20;
+    const pct = Math.round((raw/max)*100);
+    const band = getDimBand(raw);
+    const t = DIM_TEXTS[dk][band];
+    barsEl.innerHTML += `
+      <div class="dim-bar-item">
+        <div class="dim-bar-header">
+          <span>${dim.label}</span>
+          <span>${raw}/20</span>
+        </div>
+        <div class="dim-bar-track">
+          <div class="dim-bar-fill" style="background:${dim.color}" data-pct="${pct}"></div>
+        </div>
+        <div class="dim-detail">
+          <div class="dim-detail-block">
+            <span class="dim-detail-label">Lo que esto significa</span>
+            <p class="dim-detail-text">${t.significa}</p>
+          </div>
+          <div class="dim-detail-block">
+            <span class="dim-detail-label">Cómo se vive en el día a día</span>
+            <p class="dim-detail-text">${t.diaadia}</p>
+          </div>
+          <div class="dim-detail-block">
+            <span class="dim-detail-label">Por dónde puedes empezar</span>
+            <p class="dim-detail-text">${t.dondeempezar}</p>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  // Insights
+  document.getElementById('insight-cards').innerHTML = `
+    <div class="insight-card">
+      <span class="insight-card-label">${profile.insight1_label}</span>
+      <p class="insight-card-text">${profile.insight1}</p>
+    </div>
+    <div class="insight-card">
+      <span class="insight-card-label">${profile.insight2_label}</span>
+      <p class="insight-card-text">${profile.insight2}</p>
+    </div>`;
+
+  // Primer paso
+  document.getElementById('firststep-text').textContent = profile.primerPaso;
+
+  // CTA
+  document.getElementById('cta-title').textContent = profile.cta_title;
+  document.getElementById('cta-desc').textContent = profile.cta_desc;
+  document.getElementById('cta-note').textContent = profile.cta_note;
+
+  showScreen('screen-result');
+
+  // Animate bars after render
+  setTimeout(() => {
+    document.querySelectorAll('.dim-bar-fill').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 100);
+}
+
+// ══ SHARE ════════════════════════════════════════════════════════════════
+
+function shareWA() {
+  const text = '¿Qué partes de ti se desconectaron en el camino? Hice el Test de Fragmentación Emocional de Arquitecta Emocional y fue revelador. Puedes hacerlo gratis aquí:';
+  window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.href)}`, '_blank');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.querySelector('.share-btn:last-child');
+    const orig = btn.textContent;
+    btn.textContent = '¡Copiado!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+  const screen = document.querySelector('.screen.active');
+  if (!screen || screen.id !== 'screen-test') return;
+  const num = parseInt(e.key);
+  if (num >= 1 && num <= 5) selectVal(num);
+  if (e.key === 'Enter' && !document.getElementById('btn-next').disabled) nextQ();
+  if (e.key === 'ArrowLeft') prevQ();
+});
+</script>
+</body>
+</html>
