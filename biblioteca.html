@@ -304,7 +304,7 @@
         <p>Pasa de «estoy mal» a un lenguaje emocional preciso: localizar la emoción en el cuerpo, identificar su variante exacta y usarla como punto de partida para trabajar.</p>
         <div class="buy">
           <div class="price">USD 19</div>
-          <a href="https://arquitecta-emocional.lemonsqueezy.com/checkout/buy/6616f78b-1c94-4865-a8d8-d55db9100058?embed=1" class="btn btn-solid lemonsqueezy-button">Comprar ahora <span class="arr">→</span></a>
+          <a href="https://arquitecta-emocional.lemonsqueezy.com/checkout/buy/a26bd1f1-be2f-4d02-a22a-c7b867661f26?embed=1" class="btn btn-solid lemonsqueezy-button">Comprar ahora <span class="arr">→</span></a>
         </div>
         <p class="next-line">→ Después de este material: Escribir para encontrarte.</p>
       </div>
@@ -318,7 +318,7 @@
         <p>Nunca más en blanco frente al diario. 75 puntos de entrada en 3 niveles: lo que hay, lo que evitas, lo que construyes.</p>
         <div class="buy">
           <div class="price">USD 27</div>
-          <button class="btn" data-notify data-res="Las 5 puertas — 75 prompts">Avisarme cuando esté disponible</button>
+          <button class="btn btn-solid" data-notify data-res="Las 5 puertas — 75 prompts">Comprar ahora</button>
         </div>
         <p class="next-line">→ Después de este material: Mapa de claridad emocional.</p>
       </div>
@@ -341,7 +341,7 @@
         <p>Un mapa real de tu arquitectura interna: heridas de fondo, patrones automáticos, la narrativa que te cuentas — y el inicio de una nueva.</p>
         <div class="buy">
           <div class="price">USD 39</div>
-          <button class="btn" data-notify data-res="Mapa de claridad emocional">Avisarme cuando esté disponible</button>
+          <button class="btn btn-solid" data-notify data-res="Mapa de claridad emocional">Comprar ahora</button>
         </div>
         <p class="next-line">→ Después de este material: Programa Volver a Ti.</p>
       </div>
@@ -355,7 +355,7 @@
         <p>Hacer las paces con quien fuiste sin borrarte. En 3 momentos: reconocer, separar y honrar la identidad que construiste para sobrevivir.</p>
         <div class="buy">
           <div class="price">USD 29</div>
-          <button class="btn" data-notify data-res="Carta a la mujer que sobrevivía">Avisarme cuando esté disponible</button>
+          <button class="btn btn-solid" data-notify data-res="Carta a la mujer que sobrevivía">Comprar ahora</button>
         </div>
         <p class="next-line">→ Después de este material: Mapa de claridad emocional.</p>
       </div>
@@ -378,7 +378,7 @@
         <p>Deja de reaccionar desde la activación. Tres herramientas para pausar, observar y elegir cómo responder — en situaciones cotidianas, no solo en calma.</p>
         <div class="buy">
           <div class="price">USD 37</div>
-          <button class="btn" data-notify data-res="Regulación emocional — herramientas">Avisarme cuando esté disponible</button>
+          <button class="btn btn-solid" data-notify data-res="Regulación emocional — herramientas">Comprar ahora</button>
         </div>
         <p class="next-line">→ Después de este material: Mapa de claridad emocional.</p>
       </div>
@@ -603,55 +603,11 @@
     var valid = /.+@.+\..+/.test(emailEl.value.trim());
     emailEl.classList.toggle('invalid', !valid);
     if(!valid){ emailEl.focus(); return; }
-
-    // Determinar el endpoint según el tipo de recurso
-    var currentTitle = titleEl.textContent;
-    var endpoint = null;
-    if(currentTitle && currentTitle.toLowerCase().indexOf('fragmentaci') !== -1){
-      endpoint = '/api/subscribe-test-fragmentacion';
-    }
-
-    // Deshabilitar botón mientras se envía
-    ctaEl.disabled = true;
-    var originalText = ctaEl.childNodes[0].nodeValue;
-    ctaEl.childNodes[0].nodeValue = 'Enviando... ';
-
-    function showDone(){
-      formWrap.style.transition = 'opacity .4s'; formWrap.style.opacity = '0';
-      setTimeout(function(){
-        formWrap.hidden = true; formWrap.style.opacity='';
-        doneWrap.hidden = false;
-        ctaEl.disabled = false;
-        ctaEl.childNodes[0].nodeValue = originalText;
-      }, 400);
-    }
-
-    function showError(msg){
-      ctaEl.disabled = false;
-      ctaEl.childNodes[0].nodeValue = originalText;
-      alert(msg || 'Hubo un problema al enviar el correo. Por favor intenta de nuevo o escríbenos a hola@arquitecta-emocional.com');
-    }
-
-    if(endpoint){
-      fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailEl.value.trim() })
-      })
-      .then(function(res){
-        if(!res.ok){ throw new Error('Error del servidor: ' + res.status); }
-        return res.json();
-      })
-      .then(function(){ showDone(); })
-      .catch(function(err){
-        console.error(err);
-        showError();
-      });
-    } else {
-      // Para otros tipos de formulario (notify, wait, buy) por ahora solo muestra "done"
-      // sin enviar a ningún endpoint (funcionalidad no implementada aún).
-      showDone();
-    }
+    formWrap.style.transition = 'opacity .4s'; formWrap.style.opacity = '0';
+    setTimeout(function(){
+      formWrap.hidden = true; formWrap.style.opacity='';
+      doneWrap.hidden = false;
+    }, 400);
   });
 
   // Newsletter inline
