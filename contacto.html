@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contacto · Arquitecta Emocional</title>
-<meta name="description" content="Escríbeme para iniciar tu proceso de reconstrucción emocional. El primer paso es una conversación honesta.">
+<meta name="description" content="Escríbeme para comenzar tu proceso de reconstrucción emocional. Sesiones individuales, acompañamiento y herramientas de regulación emocional.">
 <link rel="canonical" href="https://www.arquitecta-emocional.com/contacto.html">
 <meta property="og:title" content="Contacto · Arquitecta Emocional">
 <meta property="og:description" content="Escríbeme para iniciar tu proceso de reconstrucción emocional. El primer paso es una conversación honesta.">
@@ -35,8 +35,8 @@
   .cinfo .item a, .cinfo .item span{ font-family:var(--serif); font-size:1.5rem; color:var(--carbon); display:inline-block; transition:color .35s; }
   .cinfo .item a:hover{ color:var(--dorado-deep); }
   .cinfo .item small{ display:block; font-family:var(--sans); font-size:.82rem; color:var(--ink-soft); margin-top:.2em; letter-spacing:0; text-transform:none; }
-  .cinfo .pill{ margin-top:6px; display:inline-flex; align-items:center; gap:.6em; font-family:var(--sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
-  .cinfo .pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--dorado); display:inline-block; }
+  .cinfo .item .pill{ margin-top:6px; display:inline-flex; align-items:center; gap:.6em; font-family:var(--sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+  .cinfo .item .pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--dorado); display:inline-block; }
 
   /* form */
   .form-card{ background:var(--marfil-soft); border:1px solid var(--line); padding:clamp(30px,3.6vw,56px); position:relative; }
@@ -52,6 +52,7 @@
   .field input.invalid, .field textarea.invalid{ border-color:#b4564b; }
   .form-card .btn{ width:100%; justify-content:center; margin-top:8px; }
   .form-note{ font-size:.8rem; color:var(--ink-soft); margin-top:18px; text-align:center; }
+  .form-intro{ font-family:var(--serif); font-style:italic; font-size:1.12rem; line-height:1.5; color:var(--ink-soft); margin:0 0 1.9em; }
   .form-error{ font-size:.88rem; color:#9c4a40; margin-top:18px; text-align:center; line-height:1.6; }
   .form-error a{ color:#9c4a40; border-bottom:1px solid currentColor; }
   .btn.is-loading{ opacity:.6; pointer-events:none; }
@@ -89,8 +90,8 @@
 <!-- HERO -->
 <header class="contact-hero wrap" data-screen-label="Contacto / hero">
   <span class="eyebrow" data-reveal>Contacto</span>
-  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">El primer paso es<br>escribirte a ti misma.</h1>
-  <p class="lead" data-reveal data-reveal-delay="2">Cuéntame cómo te sientes y qué te trae hasta aquí. Leo personalmente cada mensaje y te respondo para ver, juntas, si este es tu momento para empezar.</p>
+  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">Hablemos de tu proceso</h1>
+  <p class="lead" data-reveal data-reveal-delay="2">No necesitas tener todo claro para escribirme. Si algo de lo que leíste aquí resonó contigo —el agotamiento emocional, los patrones que se repiten, la sensación de desconexión— eso ya es suficiente motivo para conversar.</p>
 </header>
 
 <!-- CONTACT -->
@@ -106,7 +107,7 @@
       </div>
       <div class="item">
         <h3>Instagram</h3>
-        <a href="https://instagram.com/arquitectaemocional.cl" target="_blank" rel="noopener">@arquitectaemocional.cl</a>
+        <a href="https://instagram.com/arquitecta.emocional.cl" target="_blank" rel="noopener">@arquitecta.emocional.cl</a>
         <small>Reflexiones y contenido sobre el camino de volver a ti.</small>
       </div>
       <div class="item">
@@ -122,6 +123,7 @@
 
     <!-- form -->
     <div class="form-card" data-reveal data-reveal-delay="1">
+      <p class="form-intro">Cada proceso empieza con una conversación. Cuéntame qué te trajo hasta aquí y juntas vemos cuál es el mejor camino para ti.</p>
       <form data-contact action="https://formspree.io/f/xkoaqzgk" method="POST" novalidate>
         <div class="field">
           <label for="nombre">Tu nombre</label>
