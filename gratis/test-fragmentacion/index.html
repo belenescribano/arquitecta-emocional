@@ -5,42 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Test de Fragmentación Emocional · Arquitecta Emocional</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --marfil:#F5F0E8;--beige:#E8DFD0;--taupe:#BFB5A8;
-  --dorado:#C9AA7C;--carbon:#3D3830;--carbon2:#4A443C;
+  --dorado:#C9AA7C;--carbon:#3D3830;--carbon2:#5A5248;
   --sage:#7A8A7E;--mauve:#8A7A8A;--warm:#8A7E6E;--olive:#8A8A7A;
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'Plus Jakarta Sans',sans-serif;
 }
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Inter',sans-serif;font-weight:300;
+  font-family:var(--font-sans);font-weight:300;
   background:var(--marfil);color:var(--carbon);
   min-height:100vh;overflow-x:hidden;
 }
-
 /* ── PROGRESS BAR ── */
 .progress-bar{
   position:fixed;top:0;left:0;height:2px;
   background:var(--dorado);z-index:100;
   transition:width 0.4s ease;width:0%;
 }
-
 /* ── HEADER ── */
 .header{
   position:fixed;top:0;left:0;right:0;
   background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);
-  padding:0 40px;height:68px;
+  padding:0 40px;height:76px;
   display:flex;align-items:center;justify-content:space-between;
   z-index:90;border-bottom:1px solid rgba(191,181,168,0.3);
 }
-.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;}
-
+.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--carbon2);text-transform:uppercase;font-weight:500;}
 /* ── SCREENS ── */
-.screen{display:none;min-height:100vh;padding-top:68px;}
+.screen{display:none;min-height:100vh;padding-top:76px;}
 .screen.active{display:flex;flex-direction:column;}
-
 /* ── INTRO SCREEN ── */
 #screen-intro{
   background:var(--carbon);
@@ -66,7 +64,7 @@ body{
   text-transform:uppercase;margin-bottom:20px;
 }
 .intro-title{
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-serif);
   font-size:clamp(38px,6vw,64px);font-weight:400;
   line-height:1.05;color:var(--marfil);
   margin-bottom:6px;
@@ -77,29 +75,28 @@ body{
   margin:24px 0;
 }
 .intro-sub{
-  font-size:15px;color:var(--taupe);line-height:1.85;
+  font-size:16px;color:#E8DFD0;line-height:1.85;
   margin-bottom:32px;max-width:480px;
 }
 .intro-meta{
   display:flex;gap:24px;margin-bottom:44px;
-  font-size:11px;color:var(--taupe);letter-spacing:0.06em;
+  font-size:11px;color:#E8DFD0;letter-spacing:0.06em;
 }
 .intro-meta span{display:flex;align-items:center;gap:6px;}
-.intro-meta svg{width:13px;height:13px;opacity:0.6;}
+.intro-meta svg{width:13px;height:13px;opacity:0.7;}
 .btn-start{
   display:inline-flex;align-items:center;gap:10px;
   background:var(--dorado);color:var(--carbon);
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  font-family:var(--font-sans);font-size:11px;font-weight:500;
   letter-spacing:0.12em;text-transform:uppercase;
   padding:14px 28px;border:none;cursor:pointer;
   transition:all 0.2s;align-self:flex-start;
 }
 .btn-start:hover{background:#d4b88a;transform:translateY(-1px);}
 .intro-note{
-  margin-top:32px;font-size:12px;color:rgba(191,181,168,0.6);
-  font-style:italic;font-family:'Cormorant Garamond',serif;
+  margin-top:32px;font-size:13px;color:#E8DFD0;
+  font-style:italic;font-family:var(--font-serif);
 }
-
 /* ── QUESTION SCREEN ── */
 #screen-test{
   background:var(--marfil);
@@ -111,102 +108,97 @@ body{
   flex:1;display:flex;flex-direction:column;
 }
 .q-counter{
-  font-size:10px;letter-spacing:0.16em;color:var(--dorado);
-  text-transform:uppercase;margin-bottom:28px;
+  font-size:10px;letter-spacing:0.16em;color:var(--carbon2);
+  text-transform:uppercase;margin-bottom:28px;font-weight:500;
 }
 .q-dimension{
-  font-size:11px;letter-spacing:0.12em;color:var(--taupe);
-  text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:0.12em;color:var(--carbon2);
+  text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;font-weight:500;
 }
 .dim-dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
 .q-text{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(20px,3.5vw,28px);font-weight:400;
-  line-height:1.35;color:var(--carbon);
-  margin-bottom:10px;
+  font-family:var(--font-serif);
+  font-size:clamp(22px,3.8vw,28px);font-weight:500;
+  line-height:1.4;color:var(--carbon);
+  margin-bottom:12px;
 }
 .q-hint{
-  font-size:15px;color:var(--warm);margin-bottom:40px;
-  font-style:italic;font-family:'Cormorant Garamond',serif;
+  font-size:16px;color:var(--carbon2);margin-bottom:35px;
+  font-style:italic;font-family:var(--font-serif);
+  line-height:1.5;
 }
 .scale-wrap{display:flex;flex-direction:column;gap:0;margin-bottom:48px;}
 .scale-labels{
   display:flex;justify-content:space-between;
-  font-size:10px;color:var(--taupe);letter-spacing:0.06em;
-  margin-bottom:12px;text-transform:uppercase;
+  font-size:10px;color:var(--carbon2);letter-spacing:0.06em;
+  margin-bottom:12px;text-transform:uppercase;font-weight:500;
 }
-.scale-btns{display:flex;gap:8px;}
+.scale-btns{display:flex;gap:10px;}
 .scale-btn{
   flex:1;aspect-ratio:1;
-  border:1px solid rgba(191,181,168,0.5);background:transparent;
+  border:1px solid var(--taupe);background:#FFFFFF;
   cursor:pointer;transition:all 0.18s;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--carbon2);
-  position:relative;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--font-serif);color:var(--carbon);
+  position:relative;border-radius:4px;
 }
-.scale-btn:hover{border-color:var(--dorado);color:var(--carbon);}
+.scale-btn:hover{border-color:var(--dorado);background:var(--marfil);}
 .scale-btn.selected{
   background:var(--carbon);border-color:var(--carbon);
   color:var(--dorado);
 }
-.scale-btn .val{font-size:17px;}
+.scale-btn .val{font-size:20px;font-weight:600;display:block;margin-bottom:2px;}
+.scale-btn .card-label{font-size:9px;font-family:var(--font-sans);text-transform:uppercase;letter-spacing:0.05em;color:var(--carbon2);text-align:center;padding:0 2px;}
+.scale-btn.selected .card-label{color:#E8DFD0;}
 
 .nav-btns{display:flex;justify-content:space-between;align-items:center;}
 .btn-back{
-  background:none;border:1px solid rgba(191,181,168,0.4);
-  color:var(--taupe);font-size:11px;font-family:'Inter',sans-serif;
+  background:none;border:1px solid var(--taupe);
+  color:var(--carbon2);font-size:11px;font-family:var(--font-sans);font-weight:500;
   letter-spacing:0.08em;text-transform:uppercase;
-  padding:11px 22px;cursor:pointer;transition:all 0.15s;
+  padding:11px 22px;cursor:pointer;transition:all 0.15s;border-radius:4px;
 }
-.btn-back:hover{border-color:var(--taupe);color:var(--carbon);}
+.btn-back:hover{border-color:var(--carbon);color:var(--carbon);}
 .btn-next{
   background:var(--carbon);border:none;
-  color:var(--marfil);font-size:11px;font-family:'Inter',sans-serif;
+  color:var(--marfil);font-size:11px;font-family:var(--font-sans);font-weight:500;
   letter-spacing:0.1em;text-transform:uppercase;
   padding:12px 28px;cursor:pointer;transition:all 0.15s;
-  display:flex;align-items:center;gap:8px;
+  display:flex;align-items:center;gap:8px;border-radius:4px;
 }
 .btn-next:hover{background:var(--carbon2);}
 .btn-next:disabled{opacity:0.35;cursor:not-allowed;}
-
 /* Q transition */
 .q-block{transition:opacity 0.25s, transform 0.25s;}
 .q-block.fade-out{opacity:0;transform:translateY(8px);}
-
 /* ── EMAIL SCREEN ── */
 #screen-email{
   background:var(--beige);
   align-items:center;justify-content:center;
 }
 .email-inner{max-width:520px;width:90%;padding:60px 0;text-align:center;}
-.email-inner .intro-tag{text-align:center;}
+.email-inner .intro-tag{text-align:center;color:var(--carbon2);font-weight:500;}
 .email-title{
-  font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);
-  font-weight:400;line-height:1.2;color:var(--carbon);margin-bottom:12px;
+  font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);
+  font-weight:400;line-height:1.2;color:var(--carbon);margin-bottom:15px;
 }
-.email-sub{font-size:13.5px;color:var(--carbon2);line-height:1.8;margin-bottom:36px;}
+.email-sub{font-size:15px;color:var(--carbon2);line-height:1.7;margin-bottom:30px;}
 .email-form{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
 .email-form input{
-  background:var(--marfil);border:1px solid rgba(191,181,168,0.6);
-  font-family:'Inter',sans-serif;font-size:13px;color:var(--carbon);
+  background:#FFFFFF;border:1px solid var(--taupe);
+  font-family:var(--font-sans);font-size:14px;color:var(--carbon);
   padding:14px 18px;outline:none;width:100%;
-  transition:border-color 0.15s;
+  transition:border-color 0.15s;border-radius:4px;
 }
 .email-form input:focus{border-color:var(--dorado);}
 .email-form input::placeholder{color:var(--taupe);}
 .btn-result{
   width:100%;background:var(--dorado);border:none;
-  color:var(--carbon);font-family:'Inter',sans-serif;
-  font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
-  padding:15px;cursor:pointer;transition:all 0.2s;
+  color:var(--carbon);font-family:var(--font-sans);
+  font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  padding:15px;cursor:pointer;transition:all 0.2s;border-radius:4px;
 }
 .btn-result:hover{background:#d4b88a;}
-.email-skip{
-  font-size:11px;color:var(--taupe);cursor:pointer;
-  text-decoration:underline;text-underline-offset:3px;
-}
-.email-skip:hover{color:var(--carbon);}
-
 /* ── RESULT SCREEN ── */
 #screen-result{background:var(--carbon);}
 .result-hero{
@@ -217,13 +209,13 @@ body{
 .result-inner{max-width:700px;width:90%;}
 .result-tag{
   font-size:10px;letter-spacing:0.2em;color:var(--dorado);
-  text-transform:uppercase;margin-bottom:20px;
+  text-transform:uppercase;margin-bottom:20px;font-weight:500;
 }
 .result-score-row{
   display:flex;align-items:flex-end;gap:20px;margin-bottom:6px;
 }
 .result-score{
-  font-family:'Cormorant Garamond',serif;font-size:80px;
+  font-family:var(--font-serif);font-size:80px;
   font-weight:300;line-height:1;color:var(--dorado);
 }
 .result-score-label{
@@ -231,27 +223,26 @@ body{
   letter-spacing:0.06em;
 }
 .result-profile-name{
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-serif);
   font-size:clamp(28px,4.5vw,44px);font-weight:400;
   color:var(--marfil);line-height:1.15;margin-bottom:8px;
 }
 .result-profile-name em{color:var(--dorado);font-style:italic;}
 .result-profile-sub{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:16px;color:var(--taupe);margin-bottom:28px;
+  font-family:var(--font-serif);font-style:italic;
+  font-size:17px;color:#E8DFD0;margin-bottom:28px;line-height:1.5;
 }
 .result-desc{
-  font-size:14px;color:rgba(232,223,208,0.85);
-  line-height:1.9;max-width:600px;margin-bottom:40px;
+  font-size:15px;color:#E8DFD0;
+  line-height:1.85;max-width:650px;margin-bottom:40px;
 }
-
 /* Dimension bars */
 .dim-bars{display:flex;flex-direction:column;gap:12px;margin-bottom:48px;}
 .dim-bar-item{}
 .dim-bar-header{
   display:flex;justify-content:space-between;
   font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--taupe);margin-bottom:6px;
+  color:#E8DFD0;margin-bottom:6px;font-weight:500;
 }
 .dim-bar-header span:last-child{color:var(--dorado);}
 .dim-bar-track{
@@ -263,24 +254,21 @@ body{
   background:var(--dorado);
   width:0%;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
 }
-
-/* Dimension detail (lectura expandida) */
-.dim-bar-item{margin-bottom:8px;}
+/* Dimension detail */
 .dim-detail{
-  margin-top:14px;padding:18px 20px;
+  margin-top:14px;padding:20px 22px;
   background:rgba(255,255,255,0.03);
   border-left:2px solid var(--dorado);
 }
-.dim-detail-block{margin-bottom:14px;}
+.dim-detail-block{margin-bottom:16px;}
 .dim-detail-block:last-child{margin-bottom:0;}
 .dim-detail-label{
-  font-size:9px;letter-spacing:0.14em;color:var(--dorado);
-  text-transform:uppercase;margin-bottom:6px;display:block;
+  font-size:10px;letter-spacing:0.14em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:6px;display:block;font-weight:500;
 }
 .dim-detail-text{
-  font-size:13px;color:rgba(232,223,208,0.85);line-height:1.75;
+  font-size:14px;color:#E8DFD0;line-height:1.8;
 }
-
 /* Insights */
 .result-insights{
   max-width:700px;width:90%;
@@ -289,24 +277,23 @@ body{
   margin:0 auto;
 }
 .insights-title{
-  font-family:'Cormorant Garamond',serif;font-size:22px;
+  font-family:var(--font-serif);font-size:24px;
   color:var(--dorado);margin-bottom:24px;font-weight:400;
 }
-.insight-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.insight-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .insight-card{
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(201,170,124,0.12);
-  padding:22px;
+  padding:24px;
 }
 .insight-card-label{
-  font-size:9px;letter-spacing:0.16em;color:var(--dorado);
-  text-transform:uppercase;margin-bottom:8px;display:block;
+  font-size:10px;letter-spacing:0.16em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:10px;display:block;font-weight:500;
 }
 .insight-card-text{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:14.5px;color:var(--marfil);line-height:1.6;
+  font-family:var(--font-serif);font-style:italic;
+  font-size:15px;color:var(--marfil);line-height:1.7;
 }
-
 /* Primer paso */
 .result-firststep{
   max-width:700px;width:90%;margin:0 auto;
@@ -319,14 +306,13 @@ body{
   padding:30px 34px;
 }
 .firststep-label{
-  font-size:9px;letter-spacing:0.18em;color:var(--dorado);
-  text-transform:uppercase;margin-bottom:12px;display:block;
+  font-size:10px;letter-spacing:0.18em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:12px;display:block;font-weight:500;
 }
 .firststep-text{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:16.5px;color:var(--marfil);line-height:1.75;
+  font-family:var(--font-serif);font-style:italic;
+  font-size:17px;color:var(--marfil);line-height:1.8;
 }
-
 /* CTA */
 .result-cta{
   max-width:700px;width:90%;
@@ -338,43 +324,41 @@ body{
   padding:36px 40px;
 }
 .cta-label{
-  font-size:9px;letter-spacing:0.18em;color:var(--dorado);
-  text-transform:uppercase;margin-bottom:12px;display:block;
+  font-size:10px;letter-spacing:0.18em;color:var(--dorado);
+  text-transform:uppercase;margin-bottom:12px;display:block;font-weight:500;
 }
 .cta-title{
-  font-family:'Cormorant Garamond',serif;font-size:24px;
-  color:var(--marfil);font-weight:400;margin-bottom:10px;line-height:1.3;
+  font-family:var(--font-serif);font-size:26px;
+  color:var(--marfil);font-weight:400;margin-bottom:12px;line-height:1.3;
 }
 .cta-desc{
-  font-size:13px;color:var(--taupe);line-height:1.8;margin-bottom:28px;
+  font-size:14px;color:#E8DFD0;line-height:1.85;margin-bottom:28px;
 }
 .btn-cta{
   display:inline-flex;align-items:center;gap:10px;
   background:var(--dorado);color:var(--carbon);
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  font-family:var(--font-sans);font-size:11px;font-weight:600;
   letter-spacing:0.12em;text-transform:uppercase;
   padding:14px 26px;border:none;cursor:pointer;
-  text-decoration:none;transition:all 0.2s;
+  text-decoration:none;transition:all 0.2s;border-radius:4px;
 }
 .btn-cta:hover{background:#d4b88a;}
 .cta-note{
-  margin-top:16px;font-size:11px;color:rgba(191,181,168,0.5);
-  font-style:italic;font-family:'Cormorant Garamond',serif;
+  margin-top:16px;font-size:13px;color:var(--taupe);
+  font-style:italic;font-family:var(--font-serif);
 }
-
 /* Share row */
 .share-row{
   display:flex;gap:10px;margin-top:32px;align-items:center;
 }
-.share-label{font-size:10px;color:var(--taupe);letter-spacing:0.08em;text-transform:uppercase;}
+.share-label{font-size:10px;color:var(--taupe);letter-spacing:0.08em;text-transform:uppercase;font-weight:500;}
 .share-btn{
   background:none;border:1px solid rgba(191,181,168,0.25);
-  color:var(--taupe);font-size:10px;font-family:'Inter',sans-serif;
+  color:var(--taupe);font-size:10px;font-family:var(--font-sans);font-weight:500;
   letter-spacing:0.08em;text-transform:uppercase;
-  padding:8px 16px;cursor:pointer;transition:all 0.15s;
+  padding:8px 16px;cursor:pointer;transition:all 0.15s;border-radius:4px;
 }
 .share-btn:hover{border-color:var(--dorado);color:var(--dorado);}
-
 /* Footer */
 .site-footer{
   background:var(--carbon);border-top:1px solid rgba(201,170,124,0.15);
@@ -382,7 +366,6 @@ body{
   font-size:11px;color:var(--taupe);
 }
 .site-footer a{color:var(--dorado);text-decoration:none;}
-
 /* Mobile */
 @media(max-width:600px){
   .header{padding:0 20px;}
@@ -391,31 +374,30 @@ body{
   .cta-box{padding:28px 24px;}
   .dim-detail{padding:16px;}
   .firststep-box{padding:24px 22px;}
-  .scale-btns{gap:5px;}
+  .scale-btns{gap:6px;}
   .site-footer{flex-direction:column;gap:8px;text-align:center;}
 }
 </style>
 </head>
 <body>
-
 <div class="progress-bar" id="progress"></div>
-
 <header class="header">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" width="210" height="36" aria-label="Arquitecta Emocional – Belén Escribano" style="display:block;flex-shrink:0">
-  <g fill="none" stroke="#C9AA7C" stroke-width="0.6" opacity="0.5" stroke-linecap="round">
-    <path d="M18 22 Q22 27 26 31"/><path d="M18 22 Q14 27 10 31"/>
-    <path d="M18 50 Q22 45 26 41"/><path d="M18 50 Q14 45 10 41"/>
-    <path d="M18 36 L26 31"/><path d="M18 36 L10 31"/>
-    <path d="M18 36 L26 41"/><path d="M18 36 L10 41"/>
-  </g>
-  <text x="40" y="30" font-family="'Cormorant Garamond',serif" font-size="26" font-weight="400" fill="#3D3830" letter-spacing="0.5">Arquitecta</text>
-  <text x="40" y="57" font-family="'Cormorant Garamond',serif" font-size="26" font-weight="300" font-style="italic" fill="#C9AA7C" letter-spacing="0.5">Emocional</text>
-  <line x1="40" y1="63" x2="420" y2="63" stroke="#BFB5A8" stroke-width="0.6"/>
-  <text x="41" y="72" font-family="'Inter',sans-serif" font-size="7.5" font-weight="400" fill="#BFB5A8" letter-spacing="2.8">BELÉN ESCRIBANO</text>
-</svg>
+  <!-- LOGO AMPLIADO Y PROPORCIONADO -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 72" width="265" height="42" aria-label="Arquitecta Emocional – Belén Escribano" style="display:block;flex-shrink:0">
+    <g fill="none" stroke="#C9AA7C" stroke-width="0.8" opacity="0.85" stroke-linecap="round">
+      <path d="M18 22 Q22 27 26 31"/><path d="M18 22 Q14 27 10 31"/>
+      <path d="M18 50 Q22 45 26 41"/><path d="M18 50 Q14 45 10 41"/>
+      <path d="M18 36 L26 31"/><path d="M18 36 L10 31"/>
+      <path d="M18 36 L26 41"/><path d="M18 36 L10 41"/>
+      <circle cx="18" cy="36" r="14"/>
+      <circle cx="18" cy="36" r="6"/>
+      <circle cx="18" cy="36" r="1.5" fill="#C9AA7C"/>
+    </g>
+    <text x="46" y="31" font-family="'Cormorant Garamond',serif" font-size="28" font-weight="400" fill="#3D3830" letter-spacing="0.8">ARQUITECTA</text>
+    <text x="188" y="31" font-family="'Cormorant Garamond',serif" font-size="28" font-weight="400" fill="#3D3830" letter-spacing="0.8">EMOCIONAL</text>
+  </svg>
   <span class="header-tag">Test Gratuito · Belén Escribano</span>
 </header>
-
 <!-- ══ INTRO ══════════════════════════════════════════════════════════ -->
 <div class="screen active" id="screen-intro">
   <div class="intro-inner">
@@ -444,7 +426,6 @@ body{
     <p class="intro-note">"No hay respuestas correctas. Solo las tuyas."</p>
   </div>
 </div>
-
 <!-- ══ TEST ════════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-test">
   <div class="test-wrap">
@@ -458,16 +439,15 @@ body{
       <p class="q-hint" id="q-hint"></p>
       <div class="scale-wrap">
         <div class="scale-labels">
-          <span>Casi nunca</span>
-          <span>A veces</span>
-          <span>Casi siempre</span>
+          <span>1 = Rara vez</span>
+          <span>5 = Es mi piloto automático</span>
         </div>
         <div class="scale-btns" id="scale-btns">
-          <button class="scale-btn" onclick="selectVal(1)"><span class="val">1</span></button>
-          <button class="scale-btn" onclick="selectVal(2)"><span class="val">2</span></button>
-          <button class="scale-btn" onclick="selectVal(3)"><span class="val">3</span></button>
-          <button class="scale-btn" onclick="selectVal(4)"><span class="val">4</span></button>
-          <button class="scale-btn" onclick="selectVal(5)"><span class="val">5</span></button>
+          <button class="scale-btn" onclick="selectVal(1)"><span class="val">1</span><span class="card-label">Rara vez</span></button>
+          <button class="scale-btn" onclick="selectVal(2)"><span class="val">2</span><span class="card-label">A veces</span></button>
+          <button class="scale-btn" onclick="selectVal(3)"><span class="val">3</span><span class="card-label">Frecuente</span></button>
+          <button class="scale-btn" onclick="selectVal(4)"><span class="val">4</span><span class="card-label">Muy alto</span></button>
+          <button class="scale-btn" onclick="selectVal(5)"><span class="val">5</span><span class="card-label">Piloto automático</span></button>
         </div>
       </div>
       <div class="nav-btns">
@@ -480,17 +460,19 @@ body{
     </div>
   </div>
 </div>
-
-<!-- ══ EMAIL ═══════════════════════════════════════════════════════════ -->
+<!-- ══ EMAIL (PUENTE DE VALOR) ══════════════════════════════════════════ -->
 <div class="screen" id="screen-email">
   <div class="email-inner">
-    <span class="intro-tag" style="text-align:center;display:block;">Casi listo</span>
-    <h2 class="email-title">Antes de ver tu<br>resultado, respira.</h2>
-    <p class="email-sub">Lo que verás a continuación es un mapa, no un diagnóstico. Léelo con calma, sin apuro por resolver — a veces lo más valioso es simplemente reconocer lo que ya estaba ahí.</p>
-    <button class="btn-result" onclick="showResult()">Ver mi resultado</button>
+    <span class="intro-tag" style="text-align:center;display:block;">Último paso</span>
+    <h2 class="email-title">Tu mapa de fragmentación está listo.</h2>
+    <p class="email-sub">¿A dónde te lo enviamos para que no lo pierdas? Déjame tu correo y recibe tu informe analítico completo junto con el acceso a tu resultado.</p>
+    <div class="email-form">
+      <input type="text" id="input-name" placeholder="Tu nombre" />
+      <input type="email" id="input-email" placeholder="Tu correo electrónico" />
+    </div>
+    <button class="btn-result" onclick="showResult()">Revelar mi mapa y resultado</button>
   </div>
 </div>
-
 <!-- ══ RESULT ══════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-result">
   <div class="result-hero">
@@ -499,8 +481,8 @@ body{
       <div class="result-score-row">
         <div class="result-score" id="res-score"></div>
         <div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--taupe);margin-bottom:4px;">puntos de 80</div>
-          <div style="font-size:10px;letter-spacing:0.12em;color:var(--dorado);text-transform:uppercase;" id="res-level-badge"></div>
+          <div style="font-family:var(--font-serif);font-size:15px;color:var(--taupe);margin-bottom:4px;">puntos de 80</div>
+          <div style="font-size:10px;letter-spacing:0.12em;color:var(--dorado);text-transform:uppercase;font-weight:500;" id="res-level-badge"></div>
         </div>
       </div>
       <h2 class="result-profile-name" id="res-name"></h2>
@@ -509,19 +491,16 @@ body{
       <div class="dim-bars" id="dim-bars"></div>
     </div>
   </div>
-
   <div class="result-insights" id="result-insights-wrap">
     <div class="insights-title">Lo que esto significa para ti</div>
     <div class="insight-cards" id="insight-cards"></div>
   </div>
-
   <div class="result-firststep" id="result-firststep-wrap">
     <div class="firststep-box">
       <span class="firststep-label">Un primer paso</span>
       <p class="firststep-text" id="firststep-text"></p>
     </div>
   </div>
-
   <div class="result-cta">
     <div class="cta-box" id="cta-box">
       <span class="cta-label">Siguiente paso</span>
@@ -539,24 +518,19 @@ body{
       <button class="share-btn" onclick="copyLink()">Copiar link</button>
     </div>
   </div>
-
   <footer class="site-footer">
     <span>Arquitecta Emocional · <a href="https://www.instagram.com/arquitecta.emocional" target="_blank">@arquitecta.emocional</a></span>
     <span>Belén Escribano · Santiago, Chile</span>
   </footer>
 </div>
-
 <script>
 // ══ DATA ══════════════════════════════════════════════════════════════════
-
 const DIMS = {
   emocional: { label: 'Fragmentación Emocional', color: '#C9AA7C' },
   corporal:  { label: 'Desconexión Corporal',    color: '#8A7E6E' },
   identidad: { label: 'Identidad Fragmentada',   color: '#7A8A7E' },
   relacional:{ label: 'Vínculos y Límites',      color: '#8A7A8A' },
 };
-
-// Lectura expandida por dimensión, según banda de puntaje (bajo 1-7 / medio 8-14 / alto 15-20)
 const DIM_TEXTS = {
   emocional: {
     bajo: {
@@ -627,13 +601,11 @@ const DIM_TEXTS = {
     },
   },
 };
-
 function getDimBand(raw) {
   if (raw <= 7) return 'bajo';
   if (raw <= 14) return 'medio';
   return 'alto';
 }
-
 const QUESTIONS = [
   // EMOCIONAL (4)
   { dim:'emocional', text:'Siento emociones con intensidad pero me cuesta nombrarlas con precisión.', hint:'No lo que crees que sientes — lo que realmente ocurre.' },
@@ -656,7 +628,6 @@ const QUESTIONS = [
   { dim:'relacional', text:'Hay expectativas de otras personas que cargo como si fueran mías.', hint:'Exigencias, responsabilidades, roles que no elegiste pero sientes que te pertenecen.' },
   { dim:'relacional', text:'Me resulta más fácil ver con claridad lo que otros necesitan que lo que necesito yo.', hint:'La capacidad de cuidar a otros no siempre viene acompañada de la de cuidarte a ti.' },
 ];
-
 const PROFILES = [
   {
     min:0, max:32,
@@ -719,28 +690,18 @@ const PROFILES = [
     cta_note:'"El primer acto de reconstrucción es reconocer que ya es suficiente con lo que has cargado sola."',
   },
 ];
-
-// ══ STATE ════════════════════════════════════════════════════════════════
-
 let answers = new Array(QUESTIONS.length).fill(null);
 let current = 0;
-
-// ══ SCREEN NAV ═══════════════════════════════════════════════════════════
-
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
-
 function startTest() {
   showScreen('screen-test');
   renderQ(0);
   updateProgress();
 }
-
-// ══ QUESTIONS ════════════════════════════════════════════════════════════
-
 function renderQ(idx) {
   const q = QUESTIONS[idx];
   const dim = DIMS[q.dim];
@@ -749,14 +710,12 @@ function renderQ(idx) {
   document.getElementById('dim-dot').style.background = dim.color;
   document.getElementById('q-text').textContent = q.text;
   document.getElementById('q-hint').textContent = q.hint;
-  // render buttons
   const btns = document.querySelectorAll('.scale-btn');
   btns.forEach((btn, i) => {
     btn.classList.toggle('selected', answers[idx] === i+1);
   });
   document.getElementById('btn-next').disabled = answers[idx] === null;
   document.getElementById('btn-back').style.visibility = idx === 0 ? 'hidden' : 'visible';
-  // last q label
   const nextBtn = document.getElementById('btn-next');
   if (idx === QUESTIONS.length - 1) {
     nextBtn.innerHTML = 'Ver mi resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
@@ -764,7 +723,6 @@ function renderQ(idx) {
     nextBtn.innerHTML = 'Siguiente <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
   }
 }
-
 function selectVal(v) {
   answers[current] = v;
   document.querySelectorAll('.scale-btn').forEach((btn, i) => {
@@ -772,13 +730,11 @@ function selectVal(v) {
   });
   document.getElementById('btn-next').disabled = false;
 }
-
 function transition(fn) {
   const block = document.getElementById('q-block');
   block.classList.add('fade-out');
   setTimeout(() => { fn(); block.classList.remove('fade-out'); }, 220);
 }
-
 function nextQ() {
   if (answers[current] === null) return;
   if (current === QUESTIONS.length - 1) {
@@ -788,41 +744,40 @@ function nextQ() {
   }
   transition(() => { current++; renderQ(current); updateProgress(); });
 }
-
 function prevQ() {
   if (current === 0) return;
   transition(() => { current--; renderQ(current); updateProgress(); });
 }
-
 function updateProgress(pct) {
   const p = pct !== undefined ? pct : Math.round((current / QUESTIONS.length) * 100);
   document.getElementById('progress').style.width = p + '%';
 }
-
-// ══ RESULT ═══════════════════════════════════════════════════════════════
-
 function computeScores() {
   const scores = { emocional:0, corporal:0, identidad:0, relacional:0 };
   QUESTIONS.forEach((q,i) => { if (answers[i]) scores[q.dim] += answers[i]; });
   const total = Object.values(scores).reduce((a,b)=>a+b,0);
   return { scores, total };
 }
-
 function getProfile(total) {
   return PROFILES.find(p => total >= p.min && total <= p.max) || PROFILES[PROFILES.length-1];
 }
-
 function showResult() {
+  const nameInput = document.getElementById('input-name').value.trim();
+  const emailInput = document.getElementById('input-email').value.trim();
+  
+  if(!emailInput || !emailInput.includes('@')) {
+    alert('Por favor, ingresa un correo electrónico válido para enviarte tu mapa.');
+    document.getElementById('input-email').focus();
+    return;
+  }
+
   const { scores, total } = computeScores();
   const profile = getProfile(total);
-
   document.getElementById('res-score').textContent = total;
   document.getElementById('res-level-badge').textContent = `Nivel ${profile.level}`;
   document.getElementById('res-name').innerHTML = profile.name;
   document.getElementById('res-sub').textContent = profile.sub;
   document.getElementById('res-desc').textContent = profile.desc;
-
-  // Dimension bars + lectura expandida por dimensión
   const barsEl = document.getElementById('dim-bars');
   barsEl.innerHTML = '';
   const dimOrder = ['emocional','corporal','identidad','relacional'];
@@ -858,8 +813,6 @@ function showResult() {
         </div>
       </div>`;
   });
-
-  // Insights
   document.getElementById('insight-cards').innerHTML = `
     <div class="insight-card">
       <span class="insight-card-label">${profile.insight1_label}</span>
@@ -869,32 +822,21 @@ function showResult() {
       <span class="insight-card-label">${profile.insight2_label}</span>
       <p class="insight-card-text">${profile.insight2}</p>
     </div>`;
-
-  // Primer paso
   document.getElementById('firststep-text').textContent = profile.primerPaso;
-
-  // CTA
   document.getElementById('cta-title').textContent = profile.cta_title;
   document.getElementById('cta-desc').textContent = profile.cta_desc;
   document.getElementById('cta-note').textContent = profile.cta_note;
-
   showScreen('screen-result');
-
-  // Animate bars after render
   setTimeout(() => {
     document.querySelectorAll('.dim-bar-fill').forEach(el => {
       el.style.width = el.dataset.pct + '%';
     });
   }, 100);
 }
-
-// ══ SHARE ════════════════════════════════════════════════════════════════
-
 function shareWA() {
   const text = '¿Qué partes de ti se desconectaron en el camino? Hice el Test de Fragmentación Emocional de Arquitecta Emocional y fue revelador. Puedes hacerlo gratis aquí:';
   window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.href)}`, '_blank');
 }
-
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(() => {
     const btn = document.querySelector('.share-btn:last-child');
@@ -903,8 +845,6 @@ function copyLink() {
     setTimeout(() => btn.textContent = orig, 2000);
   });
 }
-
-// Keyboard nav
 document.addEventListener('keydown', e => {
   const screen = document.querySelector('.screen.active');
   if (!screen || screen.id !== 'screen-test') return;
