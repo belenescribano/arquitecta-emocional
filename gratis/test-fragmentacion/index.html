@@ -29,18 +29,18 @@ body{
 .header{
   position:fixed;top:0;left:0;right:0;
   background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);
-  padding:0 40px;height:84px;
+  padding:0 30px;height:84px;
   display:flex;align-items:center;justify-content:space-between;
   z-index:90;border-bottom:1px solid rgba(191,181,168,0.3);
 }
 .header-logo{
-  max-width: 170px;
+  max-width: 280px;
   width: 100%;
   height: auto;
   display: block;
   flex-shrink: 0;
 }
-.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;}
+.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;white-space:nowrap;margin-left:15px;}
 /* ── SCREENS ── */
 .screen{display:none;min-height:100vh;padding-top:84px;}
 .screen.active{display:flex;flex-direction:column;}
@@ -373,9 +373,10 @@ body{
 }
 .site-footer a{color:var(--dorado);text-decoration:none;}
 /* Mobile */
-@media(max-width:600px){
-  .header{padding:0 20px;}
-  .header-logo{max-width:130px;}
+@media(max-width:768px){
+  .header{padding:0 15px;}
+  .header-logo{max-width:200px;}
+  .header-tag{font-size:9px;letter-spacing:0.1em;}
   .intro-inner,.test-wrap,.result-inner,.result-insights,.result-cta,.result-firststep{width:92%;}
   .insight-cards{grid-template-columns:1fr;}
   .cta-box{padding:28px 24px;}
@@ -389,7 +390,7 @@ body{
 <body>
 <div class="progress-bar" id="progress"></div>
 <header class="header">
-  <svg class="header-logo" viewBox="0 0 850 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg class="header-logo" viewBox="0 0 1050 130" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Símbolo de la brújula -->
     <circle cx="65" cy="65" r="38" stroke="#C9AA7C" stroke-width="3"/>
     <circle cx="65" cy="65" r="14" stroke="#C9AA7C" stroke-width="2"/>
@@ -398,7 +399,7 @@ body{
     <line x1="65" y1="108" x2="65" y2="118" stroke="#C9AA7C" stroke-width="3" stroke-linecap="round"/>
     <line x1="12" y1="65" x2="22" y2="65" stroke="#C9AA7C" stroke-width="3" stroke-linecap="round"/>
     <line x1="108" y1="65" x2="118" y2="65" stroke="#C9AA7C" stroke-width="3" stroke-linecap="round"/>
-    <!-- Texto ARQUITECTA EMOCIONAL -->
+    <!-- Texto ARQUITECTA EMOCIONAL corregido con viewBox expandido -->
     <text x="145" y="77" font-family="'Cormorant Garamond', 'Inter', sans-serif" font-size="44" font-weight="400" letter-spacing="0.32em" fill="#3D3830">ARQUITECTA EMOCIONAL</text>
   </svg>
   <span class="header-tag">Test Gratuito · Belén Escribano</span>
