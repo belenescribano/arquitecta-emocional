@@ -55,7 +55,7 @@ header{
 .screen.active{display:flex;flex-direction:column;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
-/* PORTADA CLARA */
+/* PORTADA */
 .hero-card{
     background:var(--beige);
     border:1px solid var(--taupe);
@@ -174,7 +174,7 @@ header{
 .btn-next{background:var(--dorado);color:#fff;border:none;padding:12px 28px;border-radius:4px;cursor:pointer;font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:500;}
 .btn-next:disabled{opacity:0.4;cursor:not-allowed;}
 
-/* PUENTE DE VALOR Y CONFIRMACIÓN */
+/* CAPTURA */
 .capture-card{
     background:var(--beige);
     border:1px solid var(--taupe);
@@ -200,7 +200,7 @@ header{
 }
 .capture-input:focus{border-color:var(--dorado);}
 
-/* RESULTADOS */
+/* RESULTADOS COMPLETOS Y ENRIQUECIDOS */
 .result-card{
     background:var(--beige);
     border:1px solid var(--taupe);
@@ -230,8 +230,8 @@ header{
 
 <header>
     <a href="#" class="logo-container">
-        <!-- Logo con espaciado de letras corregido y mayor viewBox -->
-        <svg width="275" height="42" viewBox="0 0 520 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- LOGO AMPLIADO (viewBox más amplio y dimensiones mayores) -->
+        <svg width="320" height="50" viewBox="0 0 520 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="36" cy="36" r="30" stroke="#C9AA7C" stroke-width="1.5" stroke-opacity="0.6"/>
             <circle cx="36" cy="36" r="22" stroke="#C9AA7C" stroke-width="1" stroke-dasharray="2 4"/>
             <line x1="36" y1="6" x2="36" y2="66" stroke="#C9AA7C" stroke-width="1"/>
@@ -282,29 +282,20 @@ header{
         </div>
     </div>
 
-    <!-- PANTALLA 2: PUENTE DE VALOR (CAPTURA) -->
+    <!-- PANTALLA 2: PUENTE DE VALOR (CAPTURA DE CORREO) -->
     <div id="screen-capture" class="screen">
         <div class="capture-card">
             <h2 class="capture-title">Tu mapa de fragmentación está listo</h2>
-            <p class="capture-desc">¿A dónde te enviamos el informe detallado para que no lo pierdas y puedas revisarlo con calma?</p>
+            <p class="capture-desc">Hemos preparado tu informe detallado. Ingresa tu correo para enviártelo de inmediato y desbloquear tu análisis completo en pantalla.</p>
             <div class="capture-form">
                 <input type="text" id="userName" class="capture-input" placeholder="Tu nombre">
                 <input type="email" id="userEmail" class="capture-input" placeholder="Tu mejor correo electrónico">
-                <button class="btn-primary" onclick="submitCapture()" style="width:100%; justify-content:center;">Enviar mi informe →</button>
+                <button class="btn-primary" onclick="submitCapture()" style="width:100%; justify-content:center;">Enviar y ver mi informe →</button>
             </div>
         </div>
     </div>
 
-    <!-- PANTALLA 3: MENSAJE DE CONFIRMACIÓN DE ENVÍO -->
-    <div id="screen-success" class="screen">
-        <div class="capture-card">
-            <h2 class="capture-title">¡Informe enviado con éxito!</h2>
-            <p class="capture-desc">Hemos guardado y enviado una copia del desglose a tu correo. A continuación, puedes revisar tu análisis completo en pantalla.</p>
-            <button class="btn-primary" onclick="showResults()" style="width:100%; justify-content:center;">Ver mi resultado en pantalla →</button>
-        </div>
-    </div>
-
-    <!-- PANTALLA 4: RESULTADOS -->
+    <!-- PANTALLA 3: RESULTADOS COMPLETOS Y ENRIQUECIDOS -->
     <div id="screen-result" class="screen">
         <div class="result-card">
             <div class="result-score-top">Puntuación total</div>
@@ -321,8 +312,17 @@ header{
                 <div class="result-section-title">Cómo se vive en el día a día</div>
                 <div class="result-section-content" id="res-day">Texto...</div>
             </div>
+            
+            <!-- Bloque de llamado a la acción comercial (Neuromarketing: Siguiente paso) -->
+            <div style="background:#fff; border:1px solid var(--dorado); border-radius:12px; padding:36px; text-align:center; margin-top:32px;">
+                <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--dorado); font-weight:600; margin-bottom:12px;">Siguiente paso recomendado</div>
+                <h3 style="font-family:var(--font-serif); font-size:28px; font-weight:300; margin-bottom:12px; color:var(--carbon);">¿Qué hacer con este hallazgo?</h3>
+                <p style="font-size:15px; line-height:1.6; color:var(--carbon2); margin-bottom:24px;">Hemos enviado una copia exacta de este análisis a tu correo. Si deseas profundizar y comenzar a integrar estas partes desconectadas, te invitamos a conocer el Pack Ebook y herramientas de integración.</p>
+                <button class="btn-primary" onclick="alert('Aquí puedes enlazar tu pasarela de pago o página de ventas del Ebook.')">Conocer el Pack Ebook →</button>
+            </div>
+
             <div style="text-align:center; margin-top:40px;">
-                <button class="btn-primary" onclick="location.reload()">Volver a empezar</button>
+                <button class="btn-secondary" onclick="location.reload()">Volver a empezar</button>
             </div>
         </div>
     </div>
@@ -421,15 +421,14 @@ function submitCapture(){
         return;
     }
 
-    // Muestra la pantalla intermedia de éxito/confirmación de envío
-    document.getElementById('screen-capture').classList.remove('active');
-    document.getElementById('screen-success').classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
+    // Procesamos el envío y mostramos de inmediato el informe enriquecido en pantalla, 
+    // avisando que también se envió a su correo (Estrategia híbrida de conversión).
+    showResults();
 }
 
 function showResults(){
     const total = answers.reduce((a, b) => a + b, 0);
-    document.getElementById('screen-success').classList.remove('active');
+    document.getElementById('screen-capture').classList.remove('active');
     document.getElementById('screen-result').classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'});
 
@@ -441,23 +440,23 @@ function showResults(){
         level = "Nivel Leve";
         title = "Fragmentación Sutil";
         subtitle = "Conexión estable con pequeños espacios de fatiga.";
-        desc = "Estás en contacto cercano contigo misma. Si bien hay momentos de exigencia, mantienes un anclaje sólido en tus necesidades y tus límites.";
-        sig = "Tus canales de autopercepción están abiertos. Escuchas las señales de tu cuerpo y actúas en coherencia la mayor parte del tiempo.";
-        day = "Te permites descansar sin culpa y puedes identificar con facilidad qué te nutre y qué te drena.";
+        desc = "Estás en contacto cercano contigo misma. Si bien hay momentos de exigencia, mantienes un anclaje sólido en tus necesidades y tus límites. Tus canales de autopercepción están abiertos.";
+        sig = "Escuchas las señales sutiles de tu cuerpo y actúas en coherencia la mayor parte del tiempo sin exigirte de más.";
+        day = "Te permites descansar sin culpa y puedes identificar con facilidad qué te nutre y qué te drena en el día a día.";
     } else if(total <= 55){
         level = "Nivel Moderado";
         title = "Fragmentación Silenciosa";
         subtitle = "Funcional por fuera. Algo desconectada por dentro.";
-        desc = "Es el tipo de fragmentación más común — y el más invisible. Funcionas. Cumples. A veces incluso con brillantez. Pero hay una distancia entre la mujer que el mundo ve y la que eres cuando nadie mira.";
-        sig = "Tienes acceso parcial a tus emociones: puedes nombrar las más evidentes, pero hay una capa más fina que se te escapa. A veces sabes que 'algo no está bien' sin poder precisar qué es.";
-        day = "Te das cuenta de que estás mal cuando el cuerpo ya lo lleva días diciendo. Tiendes a racionalizar antes de sentir.";
+        desc = "Es el tipo de fragmentación más común — y el más invisible. Funcionas. Cumples. A veces incluso con brillantez. Pero hay una distancia energética entre la mujer que el mundo ve y la que eres cuando nadie mira. Esa distancia tiene un coste energético que se acumula.";
+        sig = "Tienes acceso parcial a tus emociones: puedes nombrar las más evidentes, pero hay una capa más fina que se te escapa. A veces sabes que 'algo no va bien' en ti sin poder precisar exactamente qué es, tendiendo a racionalizar antes de sentir.";
+        day = "Te das cuenta de que estás al límite cuando el cuerpo ya lleva días avisándote mediante tensión o fatiga sutil.";
     } else {
         level = "Nivel Profundo";
         title = "Fragmentación Estructural";
         subtitle = "Sostenimiento al límite y desconexión profunda.";
-        desc = "Has construido un sistema de supervivencia donde el sostener se volvió la norma absoluta. Tu energía está volcada hacia afuera, dejando tu propio centro desatendido.";
-        sig = "Existe una brecha significativa entre tus necesidades genuinas y tu realidad diaria. El cuerpo carga con lo que la mente ha tenido que postergar.";
-        day = "El agotamiento no es solo físico, es existencial. Hay una sensación constante de estar remando contra corriente o viviendo la vida de otra.";
+        desc = "Has construido un sistema de supervivencia donde el sostener se volvió la norma absoluta. Tu energía está volcada hacia afuera, dejando tu propio centro completamente desatendido.";
+        sig = "Existe una brecha significativa entre tus necesidades genuinas y tu realidad diaria. El cuerpo carga estoicamente con lo que la mente ha tenido que postergar por demasiado tiempo.";
+        day = "El agotamiento no es solo físico, es existencial. Hay una sensación constante de estar viviendo la vida en piloto automático o sosteniendo pesos que no te corresponden.";
     }
 
     document.getElementById('res-level').textContent = level;
