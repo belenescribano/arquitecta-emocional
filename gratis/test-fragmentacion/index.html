@@ -29,18 +29,17 @@ body{
 .header{
   position:fixed;top:0;left:0;right:0;
   background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);
-  padding:0 30px;height:84px;
+  padding:0 40px;height:84px;
   display:flex;align-items:center;justify-content:space-between;
   z-index:90;border-bottom:1px solid rgba(191,181,168,0.3);
 }
 .header-logo{
-  max-width: 280px;
-  width: 100%;
-  height: auto;
-  display: block;
-  flex-shrink: 0;
+  height:44px;
+  width:auto;
+  display:block;
+  flex-shrink:0;
 }
-.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;white-space:nowrap;margin-left:15px;}
+.header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;}
 /* ── SCREENS ── */
 .screen{display:none;min-height:100vh;padding-top:84px;}
 .screen.active{display:flex;flex-direction:column;}
@@ -373,10 +372,8 @@ body{
 }
 .site-footer a{color:var(--dorado);text-decoration:none;}
 /* Mobile */
-@media(max-width:768px){
-  .header{padding:0 15px;}
-  .header-logo{max-width:200px;}
-  .header-tag{font-size:9px;letter-spacing:0.1em;}
+@media(max-width:600px){
+  .header{padding:0 20px;}
   .intro-inner,.test-wrap,.result-inner,.result-insights,.result-cta,.result-firststep{width:92%;}
   .insight-cards{grid-template-columns:1fr;}
   .cta-box{padding:28px 24px;}
@@ -390,7 +387,7 @@ body{
 <body>
 <div class="progress-bar" id="progress"></div>
 <header class="header">
-  <svg class="header-logo" viewBox="0 0 1050 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg class="header-logo" viewBox="0 0 850 130" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Símbolo de la brújula -->
     <circle cx="65" cy="65" r="38" stroke="#C9AA7C" stroke-width="3"/>
     <circle cx="65" cy="65" r="14" stroke="#C9AA7C" stroke-width="2"/>
@@ -399,7 +396,7 @@ body{
     <line x1="65" y1="108" x2="65" y2="118" stroke="#C9AA7C" stroke-width="3" stroke-linecap="round"/>
     <line x1="12" y1="65" x2="22" y2="65" stroke="#C9AA7C" stroke-width="3" stroke-linecap="round"/>
     <line x1="108" y1="65" x2="118" y2="65" stroke="#C9AA7C" stroke-width="3" stroke-linecap="round"/>
-    <!-- Texto ARQUITECTA EMOCIONAL corregido con viewBox expandido -->
+    <!-- Texto ARQUITECTA EMOCIONAL -->
     <text x="145" y="77" font-family="'Cormorant Garamond', 'Inter', sans-serif" font-size="44" font-weight="400" letter-spacing="0.32em" fill="#3D3830">ARQUITECTA EMOCIONAL</text>
   </svg>
   <span class="header-tag">Test Gratuito · Belén Escribano</span>
@@ -532,7 +529,352 @@ body{
   </footer>
 </div>
 <script>
-// El script completo de tu aplicación continúa aquí exactamente igual
+// ══ DATA ══════════════════════════════════════════════════════════════════
+const DIMS = {
+  emocional: { label: 'Fragmentación Emocional', color: '#C9AA7C' },
+  corporal:  { label: 'Desconexión Corporal',    color: '#8A7E6E' },
+  identidad: { label: 'Identidad Fragmentada',   color: '#7A8A7E' },
+  relacional:{ label: 'Vínculos y Límites',      color: '#8A7A8A' },
+};
+const DIM_TEXTS = {
+  emocional: {
+    bajo: {
+      significa: 'Tienes un acceso relativamente fluido a tus emociones. Puedes nombrarlas con cierta facilidad y no necesitas mucho esfuerzo para reconocer lo que sientes.',
+      diaadia: 'Cuando algo te molesta, sueles saberlo. Puedes identificar si estás triste, ansiosa o frustrada sin que tarde mucho en aparecer la palabra. Las conversaciones sobre emociones no te resultan ajenas.',
+      dondeempezar: 'Aquí el trabajo es de profundidad, no de acceso. Practica ir un nivel más abajo de la emoción que identificas: si sientes "tristeza", pregúntate qué tipo exacto. ¿Es melancolía, dolor, vacío, pena?',
+    },
+    medio: {
+      significa: 'Tienes acceso parcial a tus emociones — puedes nombrar las más evidentes, pero hay una capa más fina que se te escapa. A veces sabes que "algo no está bien" sin poder precisar qué es.',
+      diaadia: 'Te das cuenta de que estás mal cuando el cuerpo ya lo lleva días diciendo. A veces racionalizas antes de sentir — te preguntas si "tiene sentido" lo que sientes antes de permitirte sentirlo. Puedes describir eventos pero te cuesta más describir lo que esos eventos movieron en ti.',
+      dondeempezar: 'Practica nombrarte a ti misma en el momento — no después. Cuando algo ocurra durante el día, para 30 segundos y di (aunque sea internamente): "ahora mismo estoy sintiendo...". No tiene que ser exacto. Solo tiene que ser honesto.',
+    },
+    alto: {
+      significa: 'Hay una distancia importante entre tú y tus emociones. No es que no las tengas — es que aprendiste a funcionar sin consultarlas. El resultado puede ser que te sorprenda tu propia reacción ante ciertas cosas.',
+      diaadia: 'Puedes pasar semanas "bien" y de repente desmoronarte sin saber exactamente por qué. Cuando alguien te pregunta cómo estás, respondes con hechos ("tuve una semana muy ocupada") en lugar de emociones. El cansancio crónico suele ser la primera señal — no de que trabajas mucho, sino de que cargas lo que no has procesado.',
+      dondeempezar: 'Empieza por el cuerpo, no por la mente. Antes de intentar nombrar lo que sientes, identifica dónde lo sientes físicamente. ¿Hay tensión en el pecho? ¿Peso en los hombros? ¿Nudo en el estómago? El cuerpo lleva el registro que la mente prefiere ignorar.',
+    },
+  },
+  corporal: {
+    bajo: {
+      significa: 'Tienes una relación relativamente presente con tu cuerpo. Lo escuchas con cierta regularidad y reconoces sus señales antes de que se conviertan en alarmas.',
+      diaadia: 'Cuando tu cuerpo necesita descanso, sueles notarlo. El hambre, el cansancio, la tensión física — señales que registras. No siempre actúas en consecuencia, pero al menos las escuchas.',
+      dondeempezar: 'Profundiza la conversación con tu cuerpo. Aprende a distinguir entre cansancio físico y cansancio emocional — se sienten diferente si te detienes a observar. Cuando aparezca una tensión, pregúntate qué emoción podría estar sosteniendo esa zona.',
+    },
+    medio: {
+      significa: 'Tu cuerpo habla pero tú no siempre estás escuchando. Hay una desconexión parcial — puedes registrar señales físicas intensas, pero las sutiles suelen pasar desapercibidas hasta que se acumulan.',
+      diaadia: 'Te das cuenta de que tienes los hombros tensos cuando alguien te lo señala, no por tu propia observación. El descanso no siempre te recupera porque estás cargando algo que no es físico. Puedes ir días enteros sin notar cómo está tu cuerpo hasta que algo duela de verdad.',
+      dondeempezar: 'Incluye un escaneo corporal de 2 minutos en tu rutina — al despertar o antes de dormir. Sin intentar cambiar nada. Solo recorrer el cuerpo mentalmente de la cabeza a los pies y notar qué hay. Esa práctica sola, sostenida en el tiempo, cambia la relación.',
+    },
+    alto: {
+      significa: 'La desconexión con tu cuerpo es significativa. Probablemente aprendiste muy pronto que lo que sentías físicamente (incomodidad, miedo, dolor) era mejor ignorarlo o suprimirlo. El cuerpo se convirtió en algo que administrar, no en algo con quien relacionarte.',
+      diaadia: 'Puedes funcionar a un nivel de estrés muy alto sin percibirlo como tal — hasta que el cuerpo "explota" en forma de enfermedad, agotamiento extremo o crisis. El descanso se siente como pérdida de tiempo. Tienes dificultad para identificar si lo que sientes es hambre, ansiedad, tristeza o cansancio — todo se vuelve una sensación difusa de "algo no está bien".',
+      dondeempezar: 'Antes de cualquier otra práctica, aprende a pausar. Tres veces al día, pon una alarma y durante 60 segundos solo observa: ¿cómo está el cuerpo ahora mismo? No para cambiarlo — para conocerlo. La reconexión no ocurre con técnicas avanzadas; ocurre con presencia repetida y sin juicio.',
+    },
+  },
+  identidad: {
+    bajo: {
+      significa: 'Tienes un sentido relativamente estable de quién eres. Puedes responder "¿qué quieres?" o "¿qué necesitas?" sin que la pregunta te paralice completamente.',
+      diaadia: 'Tus decisiones tienen una dirección reconocible para ti. No siempre estás segura, pero hay un hilo de lo que valoras que aparece con cierta consistencia. Puedes distinguir entre lo que quieres tú y lo que se espera de ti, aunque no siempre elijas lo primero.',
+      dondeempezar: 'El trabajo aquí es de coherencia — asegurarte de que lo que dices ser se alinea con lo que realmente haces. Observa en qué momentos actúas desde lo que crees ser y en cuáles actúas desde lo que crees que esperan de ti.',
+    },
+    medio: {
+      significa: 'Tu sentido de identidad existe pero es variable — cambia según el contexto, las personas, el momento. No es que seas "falsa" en ninguno de esos contextos, sino que aprendiste a adaptarte tanto que ya no sabes exactamente cuál versión eres "tú de verdad".',
+      diaadia: 'Eres una persona diferente en el trabajo, con tu familia y con tu pareja — y ninguna de esas versiones se siente del todo completa. Cuando alguien te pregunta qué quieres hacer, a veces genuinamente no lo sabes. Tomar decisiones sobre tu vida (trabajo, relaciones, tiempo libre) puede sentirse más difícil de lo que "debería".',
+      dondeempezar: 'Empieza a notar, sin juzgar, cuándo cambias de versión. ¿Con quién te adaptas más? ¿En qué situaciones sientes que "representas" algo que no es completamente tuyo? Esa observación, sin la presión de cambiarlo todavía, ya es el inicio del trabajo.',
+    },
+    alto: {
+      significa: 'La fragmentación de identidad es profunda. Has pasado tanto tiempo siendo lo que los diferentes contextos de tu vida necesitaban que la pregunta "¿quién soy yo?" puede sentirse aterradora o simplemente sin respuesta.',
+      diaadia: 'Puedes tener una vida que desde afuera "funciona bien" — trabajo, relaciones, rutinas — y sentir al mismo tiempo que hay una distancia entre esa vida y tú. Como si la observaras desde fuera. Cambias de opinión frecuentemente no porque estés explorando, sino porque no tienes un centro de referencia claro. El agotamiento de "performar" distintas versiones de ti misma puede ser una de las fuentes de cansancio más difíciles de identificar.',
+      dondeempezar: 'La pregunta no es "¿quién soy?" — esa es demasiado grande para empezar. La pregunta más útil es: "¿qué me gusta, aunque nadie lo vea?" Empieza por lo pequeño. Lo que eliges cuando nadie tiene opinión sobre lo que eliges.',
+    },
+  },
+  relacional: {
+    bajo: {
+      significa: 'Tienes una relación relativamente saludable con tus vínculos. Puedes establecer límites con cierta facilidad y no te disuelves en las necesidades de los demás de forma automática.',
+      diaadia: 'Puedes decir que no sin que eso te genere días de angustia. Reconoces cuándo una relación te nutre y cuándo te agota. No siempre es cómodo marcar un límite, pero puedes hacerlo.',
+      dondeempezar: 'El trabajo aquí es de profundidad relacional — aprender a pedir (not solo a dar) y a recibir sin sentirte en deuda. ¿Con quién te cuesta pedir ayuda? ¿Qué dice eso de lo que crees que mereces en esas relaciones?',
+    },
+    medio: {
+      significa: 'Los vínculos son un área de tensión frecuente. Probablemente tienes relaciones importantes en tu vida, pero en muchas de ellas hay una dinámica de dar más de lo que recibes, de anticipar las necesidades del otro antes que las propias, o de no saber cómo decir que no sin que duela mucho.',
+      diaadia: 'Puedes sentirte responsable del bienestar emocional de personas cercanas. Cuando hay conflicto, sueles ser quien cede — no siempre porque quieras, sino porque la incomodidad del conflicto se siente peor que la incomodidad de ceder. Dices que sí cuando quieres decir que no con más frecuencia de la que reconocerías en voz alta.',
+      dondeempezar: 'Practica el "no" en espacios de bajo riesgo primero. No empieces con la relación más difícil — empieza donde el coste emocional sea manejable. Un límite pequeño cumplido te enseña más que una decisión enorme postergada.',
+    },
+    alto: {
+      significa: 'Los vínculos y los límites son el área de mayor tensión en tu vida emocional ahora mismo. Hay una tendencia importante a priorizar las necesidades de los demás sobre las propias — no por elección consciente, sino porque aprendiste que ese es el camino más seguro para mantener el afecto y la aprobación.',
+      diaadia: 'Puedes terminar el día habiendo atendido todo lo de los demás y nada de lo tuyo, y no saber bien cómo ocurrió. Decir que no se siente como rechazar a la persona completa, no solo a la petición. Cuando alguien está mal, sientes que tienes que arreglarlo. El silencio o la distancia de alguien importante puede desencadenar una angustia desproporcionada porque lo interpretas como señal de que hiciste algo mal.',
+      dondeempezar: 'Antes de poder dar desde un lugar sano, necesitas aprender que tus necesidades también cuentan. Un ejercicio simple: una vez al día, pregúntate qué necesitas tú — no qué necesitan los demás, no qué tendrías que hacer. Solo: ¿qué necesito yo ahora mismo? No tienes que actuar en consecuencia todavía. Solo escuchar la respuesta.',
+    },
+  },
+};
+function getDimBand(raw) {
+  if (raw <= 7) return 'bajo';
+  if (raw <= 14) return 'medio';
+  return 'alto';
+}
+const QUESTIONS = [
+  // EMOCIONAL (4)
+  { dim:'emocional', text:'Siento emociones con intensidad pero me cuesta nombrarlas con precisión.', hint:'No lo que crees que sientes — lo que realmente ocurre.' },
+  { dim:'emocional', text:'Cuando algo me afecta, suelo racionalizarlo en lugar de permitirme sentirlo.', hint:'Piensa en situaciones recientes donde algo dolió pero lo analizaste antes de vivirlo.' },
+  { dim:'emocional', text:'Evito ciertas emociones manteniéndome constantemente ocupada o distraída.', hint:'Ocuparte de más, estar siempre en modo resolver...' },
+  { dim:'emocional', text:'Me cuesta confiar en lo que siento como guía para tomar decisiones.', hint:'¿Sueles esperar "tener más claridad" antes de actuar?' },
+  // CORPORAL (4)
+  { dim:'corporal', text:'Paso el día sin prestarle atención a lo que mi cuerpo siente.', hint:'Tensión, cansancio, nudos — señales que aparecen pero que no lees hasta que escalan.' },
+  { dim:'corporal', text:'Cuando estoy bajo presión, la primera señal está en el cuerpo, pero la ignoro y sigo.', hint:'El cuerpo ya sabe antes que la mente. ¿Lo escuchas?' },
+  { dim:'corporal', text:'Me es difícil distinguir si lo que siento es intuición o miedo.', hint:'Ambas viven en el cuerpo. El problema es no poder leer la diferencia.' },
+  { dim:'corporal', text:'El agotamiento que siento no siempre es físico — a veces es de alma.', hint:'Ese cansancio que el descanso no resuelve del todo.' },
+  // IDENTIDAD (4)
+  { dim:'identidad', text:'Tengo versiones distintas de mí misma según el contexto, y no sé cuál es la real.', hint:'No adaptación normal — esa sensación de que hay múltiples "yo" y ninguna es del todo tuya.' },
+  { dim:'identidad', text:'Me cuesta saber qué quiero yo realmente — separado de lo que se espera de mí.', hint:'¿Cuándo fue la última vez que elegiste algo solo porque tú querías, sin justificación?' },
+  { dim:'identidad', text:'La historia que me cuento de mí misma está más construida por lo que me pasó que por lo que elegí.', hint:'La narrativa interna que gobierna tus decisiones — ¿es tuya o es supervivencia?' },
+  { dim:'identidad', text:'Hay momentos en que no me reconozco en mis propias reacciones o decisiones.', hint:'Como si otra persona hubiera actuado por ti.' },
+  // RELACIONAL (4)
+  { dim:'relacional', text:'Tiendo a absorber el estado emocional de las personas que me rodean.', hint:'Si alguien está mal, tú también. Si el ambiente está tenso, tú lo cargas.' },
+  { dim:'relacional', text:'Me cuesta decir que no o poner límites sin sentir culpa después.', hint:'No el límite en sí — la culpa que viene después de haberlo puesto.' },
+  { dim:'relacional', text:'Cargo con responsabilidades o expectativas de otros, sintiendo que es mi obligación cumplirlas.', hint:'Exigencias, responsabilidades, roles que no elegiste pero sientes que te pertenecen.' },
+  { dim:'relacional', text:'Me resulta más fácil ver con claridad lo que otros necesitan que lo que necesito yo.', hint:'La capacidad de cuidar a otros no siempre viene acompañada de la de cuidarte a ti.' },
+];
+const PROFILES = [
+  {
+    min:0, max:32,
+    level:'Bajo',
+    name:'Presencia <em>con fisuras</em>',
+    sub:'Estás más conectada de lo que crees — con áreas puntuales de atención.',
+    desc:'Llegas a este resultado con una base relativamente estable. Hay áreas donde la conexión contigo misma es real y presente. Lo que este resultado te invita a explorar no es una crisis — es una profundización. Hay capas más finas de ti misma que todavía no has tenido el espacio o las herramientas para conocer. La pregunta no es qué está roto, sino qué podría estar más vivo.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'Momentos donde te sientes presente y conectada contigo misma. Capacidad diáfana de identificar lo que sientes. Relaciones donde puedes ser relativamente auténtica sin demasiado coste.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'Esa capa más fina que queda debajo de la emoción que sí puedes nombrar. Las decisiones que tomas "en automático" sin consultarte a ti misma. Los contextos donde aparece una versión de ti que no te termina de reconocer.',
+    primerPaso:'Esta semana, elige un momento del día para hacerte una sola pregunta: "¿Desde dónde estoy actuando ahora mismo — desde lo que quiero o desde lo que creo que se espera de mí?" No tienes que cambiar nada todavía. Solo observar.',
+    cta_title:'El trabajo preventivo es el más poderoso.',
+    cta_desc:'El Kit "Volver a Ti" está diseñado para mujeres que quieren construir desde la claridad — no solo desde la crisis.',
+    cta_note:'"No tienes que estar quebrada para querer estar más entera."',
+  },
+  {
+    min:33, max:52,
+    level:'Moderado',
+    name:'Fragmentación <em>silenciosa</em>',
+    sub:'Funcional por fuera. Algo desconectada por dentro.',
+    desc:'Es el tipo de fragmentación más común — y el más invisible. Funcionas. Cumples. A veces incluso con brillantez. Pero hay una distancia entre la mujer que el mundo ve y la que eres cuando nadie mira. Esa distancia tiene un coste energético que se acumula. No se trata de que algo esté "mal" en ti — se trata de que llevas tiempo sosteniendo demasiado, adaptándote demasiado, y siendo demasiadas versiones distintas de ti misma al mismo tiempo.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'El agotamiento que no se resuelve con descanso. La sensación de que algo falta sin poder nombrarlo. El piloto automático que toma el control antes de que puedas consultarte a ti misma. La pregunta "¿qué quiero yo?" que a veces no tiene respuesta inmediata.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'La narrativa interna que construiste para sobrevivir — y que hoy gobierna decisiones que ya no necesitas tomar desde ese lugar. Los vínculos donde te pierdes de ti misma. El cuerpo que lleva el registro de lo que la mente prefiere no ver.',
+    primerPaso:'Elige una sola área de las cuatro dimensiones — la que más resonó — y dedícale 10 minutos de escritura esta semana. No para resolver nada. Para empezar a conocerla. El journaling no es terapia, pero sí es el primer espacio donde muchas mujeres empiezan a escucharse a sí mismas por primera vez en mucho tiempo.',
+    cta_title:'La fragmentación silenciosa es la que más se tarda en ver — y la que más cambia cuando se trabaja.',
+    cta_desc:'El Kit de Herramientas "Volver a Ti" está diseñado exactamente para este momento: cuando sabes que algo no encaja pero no tienes lenguaje para nombrarlo todavía.',
+    cta_note:'"Cuatro semanas de proceso real pueden dar más claridad que años de gestión solitaria."',
+  },
+  {
+    min:53, max:68,
+    level:'Alto',
+    name:'Fragmentación <em>activa</em>',
+    sub:'El sistema interno está bajo presión sostenida.',
+    desc:'Este resultado habla de una desconexión que lleva tiempo instalada — probablemente desde mucho antes de que pudieras ponerle nombre. No es debilidad. Es el resultado de haber aprendido muy pronto que ciertas partes de ti eran demasiado, incorrectas, o peligrosas de mostrar. Así que las guardaste. Y esa guarda, que fue inteligente y necesaria en su momento, hoy pesa. Lo que este resultado te está diciendo es que ya es tiempo de volver a buscarte.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'Días enteros donde funcionas en piloto automático sin saber bien quién toma las decisiones. Una relación complicada con tus propias necesidades — a veces ni siquiera sabes cuáles son. El cuerpo que habla pero que has aprendido a ignorar hasta que grita. La sensación de estar presente en todos lados y en ninguno al mismo tiempo.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'El patrón de adaptación que se activó para protegerte y que hoy opera sin tu permiso. La distancia entre lo que sientes y lo que expresas. Los vínculos donde tu bienestar depende demasiado de la aprobación del otro. La pregunta "¿quién soy cuando no estoy siendo lo que alguien necesita?"',
+    primerPaso:'Antes de cualquier práctica de autoconocimiento, necesitas un espacio que sea completamente tuyo. Ni para compartir, ni para mejorar, ni para reportar a nadie. Un cuaderno donde escribas lo que realmente ocurre, sin editar. Eso es el principio. No de la solución — del reencuentro.',
+    cta_title:'Este nivel de fragmentación responde muy bien al trabajo estructurado con herramientas adecuadas.',
+    cta_desc:'El Kit "Volver a Ti" fue diseñado para mujeres en este punto exacto: con la conciencia de que algo tiene que cambiar, y con la disposición de hacerlo de verdad.',
+    cta_note:'"No necesitas estar en crisis para merecer detenerte. Ya es suficiente con saber que algo no encaja."',
+  },
+  {
+    min:69, max:80,
+    level:'Intenso',
+    name:'Fragmentación <em>profunda</em>',
+    sub:'Llevas tiempo sin saber dónde terminan los demás y dónde empiezas tú.',
+    desc:'Este resultado no te define — te describe un momento. Un momento en que la distancia contigo misma es real y merece atención genuina, no estrategias rápidas. Lo que este puntaje refleja es que llevas mucho tiempo funcionando desde un lugar de supervivencia emocional: adaptándote, anticipando, sosteniendo, cumpliendo. Y eso tiene un coste que ya no puede seguir siendo ignorado. No estás rota. Estás agotada de ser tantas cosas para tantas personas sin haber tenido el espacio de ser tú misma primero.',
+    insight1_label:'Lo que reconocerás',
+    insight1:'Un agotamiento que va más allá de lo físico y que no tiene causa visible clara. La dificultad para saber lo que quieres — no por falta de opinión, sino porque llevas tanto tiempo priorizando lo de los demás que tu propia voz se ha vuelto más silenciosa. Relaciones donde das mucho más de lo que recibes. Un cuerpo que carga lo que no se ha podido decir.',
+    insight2_label:'Lo que necesita atención',
+    insight2:'Este resultado merece herramientas especializadas y un espacio seguro para ti. El trabajo de reconectarte con quien eres necesita estructura, paso a paso y presencia.',
+    primerPaso:'Hoy, solo una cosa: permítete no estar bien sin tener que resolverlo inmediatamente. Si puedes, escribe una sola línea: "¿Qué es lo que más me pesa ahora mismo?" No para buscarle solución — solo para nombrarlo. Nombrar es el principio de todo lo que viene después.',
+    cta_title:'En este punto, el acompañamiento guiado es la clave para reorganizarte sin agotarte.',
+    cta_desc:'El Kit "Volver a Ti" incluye las dinámicas y guías estructuradas para acompañar este proceso de forma segura.',
+    cta_note:'"El primer acto de reconstrucción es reconocer que ya es suficiente con lo que has cargado sola."',
+  },
+];
+// ══ STATE ════════════════════════════════════════════════════════════════
+let answers = new Array(QUESTIONS.length).fill(null);
+let current = 0;
+let userData = { name: '', email: '' };
+// ══ SCREEN NAV ═══════════════════════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function startTest() {
+  showScreen('screen-test');
+  renderQ(0);
+  updateProgress();
+}
+// ══ QUESTIONS ════════════════════════════════════════════════════════════
+function renderQ(idx) {
+  const q = QUESTIONS[idx];
+  const dim = DIMS[q.dim];
+  document.getElementById('q-counter').textContent = `Pregunta ${idx+1} de ${QUESTIONS.length}`;
+  document.getElementById('dim-name').textContent = dim.label;
+  document.getElementById('dim-dot').style.background = dim.color;
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('q-hint').textContent = q.hint;
+  // render buttons
+  const btns = document.querySelectorAll('.scale-btn');
+  btns.forEach((btn, i) => {
+    btn.classList.toggle('selected', answers[idx] === i+1);
+  });
+  document.getElementById('btn-next').disabled = answers[idx] === null;
+  document.getElementById('btn-back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+  // last q label
+  const nextBtn = document.getElementById('btn-next');
+  if (idx === QUESTIONS.length - 1) {
+    nextBtn.innerHTML = 'Ver mi resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  } else {
+    nextBtn.innerHTML = 'Siguiente <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  }
+}
+function selectVal(v) {
+  answers[current] = v;
+  document.querySelectorAll('.scale-btn').forEach((btn, i) => {
+    btn.classList.toggle('selected', i+1 === v);
+  });
+  document.getElementById('btn-next').disabled = false;
+}
+function transition(fn) {
+  const block = document.getElementById('q-block');
+  block.classList.add('fade-out');
+  setTimeout(() => { fn(); block.classList.remove('fade-out'); }, 220);
+}
+function nextQ() {
+  if (answers[current] === null) return;
+  if (current === QUESTIONS.length - 1) {
+    showScreen('screen-email');
+    updateProgress(100);
+    return;
+  }
+  transition(() => { current++; renderQ(current); updateProgress(); });
+}
+function prevQ() {
+  if (current === 0) return;
+  transition(() => { current--; renderQ(current); updateProgress(); });
+}
+function updateProgress(pct) {
+  const p = pct !== undefined ? pct : Math.round((current / QUESTIONS.length) * 100);
+  document.getElementById('progress').style.width = p + '%';
+}
+function submitLeadAndShowResult() {
+  const nameInput = document.getElementById('user-name').value.trim();
+  const emailInput = document.getElementById('user-email').value.trim();
+  if(!emailInput || !emailInput.includes('@')) {
+    alert('Por favor, ingresa un correo electrónico válido para ver tu resultado.');
+    document.getElementById('user-email').focus();
+    return;
+  }
+  userData.name = nameInput;
+  userData.email = emailInput;
+  showResult();
+}
+// ══ RESULT ═══════════════════════════════════════════════════════════════
+function computeScores() {
+  const scores = { emocional:0, corporal:0, identidad:0, relacional:0 };
+  QUESTIONS.forEach((q,i) => { if (answers[i]) scores[q.dim] += answers[i]; });
+  const total = Object.values(scores).reduce((a,b)=>a+b,0);
+  return { scores, total };
+}
+function getProfile(total) {
+  return PROFILES.find(p => total >= p.min && total <= p.max) || PROFILES[PROFILES.length-1];
+}
+function showResult() {
+  const { scores, total } = computeScores();
+  const profile = getProfile(total);
+  document.getElementById('res-score').textContent = total;
+  document.getElementById('res-level-badge').textContent = `Nivel ${profile.level}`;
+  document.getElementById('res-name').innerHTML = profile.name;
+  document.getElementById('res-sub').textContent = profile.sub;
+  document.getElementById('res-desc').textContent = profile.desc;
+  // Dimension bars + lectura expandida por dimensión
+  const barsEl = document.getElementById('dim-bars');
+  barsEl.innerHTML = '';
+  const dimOrder = ['emocional','corporal','identidad','relacional'];
+  dimOrder.forEach(dk => {
+    const dim = DIMS[dk];
+    const raw = scores[dk];
+    const max = 20;
+    const pct = Math.round((raw/max)*100);
+    const band = getDimBand(raw);
+    const t = DIM_TEXTS[dk][band];
+    barsEl.innerHTML += `
+      <div class="dim-bar-item">
+        <div class="dim-bar-header">
+          <span>${dim.label}</span>
+          <span>${raw}/20</span>
+        </div>
+        <div class="dim-bar-track">
+          <div class="dim-bar-fill" style="background:${dim.color}" data-pct="${pct}"></div>
+        </div>
+        <div class="dim-detail">
+          <div class="dim-detail-block">
+            <span class="dim-detail-label">Lo que esto significa</span>
+            <p class="dim-detail-text">${t.significa}</p>
+          </div>
+          <div class="dim-detail-block">
+            <span class="dim-detail-label">Cómo se vive en el día a día</span>
+            <p class="dim-detail-text">${t.diaadia}</p>
+          </div>
+          <div class="dim-detail-block">
+            <span class="dim-detail-label">Por dónde puedes empezar</span>
+            <p class="dim-detail-text">${t.dondeempezar}</p>
+          </div>
+        </div>
+      </div>`;
+  });
+  // Insights
+  document.getElementById('insight-cards').innerHTML = `
+    <div class="insight-card">
+      <span class="insight-card-label">${profile.insight1_label}</span>
+      <p class="insight-card-text">${profile.insight1}</p>
+    </div>
+    <div class="insight-card">
+      <span class="insight-card-label">${profile.insight2_label}</span>
+      <p class="insight-card-text">${profile.insight2}</p>
+    </div>`;
+  // Primer paso
+  document.getElementById('firststep-text').textContent = profile.primerPaso;
+  // CTA
+  document.getElementById('cta-title').textContent = profile.cta_title;
+  document.getElementById('cta-desc').textContent = profile.cta_desc;
+  document.getElementById('cta-note').textContent = profile.cta_note;
+  showScreen('screen-result');
+  // Animate bars after render
+  setTimeout(() => {
+    document.querySelectorAll('.dim-bar-fill').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 100);
+}
+// ══ SHARE ════════════════════════════════════════════════════════════════
+function shareWA() {
+  const text = '¿Qué partes de ti se desconectaron en el camino? Hice el Test de Fragmentación Emocional de Arquitecta Emocional y fue revelador. Puedes hacerlo gratis aquí:';
+  window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.href)}`, '_blank');
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.querySelector('.share-btn:last-child');
+    const orig = btn.textContent;
+    btn.textContent = '¡Copiado!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+// Keyboard nav
+document.addEventListener('keydown', e => {
+  const screen = document.querySelector('.screen.active');
+  if (!screen || screen.id !== 'screen-test') return;
+  const num = parseInt(e.key);
+  if (num >= 1 && num <= 5) selectVal(num);
+  if (e.key === 'Enter' && !document.getElementById('btn-next').disabled) nextQ();
+  if (e.key === 'ArrowLeft') prevQ();
+});
 </script>
 </body>
 </html>
