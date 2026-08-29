@@ -29,19 +29,19 @@ body{
 .header{
   position:fixed;top:0;left:0;right:0;
   background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);
-  padding:0 40px;height:76px;
+  padding:0 40px;height:84px;
   display:flex;align-items:center;justify-content:space-between;
   z-index:90;border-bottom:1px solid rgba(191,181,168,0.3);
 }
 .header-logo{
-  max-height:46px;
+  max-height:58px;
   width:auto;
   display:block;
   flex-shrink:0;
 }
 .header-tag{font-size:10px;letter-spacing:0.14em;color:var(--taupe);text-transform:uppercase;}
 /* ── SCREENS ── */
-.screen{display:none;min-height:100vh;padding-top:76px;}
+.screen{display:none;min-height:100vh;padding-top:84px;}
 .screen.active{display:flex;flex-direction:column;}
 /* ── INTRO SCREEN ── */
 #screen-intro{
@@ -105,7 +105,7 @@ body{
 #screen-test{
   background:var(--marfil);
   align-items:center;
-  padding-top:56px;
+  padding-top:64px;
 }
 .test-wrap{
   max-width:680px;width:90%;padding:60px 0 80px;
@@ -124,16 +124,17 @@ body{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(20px,3.5vw,28px);font-weight:400;
   line-height:1.35;color:var(--carbon);
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 .q-hint{
-  font-size:15px;color:var(--warm);margin-bottom:40px;
-  font-style:italic;font-family:'Cormorant Garamond',serif;
+  font-size:16px;color:var(--carbon2);margin-bottom:40px;
+  font-style:italic;font-family:'Cormorant Garamond',serif;line-height:1.6;
+  font-weight:400;
 }
 .scale-wrap{display:flex;flex-direction:column;gap:0;margin-bottom:48px;}
 .scale-labels{
   display:flex;justify-content:space-between;
-  font-size:10px;color:var(--carbon);font-weight:500;letter-spacing:0.08em;
+  font-size:11.5px;color:var(--carbon);font-weight:500;letter-spacing:0.08em;
   margin-bottom:10px;text-transform:uppercase;
 }
 .scale-btns{display:flex;gap:8px;}
@@ -142,7 +143,7 @@ body{
   border:1.5px solid var(--taupe);background:rgba(255,255,255,0.5);
   cursor:pointer;transition:all 0.18s;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--carbon);
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--carbon);
   position:relative;
 }
 .scale-btn:hover{border-color:var(--dorado);background:rgba(201,170,124,0.1);color:var(--carbon);}
@@ -150,7 +151,7 @@ body{
   background:var(--carbon);border-color:var(--carbon);
   color:var(--dorado);
 }
-.scale-btn .val{font-size:19px;}
+.scale-btn .val{font-size:24px;}
 .nav-btns{display:flex;justify-content:space-between;align-items:center;}
 .btn-back{
   background:none;border:1px solid rgba(191,181,168,0.4);
@@ -386,7 +387,7 @@ body{
 <body>
 <div class="progress-bar" id="progress"></div>
 <header class="header">
-  <img src="Logo horizontal (para header de cada página del ebook).jpg" alt="Arquitecta Emocional – Belén Escribano" class="header-logo">
+  <img src="Logo_cuarta_imagen.jpg" alt="Arquitecta Emocional – Belén Escribano" class="header-logo">
   <span class="header-tag">Test Gratuito · Belén Escribano</span>
 </header>
 <!-- ══ INTRO ══════════════════════════════════════════════════════════ -->
@@ -457,12 +458,12 @@ body{
   <div class="email-inner">
     <span class="intro-tag" style="text-align:center;display:block;">Casi listo</span>
     <h2 class="email-title">Tu radiografía emocional está lista.</h2>
-    <p class="email-sub">Ingresa tu nombre y correo para desbloquear tu resultado detallado de inmediato y descubrir qué áreas necesitan tu atención.</p>
+    <p class="email-sub">Ingresa tu nombre y correo para desbloquear tu resultado detallado y descubrir qué áreas necesitan tu atención. (Tu resultado aparecerá en pantalla inmediatamente después).</p>
     <div class="email-form">
       <input type="text" id="user-name" placeholder="Tu nombre" required>
       <input type="email" id="user-email" placeholder="Tu correo electrónico" required>
     </div>
-    <p class="email-privacy">Tus datos son seguros. Tu resultado aparecerá en pantalla inmediatamente después.</p>
+    <p class="email-privacy">Tus datos son seguros.</p>
     <button class="btn-result" onclick="submitLeadAndShowResult()">Revelar mi resultado ahora</button>
   </div>
 </div>
@@ -496,9 +497,9 @@ body{
   </div>
   <div class="result-cta">
     <div class="cta-box" id="cta-box">
-      <span class="cta-label">Tu siguiente paso natural</span>
-      <h3 class="cta-title" id="cta-title">De la consciencia a la acción: El Kit "Volver a Ti"</h3>
-      <p class="cta-desc" id="cta-desc">El test te ha mostrado dónde estás hoy. El Kit de Ebooks y Herramientas "Volver a Ti" te entregará las pautas prácticas y ejercicios para empezar a sanar estas áreas a tu propio ritmo.</p>
+      <span class="cta-label">TU SIGUIENTE PASO NATURAL</span>
+      <h3 class="cta-title" id="cta-title">De la consciencia a la acción: El Kit 'Volver a Ti'</h3>
+      <p class="cta-desc" id="cta-desc">El test te ha mostrado dónde estás hoy. El Kit de Ebook 'Volver a Ti' te entregará las herramientas prácticas, ejercicios y plantillas para empezar a sanar estas áreas a tu propio ritmo. No tienes que hacerlo sola.</p>
       <a class="btn-cta" href="https://www.instagram.com/arquitecta.emocional.cl" target="_blank">
         Obtener el Kit de Herramientas
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -546,7 +547,7 @@ const DIM_TEXTS = {
   corporal: {
     bajo: {
       significa: 'Tienes una relación relativamente presente con tu cuerpo. Lo escuchas con cierta regularidad y reconoces sus señales antes de que se conviertan en alarmas.',
-      diaadia: 'Cuando tu cuerpo necesita descanso, sueles notarlo. El hambre, el cansancio, la tensión física — son señales que registras. No siempre actúas en consecuencia, pero al menos las escuchas.',
+      diaadia: 'Cuando tu cuerpo necesita descanso, sueles notarlo. El hambre, el cansancio, la tensión física — señales que registras. No siempre actúas en consecuencia, pero al menos las escuchas.',
       dondeempezar: 'Profundiza la conversación con tu cuerpo. Aprende a distinguir entre cansancio físico y cansancio emocional — se sienten diferente si te detienes a observar. Cuando aparezca una tensión, pregúntate qué emoción podría estar sosteniendo esa zona.',
     },
     medio: {
@@ -572,7 +573,7 @@ const DIM_TEXTS = {
       dondeempezar: 'Empieza a notar, sin juzgar, cuándo cambias de versión. ¿Con quién te adaptas más? ¿En qué situaciones sientes que "representas" algo que no es completamente tuyo? Esa observación, sin la presión de cambiarlo todavía, ya es el inicio del trabajo.',
     },
     alto: {
-      significa: 'La fragmentación de identidad es profunda. Has pasado tanto tiempo siendo lo que los diferentes contextos de tu vida necesitaban que la pregunta "¿quién soy yo?" puede sentirse aterradora o simplemente sin respuesta.',
+      significa: 'La fragmentación de identidad es profunda. Has pasados tanto tiempo siendo lo que los diferentes contextos de tu vida necesitaban que la pregunta "¿quién soy yo?" puede sentirse aterradora o simplemente sin respuesta.',
       diaadia: 'Puedes tener una vida que desde afuera "funciona bien" — trabajo, relaciones, rutinas — y sentir al mismo tiempo que hay una distancia entre esa vida y tú. Como si la observaras desde fuera. Cambias de opinión frecuentemente no porque estés explorando, sino porque no tienes un centro de referencia claro. El agotamiento de "performar" distintas versiones de ti misma puede ser una de las fuentes de cansancio más difíciles de identificar.',
       dondeempezar: 'La pregunta no es "¿quién soy?" — esa es demasiado grande para empezar. La pregunta más útil es: "¿qué me gusta, aunque nadie lo vea?" Empieza por lo pequeño. Lo que eliges cuando nadie tiene opinión sobre lo que eliges.',
     },
@@ -762,7 +763,6 @@ function submitLeadAndShowResult() {
   }
   userData.name = nameInput;
   userData.email = emailInput;
-  // Aquí puedes integrar opcionalmente tu lógica de envío de leads (ej. Webhook / Mailchimp)
   showResult();
 }
 // ══ RESULT ═══════════════════════════════════════════════════════════════
@@ -868,3 +868,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
+  
