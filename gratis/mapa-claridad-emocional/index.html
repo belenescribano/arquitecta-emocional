@@ -364,9 +364,16 @@ body{
 @media(max-width:900px){
   .site-footer{padding:22px 28px;}
 }
+@media(max-width:767px){
+  .header{
+    padding:12px 20px;height:auto;min-height:96px;
+    flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  }
+  .header-logo{height:34px;max-width:88vw;}
+  .header-tag{font-size:11px;letter-spacing:0.1em;text-align:center;line-height:1.5;}
+  .screen{padding-top:104px;}
+}
 @media(max-width:600px){
-  .header{padding:0 20px;}
-  .header-logo{height:30px;}
   .intro-inner,.mapa-wrap,.result-inner,.result-insights,.result-cta,.result-firststep{width:92%;}
   .insight-cards{grid-template-columns:1fr;}
   .cta-box{padding:28px 24px;}
