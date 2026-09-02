@@ -758,17 +758,65 @@ function updateProgress(pct) {
   const p = pct !== undefined ? pct : Math.round((current / QUESTIONS.length) * 100);
   document.getElementById('progress').style.width = p + '%';
 }
-function submitLeadAndShowResult() {
+function getResultGroup(total) {
+  if (total <= 32) return '01';
+  if (total <= 52) return '02';
+  if (total <= 68) return '03';
+  return '04';
+}
+function stripTags(s) { return String(s || '').replace(/<[^>]*>/g, ''); }
+
+async function submitLeadAndShowResult() {
+  const btn = document.querySelector('.btn-result');
   const nameInput = document.getElementById('user-name').value.trim();
   const emailInput = document.getElementById('user-email').value.trim();
-  if(!emailInput || !emailInput.includes('@')) {
+  if(!emailInput || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
     alert('Por favor, ingresa un correo electrónico válido para ver tu resultado.');
     document.getElementById('user-email').focus();
     return;
   }
   userData.name = nameInput;
   userData.email = emailInput;
-  showResult();
+
+  const origLabel = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Preparando tu mapa…'; }
+
+  const { scores, total } = computeScores();
+  const profile = getProfile(total);
+  const payload = {
+    name: nameInput,
+    email: emailInput,
+    resultGroup: getResultGroup(total),
+    resultName: stripTags(profile.name),
+    resultLevel: profile.level,
+    score: total,
+    dimensions: {
+      emocional: Math.round((scores.emocional / 20) * 80),
+      corporal: Math.round((scores.corporal / 20) * 80),
+      identidad: Math.round((scores.identidad / 20) * 80),
+      relacional: Math.round((scores.relacional / 20) * 80)
+    }
+  };
+
+  // El registro nunca debe bloquear la entrega del resultado: 4s de techo y fallo silencioso.
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 4000);
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: ctrl.signal,
+      keepalive: true
+    });
+    clearTimeout(timer);
+    if (!res.ok) console.warn('[subscribe] respuesta', res.status, await res.text().catch(() => ''));
+  } catch (err) {
+    console.warn('[subscribe] no se pudo registrar el lead:', err);
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = origLabel; }
+    showResult();
+  }
 }
 // ══ RESULT ═══════════════════════════════════════════════════════════════
 function computeScores() {
