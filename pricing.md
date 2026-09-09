@@ -1,36 +1,28 @@
-# Pricing — Arquitecta Emocional
+# Arquitecta Emocional · Oferta
 
-## Productos digitales (Biblioteca Emocional)
+## Mapa de Funcionamiento · Gratuito
 
-### Escribir para encontrarte
-- Precio: USD 47
-- Formato: Herramienta de escritura emocional digital
-- Disponibilidad: Disponible ahora
-- Incluye: Ejercicios de escritura para reconexión identitaria
+Instrumento de 16 preguntas, 5 minutos. Mide cuatro dimensiones del mundo interno (registro, cuerpo, identidad, límites) y devuelve un informe con la lectura por dimensión y recomendaciones concretas.
 
-### Regulación emocional — herramientas
-- Precio: USD 37
-- Formato: Kit digital de herramientas prácticas
-- Disponibilidad: Lista de espera
-- Incluye: Técnicas de regulación emocional para sobrepensamiento y emociones intensas
+Es el punto de entrada al trabajo. Acceso en /gratis/mapa-de-funcionamiento
 
-### Mapa de claridad emocional
-- Precio: USD 39
-- Formato: Herramienta digital de autoconocimiento
-- Disponibilidad: Lista de espera
-- Incluye: Mapa para identificar patrones emocionales repetitivos
+## Arquitectura Interna · Mentoría 1:1
 
-### Vocabulario emocional
-- Precio: USD 19
-- Formato: Mini guía digital con rueda de emociones y ejercicios
-- Disponibilidad: Disponible ahora
-- Incluye: Herramienta para nombrar emociones con precisión
+Proceso individual de 8 semanas para observar cómo funciona tu sistema de respuestas y reorganizarlo con criterio.
 
-## Programa de Reconstrucción Emocional
-- Precio: Consultar — hola@arquitecta-emocional.com
-- Formato: Acompañamiento individual online
-- Duración: Personalizado según proceso
+**Estructura por capas**
 
-## Contacto
-- Email: hola@arquitecta-emocional.com
-- Web: https://www.arquitecta-emocional.com/contacto.html
+- Semanas 1–2 · Registro: cómo reconoces y nombras lo que sientes
+- Semanas 3–4 · Patrones: qué respuestas se activan de forma automática y qué función cumplieron
+- Semanas 5–6 · Decisiones: coherencia entre lo que valoras y lo que eliges
+- Semanas 7–8 · Límites: cómo operan en tus vínculos y cómo afirmarlos
+
+**Incluye:** sesiones individuales, material de observación entre sesiones, acompañamiento entre encuentros y total confidencialidad.
+
+**Precio:** bajo solicitud. Trabajo con un número reducido de mujeres por trimestre para poder acompañar cada proceso con la profundidad que requiere.
+
+**Acceso:** por solicitud de información en /contacto.html
+
+---
+
+Este acompañamiento no es psicoterapia clínica ni la sustituye.

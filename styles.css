@@ -3,7 +3,7 @@
    Sistema visual — basado en el Plan de Marca v1.0
    =========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+/* Fuentes cargadas via <link> en el <head> de cada página (no bloqueante) */
 
 :root{
   /* Paleta oficial */
@@ -164,13 +164,13 @@ p{ margin:0 0 1.1em; }
   padding-block:16px;
   box-shadow:0 1px 0 var(--line);
 }
-.nav-logo{ display:flex; align-items:center; gap:0; }
-.nav-logo img{ height:clamp(46px,4.6vw,64px); width:auto; transition:opacity .4s, height .5s var(--ease); }
+.nav-logo{ display:flex; align-items:center; gap:0; flex-shrink:0; }
+.nav-logo img{ height:clamp(46px,4.6vw,64px); width:auto; max-width:none; object-fit:contain; transition:opacity .4s, height .5s var(--ease); }
 .nav-links{ display:flex; align-items:center; gap:clamp(20px,2.6vw,40px); }
 .nav-links a{
   font-family:var(--sans); font-weight:400; font-size:.74rem;
   letter-spacing:.16em; text-transform:uppercase; color:var(--carbon);
-  position:relative; padding:4px 0;
+  position:relative; padding:4px 0; white-space:nowrap; flex-shrink:0;
   transition:color .4s;
 }
 .nav-links a::after{
@@ -202,7 +202,7 @@ p{ margin:0 0 1.1em; }
 /* ----------------------------------------------------------- Footer */
 .footer{ background:var(--carbon); color:var(--on-dark); padding-block:clamp(56px,7vw,88px); }
 .footer .wrap{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; }
-.footer-brand img{ height:72px; width:auto; margin-bottom:26px; }
+.footer-brand img{ height:auto; width:100%; max-width:340px; object-fit:contain; margin-bottom:26px; }
 .footer h4{ font-family:var(--sans); font-weight:500; text-transform:uppercase; font-size:.7rem; letter-spacing:.2em; color:var(--on-dark-soft); margin-bottom:18px; }
 .footer a{ color:var(--on-dark); display:block; padding:5px 0; font-size:.92rem; transition:color .35s; }
 .footer a:hover{ color:var(--dorado); }
@@ -260,7 +260,7 @@ p{ margin:0 0 1.1em; }
   .footer .wrap{ grid-template-columns:1fr 1fr; }
   .footer-brand{ grid-column:1 / -1; }
 }
-@media (max-width:860px){
+@media (max-width:1040px){
   .nav-links{ display:none; }
   .nav-toggle{ display:block; }
   .g-2,.g-3{ grid-template-columns:1fr; }
