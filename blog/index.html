@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · Reflexiones sobre patrones, límites y coherencia interna</title>
+<meta name="description" content="Artículos sobre patrones de respuesta, límites, coherencia interna y autoobservación. Escritos por Belén Escribano, mentora en Arquitectura Emocional.">
+<link rel="canonical" href="https://www.arquitecta-emocional.com/blog/">
+<meta property="og:title" content="Blog · Arquitecta Emocional">
+<meta property="og:description" content="Reflexiones sobre patrones, límites y coherencia interna para mujeres profesionales.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arquitecta-emocional.com/blog/">
+<meta property="og:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog · Arquitecta Emocional">
+<meta name="twitter:description" content="Reflexiones sobre patrones, límites y coherencia interna para mujeres profesionales.">
+<meta name="twitter:image" content="https://www.arquitecta-emocional.com/assets/og-image.png">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.page-hero{padding-top:clamp(150px,18vh,230px);padding-bottom:clamp(20px,4vw,40px)}
+.page-hero h1{font-size:clamp(2.4rem,5.6vw,4.6rem);line-height:1.04;max-width:16em}
+.page-hero .lead{margin-top:1.6em;max-width:38em}
+.blog-tools{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:clamp(32px,4vw,48px)}
+.blog-search{flex:1;min-width:220px;max-width:420px;position:relative}
+.blog-search input{width:100%;font-family:var(--sans);font-size:.95rem;color:var(--carbon);background:transparent;border:0;border-bottom:1px solid var(--taupe);padding:.7em 2.2em .7em 0;transition:border-color .4s var(--ease)}
+.blog-search input::placeholder{color:var(--taupe)}
+.blog-search input:focus{outline:none;border-color:var(--dorado-deep)}
+.blog-search .ico{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--taupe);pointer-events:none}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);background:transparent;border:1px solid var(--line);padding:.6em 1.2em;cursor:pointer;transition:all .35s var(--ease)}
+.filters button:hover,.filters button.on{color:var(--dorado-deep);border-color:var(--dorado)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px);margin-top:clamp(36px,4vw,52px)}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.blog-grid{grid-template-columns:1fr}}
+.bc{background:var(--beige);border-radius:8px;padding:24px;display:flex;flex-direction:column;text-decoration:none;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.bc:hover{transform:translateY(-4px);box-shadow:0 24px 48px -30px rgba(61,56,48,.35)}
+.bc .cat{font-family:var(--sans);font-weight:500;text-transform:uppercase;font-size:10px;letter-spacing:.1em;color:var(--dorado)}
+.bc h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.15rem,1.7vw,1.35rem);color:var(--carbon);margin:.65em 0 .45em;line-height:1.22}
+.bc .ex{font-family:var(--sans);font-weight:300;font-size:.875rem;color:var(--ink-soft);line-height:1.6;flex:1}
+.bc .dt{font-family:var(--sans);font-size:.72rem;color:var(--taupe);margin-top:1.1em}
+.bc .rd{margin-top:.8em;font-family:var(--sans);font-weight:400;font-size:.8125rem;color:var(--dorado);display:inline-flex;align-items:center;gap:.5em;transition:gap .4s var(--ease)}
+.bc:hover .rd{gap:.8em}
+.bc.soon{opacity:.88;pointer-events:none}
+.bc .badge{display:inline-block;font-family:var(--sans);font-weight:500;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dorado-deep);background:rgba(201,170,124,.18);padding:.35em .8em;border-radius:4px;margin-top:.8em}
+.empty{text-align:center;padding:clamp(40px,5vw,64px) 0;color:var(--ink-soft);font-family:var(--serif);font-style:italic;font-size:1.15rem;display:none}
+.empty.show{display:block}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Blog · Arquitecta Emocional",
+  "description": "Artículos sobre patrones de respuesta, límites, coherencia interna y autoobservación.",
+  "url": "https://www.arquitecta-emocional.com/blog/",
+  "isPartOf": {"@type":"WebSite","name":"Arquitecta Emocional","url":"https://www.arquitecta-emocional.com"},
+  "author": {"@type":"Person","name":"Belén Escribano","url":"https://www.arquitecta-emocional.com/sobre-mi.html"}
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="../index.html" aria-label="Arquitecta Emocional, inicio"><img src="../assets/logo-nav.webp" width="986" height="192" alt="Logotipo de Arquitecta Emocional"></a>
+  <div class="nav-links">
+    <a href="../index.html">Inicio</a>
+    <a href="../sobre-mi.html">Quién soy</a>
+    <a href="../servicios.html">El proceso</a>
+    <a href="../blog/" class="active">Blog</a>
+    <a href="../clientes.html">Para quién</a>
+    <a href="https://www.arquitecta-emocional.com/gratis/mapa-de-funcionamiento" class="nav-cta">Empezar aquí</a>
+    <a href="../contacto.html">Contacto</a>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Inicio</a>
+  <a href="../sobre-mi.html">Quién soy</a>
+  <a href="../servicios.html">El proceso</a>
+  <a href="../blog/" class="active">Blog</a>
+  <a href="../clientes.html">Para quién</a>
+  <a href="https://www.arquitecta-emocional.com/gratis/mapa-de-funcionamiento">Empezar aquí</a>
+  <a href="../contacto.html">Contacto</a>
+</div>
+
+<header class="page-hero wrap" data-screen-label="Blog / hero">
+  <span class="eyebrow" data-reveal>Blog</span>
+  <h1 data-reveal data-reveal-delay="1" style="margin-top:.5em;">Reflexiones sobre patrones, límites y coherencia interna</h1>
+  <p class="lead" data-reveal data-reveal-delay="2">Observaciones sobre cómo funcionamos, escritas para mujeres que prefieren precisión antes que inspiración.</p>
+</header>
+
+<section class="section bg-marfil" style="padding-top:clamp(20px,3vw,40px);" data-screen-label="Artículos">
+  <div class="wrap">
+    <div class="blog-tools" data-reveal>
+      <div class="blog-search">
+        <input type="text" id="blog-q" placeholder="Buscar por título o tema…" autocomplete="off">
+        <span class="ico">⌕</span>
+      </div>
+      <div class="filters" id="blog-filters"></div>
+    </div>
+    <div class="blog-grid" id="blog-grid"></div>
+    <p class="empty" id="blog-empty">No hay artículos que coincidan con tu búsqueda.</p>
+  </div>
+</section>
+
+<section class="section bg-beige" data-screen-label="CTA">
+  <div class="wrap narrow center" data-reveal>
+    <span class="eyebrow center plain">El primer paso</span>
+    <h2 class="h-lg" style="margin-top:.4em;">Empieza por una lectura de dónde estás.</h2>
+    <p class="lead" style="margin:1.3em auto 2.2em;max-width:32em;">El Mapa de Funcionamiento son 16 preguntas y 5 minutos. Te devuelve un informe por dimensión: el punto de partida más preciso.</p>
+    <a href="https://www.arquitecta-emocional.com/gratis/mapa-de-funcionamiento" class="btn btn-gold">Hacer el Mapa <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="../assets/logo-footer-light-72.webp" width="582" height="216" loading="lazy" alt="Logotipo de Arquitecta Emocional en versión clara sobre fondo carbón">
+      <p class="footer-quote">Comprender cómo funcionas es lo que permite, después, elegir distinto.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="../index.html">Inicio</a>
+      <a href="../sobre-mi.html">Quién soy</a>
+      <a href="../servicios.html">El proceso</a>
+      <a href="../clientes.html">Para quién</a>
+      <a href="../contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Conecta</h4>
+      <a href="https://instagram.com/arquitecta.emocional.cl" target="_blank" rel="noopener">@arquitecta.emocional.cl</a>
+      <a href="https://www.arquitecta-emocional.com/gratis/mapa-de-funcionamiento">Mapa de Funcionamiento</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Arquitecta Emocional · Belén Escribano</span>
+    <span>@ARQUITECTA.EMOCIONAL.CL</span>
+  </div>
+</footer>
+
+<script src="../blog-posts.js"></script>
+<script>
+(function(){
+  var posts=window.blogPosts||[];
+  var grid=document.getElementById('blog-grid');
+  var filtersEl=document.getElementById('blog-filters');
+  var qInput=document.getElementById('blog-q');
+  var empty=document.getElementById('blog-empty');
+  if(!grid) return;
+
+  var months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  function fmtDate(d){var p=d.split('-');return parseInt(p[2],10)+' de '+months[parseInt(p[1],10)-1]+', '+p[0];}
+
+  // build category filter buttons
+  var cats=['Todos'];
+  posts.forEach(function(p){if(cats.indexOf(p.category)===-1)cats.push(p.category);});
+  cats.forEach(function(c){
+    var b=document.createElement('button');
+    b.textContent=c;
+    if(c==='Todos')b.classList.add('on');
+    b.addEventListener('click',function(){
+      filtersEl.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      render();
+    });
+    filtersEl.appendChild(b);
+  });
+
+  function activeCat(){var b=filtersEl.querySelector('.on');return b?b.textContent:'Todos';}
+
+  function render(){
+    var cat=activeCat();
+    var q=(qInput.value||'').toLowerCase().trim();
+    grid.innerHTML='';
+    var shown=0;
+    posts.forEach(function(p){
+      if(cat!=='Todos'&&p.category!==cat)return;
+      if(q&&p.title.toLowerCase().indexOf(q)===-1&&p.excerpt.toLowerCase().indexOf(q)===-1&&p.category.toLowerCase().indexOf(q)===-1)return;
+      var isSoon=!!p.soon;
+      var a=document.createElement(isSoon?'div':'a');
+      if(!isSoon) a.href=p.url;
+      a.className='bc'+(isSoon?' soon':'');
+      a.setAttribute('data-reveal','');
+      a.innerHTML='<span class="cat">'+p.category+'</span>'
+        +'<h3>'+p.title+'</h3>'
+        +'<p class="ex">'+p.excerpt+'</p>'
+        +'<span class="dt">'+fmtDate(p.date)+'</span>'
+        +(isSoon?'<span class="badge">Próximamente</span>':'<span class="rd">Leer →</span>');
+      grid.appendChild(a);
+      shown++;
+    });
+    empty.classList.toggle('show',shown===0);
+    // re-trigger reveals
+    if(window.IntersectionObserver){
+      grid.querySelectorAll('[data-reveal]').forEach(function(el){
+        el.classList.add('in');
+      });
+    }
+  }
+
+  qInput.addEventListener('input',render);
+  render();
+})();
+</script>
+<script src="../site.js"></script>
+</body>
+</html>
