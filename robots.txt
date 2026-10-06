@@ -1,19 +1,5 @@
 User-agent: *
 Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
+Disallow: /blog/_plantilla-articulo.html
 
 Sitemap: https://www.arquitecta-emocional.com/sitemap.xml
