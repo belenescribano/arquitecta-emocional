@@ -3,6 +3,13 @@
    La sección "Desde el blog" en index.html muestra los 3 primeros. */
 window.blogPosts = [
   {
+    category: "Estructura visible",
+    title: "Por qué repito los mismos patrones (y qué hacer para verlos antes de que me lleven)",
+    excerpt: "Observas el pensamiento, lo cuestionas, lo cambias. Y al día siguiente haces lo mismo. Las tres capas que sostienen un patrón y cómo empezar a verlas.",
+    url: "/blog/por-que-repito-los-mismos-patrones",
+    date: "2026-10-06"
+  },
+  {
     category: "Patrones",
     title: "Por qué siempre digo que sí aunque no quiera",
     excerpt: "Dices que sí antes de pensar si quieres, y eso tiene un nombre: patrón de respuesta automática. Por qué ocurre y qué puedes hacer distinto.",
