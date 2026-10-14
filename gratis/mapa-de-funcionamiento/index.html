@@ -415,6 +415,17 @@ body{
 .result-detail{padding:64px 0 8px;display:flex;flex-direction:column;align-items:center;border-bottom:1px solid rgba(201,170,124,0.2);}
 .detail-title{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--marfil);font-weight:400;margin-bottom:28px;}
 .cta-support{margin-top:18px;font-size:13px;color:var(--taupe);line-height:1.8;max-width:540px;}
+.result-save{max-width:700px;width:90%;margin:0 auto;padding:28px 0 0;display:flex;justify-content:center;}
+@media print{
+  @page{margin:0;}
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+  html,body{background:#3D3830 !important;}
+  .header,.progress-bar,.btn-download,.result-save,.radar-tip{display:none !important;}
+  .screen{display:none !important;}
+  #screen-result{display:flex !important;padding-top:0 !important;min-height:0 !important;}
+  .capa{opacity:1 !important;transform:none !important;}
+  .result-map,.dim-bar-item,.capa,.insight-card,.firststep-box,.cta-box{break-inside:avoid;}
+}
 /* Mobile */
 @media(max-width:900px){
   .site-footer{padding:22px 28px;}
@@ -484,7 +495,7 @@ body{
     <span class="intro-tag">Acceso privado · Arquitecta Emocional</span>
     <h1 class="intro-title">Mapa de<br><em>Funcionamiento</em></h1>
     <div class="intro-rule"></div>
-    <p class="intro-sub">Una lectura estructurada para identificar dónde se pierde tu energía interna, y qué zonas exigen atención para recuperar el foco y la coherencia.</p>
+    <p class="intro-sub">La mayoría de las mujeres que llegan aquí sienten que algo no calza, pero no logran nombrar qué es. Este mapa no te dice qué tienes. Te muestra cómo estás funcionando: dónde se pierde tu energía, qué patrones se repiten sin que los elijas, y qué zonas necesitan tu atención primero.</p>
     <div class="intro-meta">
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -503,7 +514,7 @@ body{
       Comenzar el mapa
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </button>
-    <p class="intro-note">"No hay respuestas correctas. Solo las tuyas."</p>
+    <p class="intro-note">No hay respuestas incorrectas. Solo hay formas de verte que todavía no habías nombrado.</p>
   </div>
 </div>
 <!-- ══ PUERTA DE ENTRADA ═══════════════════════════════════════════════ -->
@@ -570,7 +581,7 @@ body{
       <input type="text" id="user-name" placeholder="Tu nombre" required>
       <input type="email" id="user-email" placeholder="Tu correo electrónico" required>
     </div>
-    <p class="email-privacy">Tus datos son seguros.</p>
+    <p class="email-privacy">Tu información es privada y confidencial. Solo la usamos para enviarte tu resultado y contenido relacionado con tu proceso. Puedes darte de baja en cualquier momento.</p>
     <button class="btn-result" onclick="submitLeadAndShowResult()">Revelar mi resultado ahora</button>
   </div>
 </div>
@@ -584,6 +595,7 @@ body{
         <div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--taupe);margin-bottom:4px;">puntos de 80</div>
           <div style="font-size:10px;letter-spacing:0.12em;color:var(--dorado);text-transform:uppercase;" id="res-level-badge"></div>
+          <div class="scale-note" style="font-size:11px;color:var(--taupe);max-width:280px;line-height:1.5;margin-top:8px;">Un puntaje más alto indica mayor intensidad en tus patrones automáticos. No es un juicio, es una brújula: señala dónde tu funcionamiento necesita más atención.</div>
         </div>
       </div>
       <h2 class="result-profile-name" id="res-name"></h2>
@@ -634,16 +646,22 @@ body{
       <p class="firststep-text" id="firststep-text"></p>
     </div>
   </div>
+  <div class="result-save">
+    <button class="btn-download btn-print" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M4 17v3h16v-3"/></svg>
+      Descargar mi resultado completo (PDF)
+    </button>
+  </div>
   <div class="result-cta">
     <div class="cta-box" id="cta-box">
       <span class="cta-label">TU SIGUIENTE PASO</span>
-      <h3 class="cta-title" id="cta-title">Arquitectura Interna</h3>
-      <p class="cta-desc" id="cta-desc">Si quieres comprender con más profundidad los patrones que aparecen en tu mapa y trabajar sobre ellos de forma estructurada, puedes conocer el proceso individual de Arquitectura Interna.</p>
+      <h3 class="cta-title" id="cta-title">Conversar sobre tu resultado</h3>
+      <p class="cta-desc" id="cta-desc">Lo que acabas de ver es una primera lectura. Pero un mapa se lee mejor en compañía. Puedes agendar una conversación gratuita de 30 minutos donde revisamos juntas lo que apareció, lo que significa en tu día a día, y cuál sería el primer movimiento coherente desde donde estás hoy.</p>
       <a class="btn-cta" href="https://calendly.com/belenescribanosb/30min" target="_blank" rel="noopener">
-        Agendar mi llamada gratuita de 30 minutos
+        Agendar mi conversación gratuita
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-      <p class="cta-support">En esta llamada revisamos juntas lo que tu Mapa reveló y comenzamos a nombrar lo que hasta ahora funcionaba sin que lo eligieras.</p>
+      <p class="cta-support">Sin compromiso. Sin presión. Solo una conversación honesta sobre lo que tu mapa reveló.</p>
     </div>
   </div>
   <footer class="site-footer">
@@ -938,7 +956,11 @@ function submitLeadAndShowResult() {
     dimensions: { emocional: scaled.emocional, corporal: scaled.corporal, identidad: scaled.identidad, relacional: scaled.relacional }
   });
 
+  const resultUrl = location.origin + location.pathname + '?r=' + encodeResult(nameInput, dolor);
   post('/api/send-results', {
+    resultUrl,
+    mapaPng: (() => { try { return buildMapaCanvas().toDataURL('image/png').split(',')[1]; } catch (e) { return null; } })(),
+    respuestas: QUESTIONS.map((q, i) => ({ n: i + 1, dim: DIMS[q.dim].label, texto: q.text, valor: answers[i] })),
     nombre: nameInput,
     email: emailInput,
     dolorEntrada: dolor,
@@ -1226,12 +1248,7 @@ function drawRadarCanvas(ctx, scaled, cx, cy, r) {
     ctx.fillText(scaled[k] + '/80', L.x, L.y + 32);
   });
 }
-async function descargarMapa() {
-  if (!lastScaled) return;
-  try {
-    await Promise.all(['400 20px "Cormorant Garamond"', '400 14px Inter', '400 12px Inter', '700 14px Inter']
-      .map(f => document.fonts.load(f)));
-  } catch (e) {}
+function buildMapaCanvas() {
   const canvas = document.createElement('canvas');
   canvas.width = 800; canvas.height = 800;
   const ctx = canvas.getContext('2d');
@@ -1253,6 +1270,15 @@ async function descargarMapa() {
   ctx.fillText('Arquitecta Emocional', 20, 384);
   ctx.textAlign = 'right'; ctx.font = '400 10px Inter, sans-serif';
   ctx.fillText('www.arquitecta-emocional.com', 380, 384);
+  return canvas;
+}
+async function descargarMapa() {
+  if (!lastScaled) return;
+  try {
+    await Promise.all(['400 20px "Cormorant Garamond"', '400 14px Inter', '400 12px Inter', '700 14px Inter']
+      .map(f => document.fonts.load(f)));
+  } catch (e) {}
+  const canvas = buildMapaCanvas();
   const link = document.createElement('a');
   link.download = 'mi-mapa-de-funcionamiento.png';
   link.href = canvas.toDataURL('image/png');
@@ -1260,6 +1286,24 @@ async function descargarMapa() {
   link.click();
   link.remove();
 }
+// ══ ENLACE PERMANENTE AL RESULTADO ══════════════════════════════════════════
+function encodeResult(name, dolor) {
+  const raw = JSON.stringify({ n: name || '', d: dolor || 'indefinido', a: answers.join('') });
+  return encodeURIComponent(btoa(unescape(encodeURIComponent(raw))));
+}
+(function restoreFromUrl() {
+  const r = new URLSearchParams(location.search).get('r');
+  if (!r) return;
+  try {
+    const data = JSON.parse(decodeURIComponent(escape(atob(r))));
+    const a = String(data.a || '').split('').map(Number);
+    if (a.length !== QUESTIONS.length || a.some(v => !(v >= 1 && v <= 5))) return;
+    answers = a;
+    dolorEntrada = DOLOR_TEXTS[data.d] ? data.d : 'indefinido';
+    userData.name = String(data.n || '').slice(0, 80);
+    showResult();
+  } catch (e) { console.warn('Enlace de resultado inválido'); }
+})();
 // Keyboard nav
 document.addEventListener('keydown', e => {
   const screen = document.querySelector('.screen.active');
