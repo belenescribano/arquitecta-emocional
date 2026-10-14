@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 
   // Vercel ya parsea JSON, pero aceptamos string por si acaso
   const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-  const { name, email, resultGroup, resultName, resultLevel, score, dimensions } = body;
+  const { name, email, resultGroup, resultName, resultLevel, score, dimensions, dolorEntrada } = body;
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ ok: false, error: 'Email inválido' });
@@ -52,6 +52,7 @@ export default async function handler(req, res) {
       dim_corporal: dimensions?.corporal ?? null,
       dim_identidad: dimensions?.identidad ?? null,
       dim_limites: dimensions?.relacional ?? null,
+      dolor_entrada: dolorEntrada || '',
     },
     status: 'active',
   };
