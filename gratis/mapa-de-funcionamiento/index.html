@@ -940,8 +940,7 @@ function submitLeadAndShowResult() {
   const post = (url, body) => fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-    keepalive: true
+    body: JSON.stringify(body)
   }).then(r => { if (!r.ok) console.warn('[' + url + '] respuesta', r.status); })
     .catch(err => console.log('[' + url + '] envío fallido:', err));
 
@@ -1316,3 +1315,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
+
