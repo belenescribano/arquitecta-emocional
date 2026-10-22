@@ -1,7 +1,14 @@
-/* Arquitecta Emocional — Artículos del blog
+/* Arquitecta Emocional · Artículos del blog
    Agrega nuevos artículos AL INICIO del array.
    La sección "Desde el blog" en index.html muestra los 3 primeros. */
 window.blogPosts = [
+  {
+    category: "Duelo",
+    title: "Duelo y cuerpo: por qué tu cuerpo resiente una pérdida aunque nadie haya muerto",
+    excerpt: "El cansancio, el insomnio o la ansiedad que aparecen meses después de una pérdida tienen explicación. Qué registra tu cuerpo en el duelo literal y simbólico.",
+    url: "/blog/duelo-y-cuerpo",
+    date: "2026-10-22"
+  },
   {
     category: "Estructura visible",
     title: "Por qué repito los mismos patrones (y qué hacer para verlos antes de que me lleven)",
